@@ -33,6 +33,10 @@ Describan los requerimientos no funcinales a considerar
 
 Incluyan en [esta carpeta](/design) su propuesta de diseño
 
+### Home Page
+![image](https://user-images.githubusercontent.com/78762927/161648578-37f28e03-4326-4aee-8ff4-39996f255322.png)
+
+
 ## Recursos
 
 - [Minimum Viable Product](https://www.agilealliance.org/glossary/mvp/#q=~(infinite~false~filters~(tags~(~'mvp))~searchTerm~'~sort~false~sortDirection~'asc~page~1))
