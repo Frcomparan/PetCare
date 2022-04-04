@@ -4,8 +4,7 @@
 
 Este repositorio servirá para administrar toda la información relacionada con su proyecto final. Por favor, completen la información que a continuación se solicita y procuren mantenerlo actualizando concentrando toda la información relacionada con su proyecto en este repositorio, esto facilitará para los integrantes del equipo, mentores y cualquier persona interesada el acceso facil a toda la información relacionada con el mismo.
 
-# Nombre
-### Petcare
+# Nombre: Petcare
 ## Problematica que atiende
 Las mascotas son integrantes valiosos e importantes dentro de cualquier familia, por esto les procuramos la mayor atención y cuidados posibles. Sin embargo, existen ocasiones en las que por alguna razón no podemos hacernos cargo de nuestro querido compañero, ya sea porque vamos a salir de viaje o simplemente no estaremos en nuestro hogar por un largo tiempo y no podemos llevarlo con nosotros, es entonces cuando debemos evaluar las opciones con las que contamos para brindarle la atención y el cuidado que necesita. Por lo anteriormente expuesto nos hemos dedicado a proponer una solución a tal problematica: una aplicación web que le permita al usuario elegir entre varios anfitriones capacitados y preparados para el cuidado de mascotas, y que, además cuentan con las instalaciones adecuadas y acondicionadas para el cuidado de mascotas, avalados y testeados bajo exámenes de calidad, con gran sentido ético para el cuidado de estos integrantes de la familia.
 
@@ -24,10 +23,24 @@ Considerando que el tiempo que tienen para desarrollar el proyecto es relativame
 |          |          |          |          |          |          |          |          |
 
 ## Requerimientos funcionales
-Describan los requerimientos funcionales a desarrollar considerados para el prototipo.
+- Buscar alojamiento mediante fecha de entrada y salida o ubicación
+- Poder filtrar busqueda en base a lo siguiente: tipo de mascota, tamaño, número de máscotas, entre otros.
+- Mostrar fichas con datos básicos de los alojamientos
+- Establecer un sistema de calendario para reservaciónes
+- Implementar dos tipos de usuarios (anfitrión / huesped)
+- Implementar un sistema autenticación
 
 ## Requerimientos no funcionales
-Describan los requerimientos no funcinales a considerar
+- Calidad
+  - Utilizar estilo de código definido por la comunidad (apoyarse en Rubocop)
+  - Pruebas unitarias
+  - Puntuación en Rubycritic: por lo menos 90 en la carpeta de la App y por lo menos 65 en la carpeta de pruebas
+  - Utilizar SandiMeter para analizar el código y utilizar el resultado para hacer mejoras
+- Deployment
+  - Configuración de un servidor web (heroku o similar) para el deployment automático de actualizaciones de la app
+## Tecnologías
+- Ruby on Rails en el backend
+- PostgreSQL como base de datos principal
 
 ## Diseño del MVP
 
