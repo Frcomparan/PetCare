@@ -7,7 +7,6 @@ RSpec.describe Pet, type: :model do
   end
 
   it 'create pet with valid data' do
-    puts @user.id
     expect(@pet).to be_valid
   end
 
