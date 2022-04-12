@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_12_153934) do
     t.string "address"
     t.string "description"
     t.decimal "price"
-    t.decimal "score", precision: 4, scale: 2
+    t.decimal "score", precision: 4, scale: 2, default: "0.0"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

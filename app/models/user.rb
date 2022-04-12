@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :guest_reservations, class_name: 'Reservation', foreign_key: 'guest_id'
   has_many :host_reservations, class_name: 'Reservation', foreign_key: 'host_id'
   has_many :guest_reviews, class_name: 'Review', foreign_key: 'guest_id'
+
+  validates :name, :birthdate, presence: true
 end
