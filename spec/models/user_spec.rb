@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) do 
-    @user = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027', address: 'Av. Tecnologico #559')
+  before(:each) do
+    @user = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+                     address: 'Av. Tecnologico #559')
   end
 
   it 'create user with valid data' do
@@ -46,6 +49,5 @@ RSpec.describe User, type: :model do
       @user.phone = '3121909'
       expect(@user).not_to be_valid
     end
-
   end
 end

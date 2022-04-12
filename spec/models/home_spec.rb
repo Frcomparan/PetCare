@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Home, type: :model do
-  before(:each) do 
-    @user = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027', address: 'Av. Tecnologico #559')
-    @home = Home.new(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog', price: 560, user_id: @user.id)
+  before(:each) do
+    @user = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+                        address: 'Av. Tecnologico #559')
+    @home = Home.new(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
+                     price: 560, user_id: @user.id)
   end
 
   it 'create home with valid data' do
