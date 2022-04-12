@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label :photos, style: "display: block" %>
+    <%= form.file_field :photos, multiple: true %>
+  </div>
+
+  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
