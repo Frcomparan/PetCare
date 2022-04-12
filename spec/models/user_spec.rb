@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
       expect(@user).not_to be_valid
     end
 
-    it 'create user without birthdate' do
+    it 'create user without address' do
       @user.address = nil
       expect(@user).not_to be_valid
     end
