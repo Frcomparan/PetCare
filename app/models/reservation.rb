@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-  belongs_to :guest
-  belongs_to :host
-  belongs_to :publication
+  belongs_to :guest, class_name: 'User'
+  belongs_to :host, class_name: 'User'
+  belongs_to :home
 end

@@ -4,7 +4,7 @@ class CreateHomes < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :address
       t.string :description
-      t.decimal :price, scale: 2
+      t.decimal :price
       t.decimal :score, precision: 4, scale: 2
       t.references :user, null: false, foreign_key: true
 
