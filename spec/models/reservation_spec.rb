@@ -4,10 +4,14 @@ require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
   before(:each) do
-    user_guest = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+    user_guest = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
                              address: 'Av. Tecnologico #559')
-    user_host = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+    user_host = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
                             address: 'Av. Tecnologico #559')
+    user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
+    user_guest.save!
+    user_host.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
+    user_host.save!
     home = Home.create(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
                        price: 560, user_id: user_host.id)
     @reservation = Reservation.new(guest_id: user_guest.id, host_id: user_host.id, home_id: home.id,

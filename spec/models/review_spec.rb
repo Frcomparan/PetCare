@@ -6,6 +6,8 @@ RSpec.describe Review, type: :model do
   before(:each) do
     user_guest = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
                              address: 'Av. Tecnologico #559')
+    user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
+    user_guest.save!
     home = Home.create(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
                        price: 560, user_id: user_guest.id)
     @review = Review.new(guest_id: user_guest.id, home_id: home.id, score: 90, comment: 'Great service')
