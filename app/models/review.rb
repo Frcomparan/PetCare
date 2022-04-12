@@ -3,4 +3,5 @@ class Review < ApplicationRecord
   belongs_to :home
 
   validates :score, :comment, presence: true
+  validates_numericality_of :score, in: 0..100
 end
