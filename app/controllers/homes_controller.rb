@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HomesController < ApplicationController
-  before_action :set_home, only: %i[ show edit update destroy ]
+  before_action :set_home, only: %i[show edit update destroy]
 
   # GET /homes or /homes.json
   def index
@@ -7,8 +9,7 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1 or /homes/1.json
-  def show
-  end
+  def show; end
 
   # GET /homes/new
   def new
@@ -16,8 +17,7 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /homes or /homes.json
   def create
@@ -25,7 +25,7 @@ class HomesController < ApplicationController
 
     respond_to do |format|
       if @home.save
-        format.html { redirect_to home_url(@home), notice: "Home was successfully created." }
+        format.html { redirect_to home_url(@home), notice: 'Home was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -36,7 +36,7 @@ class HomesController < ApplicationController
   def update
     respond_to do |format|
       if @home.update(home_params)
-        format.html { redirect_to home_url(@home), notice: "Home was successfully updated." }
+        format.html { redirect_to home_url(@home), notice: 'Home was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -48,18 +48,19 @@ class HomesController < ApplicationController
     @home.destroy
 
     respond_to do |format|
-      format.html { redirect_to homes_url, notice: "Home was successfully destroyed." }
+      format.html { redirect_to homes_url, notice: 'Home was successfully destroyed.' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_home
-      @home = Home.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def home_params
-      params.require(:home).permit(:title, :address, :description, :price, :score, :user_id, photos: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_home
+    @home = Home.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def home_params
+    params.require(:home).permit(:title, :address, :description, :price, :score, :user_id, photos: [])
+  end
 end
