@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>ProyectoFinalPfF22T4</title>
+    <script src="https://kit.fontawesome.com/747117353f.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,6 +21,7 @@
     <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
     <% end %>
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>
