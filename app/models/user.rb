@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
   has_many :pets
   has_one :home
   has_many :guest_reservations, class_name: 'Reservation', foreign_key: 'guest_id'
