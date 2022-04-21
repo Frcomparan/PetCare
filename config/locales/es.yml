@@ -1,0 +1,21 @@
+---
+es:
+  devise:
+    form:
+      sign_up: Crear cuenta
+    label:
+      address: Dirección
+      birthdate: Fecha de Nacimiento
+      email: Correo electrónico
+      name: Nombre
+      password: Contraseña
+      password_confirmation: Confirmar Contraseña
+      phone: Teléfono
+      photo: Foto
+      remember_me: Recuérdame
+      sign_in: Iniciar sesión
+      sign_up: Registrarse
+  errors:
+    messages:
+      not_saved: No guardado
+  hello: Hola Mundo
