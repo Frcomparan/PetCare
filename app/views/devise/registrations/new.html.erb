@@ -29,6 +29,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :role, t('devise.label.role') %><br />
+    <%= f.select :role, ['guest', 'host'] %>
+  </div>
+
+  <div class="field">
     <%= f.label :email, t('devise.label.email') %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>

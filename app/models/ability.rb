@@ -4,17 +4,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user 
+    if user
       if user.admin?
         can :manege, :all
       elsif user.host?
-        # Home
         can [:read, :create], [Home, Pet]
-        can [:update, :destroy], Home do |item| 
-          item.user == user
-        end
-
-        can [:update, :destroy], Pet do |item| 
+        can [:update, :destroy], [Home, Pet] do |item| 
           item.user == user
         end
       elsif user.guest?
@@ -24,6 +19,8 @@ class Ability
           item.user == user
         end
       end
+    else
+      can :read, Home
     end
   end
 end
