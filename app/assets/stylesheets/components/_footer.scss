@@ -4,7 +4,7 @@ footer {
   width: 100%;
 
   .footer-info {
-    color: white;
+    color: $white;
     display: flex;
     flex-direction: column;
     margin: 0 10%;
@@ -59,12 +59,12 @@ footer {
             margin-bottom: 2rem;
 
             a {
-              color: white;
+              color: $white;
               text-decoration: none;
             }
             
             a:visited { 
-              color: white;
+              color: $white;
             }
 
             a:hover{
@@ -84,7 +84,7 @@ footer {
   
         div {
           border-radius: 50%;
-          border: 1px solid white;
+          border: 1px solid $white;
           display: grid;
           height: 3rem;
           margin: 0;
@@ -92,7 +92,7 @@ footer {
           width: 3rem;
           
           a {
-            color: white;
+            color: $white;
 
             i {
               font-size: 1.2rem;
