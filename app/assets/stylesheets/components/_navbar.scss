@@ -1,0 +1,31 @@
+nav {
+  align-items: center;
+  background-color: $light-grey-opacity;
+  display: flex;
+  font-size: 2rem;
+  justify-content: space-between;
+  padding: 1rem 8rem;
+  position: absolute;
+  width: 100%;
+
+  .right-nav {
+    @include center-flex-row;
+    gap: 1rem;  
+    width: 20rem;
+    
+    a {
+      color: black;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    
+    ul {
+      @include center-flex-row;
+      background-color: $light-grey;
+      border-radius: 1rem;
+      justify-content: space-evenly;
+      list-style: none;
+      width: 6.5rem;
+    }
+  }
+}

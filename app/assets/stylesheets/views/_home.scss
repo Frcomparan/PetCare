@@ -1,0 +1,80 @@
+.section-img {
+  background-image: image-url('landing-page/landing-page-1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 35vh;
+  width: 100%;
+}
+
+main {
+  @include center-flex-column;
+  margin: 0 10%;
+  position: relative;
+  top: -10rem;
+  width: auto;
+
+  .search-options {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px $black;
+    margin-top: 10px;
+    padding: 2rem;
+    width: 100%;
+    
+    p {
+      font-size: medium;
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-around;
+      
+      .card {
+        border-bottom: 1px solid $shadow-grey;
+        border-radius: 5%;
+        height: 33rem;
+        max-width: 26rem;
+        overflow: hidden;
+        
+        figure {
+          height: 90%;
+          width: auto;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        p {
+          padding: 5px;
+          text-align: center;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .card:last-child {
+      justify-self: center;
+    }
+
+    .card:hover {
+      box-shadow: 0px 0px 5px $black;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  margin: 10px auto 0;
+  width:50%;
+}

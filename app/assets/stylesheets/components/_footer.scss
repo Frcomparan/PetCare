@@ -1,0 +1,119 @@
+footer {
+  background-color: $light-grey;
+  padding: 3rem 0;
+  width: 100%;
+
+  .footer-info {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10%;
+    width: auto;
+    
+    figure {
+      width: 22rem;
+  
+      img {
+        border-radius: 2rem;
+        width: 100%;
+      }
+    }
+    
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+      .contact {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+  
+        .contact-info {
+          align-items: center;
+          display: flex;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          margin-top: 1.7rem;
+          padding-right: 0.8rem;
+  
+          i {
+            margin-right: 1.5rem;
+          }
+        }
+      }
+  
+      .list {
+        margin-top: 1.7rem;
+        width: 30%;
+  
+        ul {
+          display: grid;
+          font-size: 1.4rem;
+          grid-auto-columns: 23rem;
+          grid-auto-flow: column;
+          grid-template-rows:  repeat(3, 40px);
+          list-style: none;
+  
+          li {
+            margin-bottom: 2rem;
+
+            a {
+              color: $white;
+              text-decoration: none;
+            }
+            
+            a:visited { 
+              color: $white;
+            }
+
+            a:hover{
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }        
+        }
+      }
+  
+      .social {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-left: 2rem;
+        margin-top: 1.7rem;
+  
+        div {
+          border-radius: 50%;
+          border: 1px solid $white;
+          display: grid;
+          height: 3rem;
+          margin: 0;
+          place-items: center;
+          width: 3rem;
+          
+          a {
+            color: $white;
+
+            i {
+              font-size: 1.2rem;
+            } 
+          }
+        }
+  
+        div:hover {
+          border: 1px solid $text-grey;
+          cursor: pointer;
+
+          i{
+            color: $text-grey;          
+          }
+        }
+      }
+    }
+  
+    span {
+      font-size: 1.1rem;
+      text-align: right;
+    }
+  }
+}

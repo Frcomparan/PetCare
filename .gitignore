@@ -24,10 +24,10 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/database.yml
 .env
+**/.DS_Store
