@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe Reservation, type: :model do
   before(:each) do
     user_guest = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
-                             address: 'Av. Tecnologico #559')
+                             address: 'Av. Tecnologico #559', email:"prueba@example", password:"123456")
     user_host = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
-                            address: 'Av. Tecnologico #559')
+                            address: 'Av. Tecnologico #559', email:"prueba2@example", password:"123456")
     user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
     user_guest.save!
     user_host.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')

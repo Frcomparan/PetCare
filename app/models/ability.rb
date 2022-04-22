@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     if user
       if user.admin?
-        can :manege, :all
+        can :manage, :all
       elsif user.host?
         can [:read, :create], [Home, Pet]
         can [:update, :destroy], [Home, Pet] do |item| 
