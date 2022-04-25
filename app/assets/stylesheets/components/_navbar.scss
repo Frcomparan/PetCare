@@ -1,23 +1,24 @@
 nav {
   align-items: center;
   background-color: $white;
+  border-radius: 0 0 10px 10px;
+  border: 1rem;
+  box-shadow: 0 2px 4px $black;
   display: flex;
   font-size: 2rem;
-  justify-content: space-between;
-  border: 1rem;
-  box-shadow: 0 2px 7px $black;
-  position: fixed;
-  border-radius: 0 0 10px 10px;
-  width: 100%;
   height: 5rem;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   .nav-container {
-    width: 100%;
     position: relative;
+    width: 100%;
 
     .logo {
-      position: fixed;
       margin: 0 33%;
+      position: fixed;
     }
   
     .right-nav {
@@ -30,23 +31,23 @@ nav {
       }
       
       ul {
-        li:nth-child(2) {
-          background-color: $light-blue;
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          color: $black;
-          @include center-grid;
-          box-shadow: 0 0 2px $black;
-        }
-
+        align-items: center;
+        border-radius: 1rem;
         color: $light-blue;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        border-radius: 1rem;
         list-style: none;
+        width: 100%;
+
+        li:nth-child(2) {
+          @include center-grid;
+          background-color: $light-blue;
+          border-radius: 50%;
+          box-shadow: 0 0 2px $black;
+          color: $black;
+          height: 35px;
+          width: 35px;
+        }        
       }
     }
   }

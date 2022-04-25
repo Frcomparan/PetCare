@@ -7,13 +7,14 @@
 }
 
 .button {
-  background-color: $light-grey-opacity;
+  background-color: $white;
   border-radius: 20px;
   border: none;
   font-size: 20px;
   font-weight: 400;
   height: 4.5rem;
-  width: 42%;
+  width: 100%;
+  box-shadow: 0 0 6px $black;
 }
 
 .button:hover {
@@ -25,16 +26,15 @@
 .search-home {
   @include center-flex-row;
   background-color: $light-grey-opacity;
-  border-radius: 2rem;
+  border-radius: 4rem;
   justify-content: space-between;
   max-width: 100rem;
-  padding: 1rem;
-  width: 60%;
+  padding: 0.5rem 1rem;
 
   .search-section {
     border-right: 1px solid black;
     margin-left: 1rem;
-    width: 30%;
+    width: 100%;
 
     label {
       color: black;
@@ -42,6 +42,7 @@
     }
 
     input {
+      width: 100%;
       background-color: inherit;
       border: none;
       color: $text-grey;
@@ -59,7 +60,6 @@
 
     div {
       @include center-grid;
-      background-color: $light-grey;
       border-radius: 50%;
       height: 3rem;
       width: 3rem;
@@ -78,7 +78,7 @@
 
 .content {
   @include center-flex-column;
-  margin-top: 5.4rem;
+  padding-top: 5.4rem;
   min-height: 50rem;
   font-size: 2rem;
 }

@@ -1,43 +1,55 @@
-.section-img {
-  background-image: image-url('landing-page/landing-page-1.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 35vh;
-  width: 100%;
-}
-
 main {
   @include center-flex-column;
-  margin: 0 10%;
-  position: relative;
-  top: -10rem;
+  margin: 1rem 10% 5rem 10%;
+  margin-top: 1rem;
+  gap: 1.5rem;
   width: auto;
+
+  .search-home {
+    background-color: $white;
+    box-shadow: 0 3px 4px $black;
+    width: 100%;
+
+    .search-section {
+      border: none;
+
+      label {
+        display: none;
+      }
+    }
+
+    div:nth-child(2), div:nth-child(3) {
+      display: none;
+    }
+  }
 
   .search-options {
     background-color: $white;
     border-radius: 10px;
     box-shadow: 0px 0px 5px $black;
     margin-top: 10px;
+    max-width: 80vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
     padding: 2rem;
-    width: 100%;
+    white-space: nowrap;
     
-    p {
-      font-size: medium;
-      margin-bottom: 1.5rem;
+    p:first-child {
+      display: none;
     }
 
     .cards {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-around;
+      width: 100%;
       
       .card {
         border-bottom: 1px solid $shadow-grey;
         border-radius: 5%;
+        box-shadow: 0px 0px 4px $black;
+        display: inline-block;
         height: 33rem;
-        max-width: 26rem;
+        margin-right: 2rem;
+        min-width: 22rem;
         overflow: hidden;
         
         figure {
@@ -60,14 +72,6 @@ main {
         text-decoration: none;
       }
     }
-
-    .card:last-child {
-      justify-self: center;
-    }
-
-    .card:hover {
-      box-shadow: 0px 0px 5px $black;
-    }
   }
 }
 
@@ -76,5 +80,14 @@ main {
   height: 20px;
   justify-content: center;
   margin: 10px auto 0;
-  width:50%;
+  width: 100%;
 }
+
+// .section-img {
+//   background-image: image-url('landing-page/landing-page-1.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 35vh;
+//   width: 100%;
+// }
