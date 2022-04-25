@@ -75,3 +75,70 @@
     }
   }
 }
+
+.content {
+  @include center-flex-column;
+  margin-top: 5.4rem;
+  min-height: 50rem;
+  font-size: 2rem;
+}
+
+.notice, .alert{
+  border-radius: 1rem;
+  font-size: 2rem;
+  position: absolute;
+  margin: 0 66%;
+  text-align: center;
+  top: 8rem;
+  width: 28rem;
+}
+
+.alert {
+  background-color: rgba(250, 140, 140, 0.658);
+  border: 1px solid rgb(250, 140, 140);
+  z-index: 2;
+}
+
+.notice {
+  background-color: rgba(175, 250, 140, 0.658);
+  border: 1px solid rgb(175, 250, 140);
+  z-index: 2;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  input {
+    background-color: $light-grey;
+    border-radius: 2rem;
+    border: none;
+    color: white;
+    margin: 1rem 0;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+  }
+
+  input::placeholder {
+    font-size: 1.5rem;
+  }
+
+  select {
+    background-color: $light-grey;
+    border-radius: 2rem;
+    color: white;
+    margin: 1rem 0;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+.actions {
+  @include center-grid;
+  margin-top: 1rem;
+}
