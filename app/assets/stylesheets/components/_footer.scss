@@ -1,10 +1,12 @@
 footer {
-  background-color: $light-grey;
+  background-color: $bright-blue;
   padding: 3rem 0;
   width: 100%;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 -2px 7px $black;
 
   .footer-info {
-    color: $white;
+    color: $black;
     display: flex;
     flex-direction: column;
     margin: 0 10%;
@@ -59,12 +61,12 @@ footer {
             margin-bottom: 2rem;
 
             a {
-              color: $white;
+              color: $black;
               text-decoration: none;
             }
             
             a:visited { 
-              color: $white;
+              color: $black;
             }
 
             a:hover{
@@ -84,7 +86,7 @@ footer {
   
         div {
           border-radius: 50%;
-          border: 1px solid $white;
+          border: 1px solid $black;
           display: grid;
           height: 3rem;
           margin: 0;
@@ -92,7 +94,7 @@ footer {
           width: 3rem;
           
           a {
-            color: $white;
+            color: $black;
 
             i {
               font-size: 1.2rem;

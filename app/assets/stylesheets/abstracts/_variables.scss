@@ -5,6 +5,11 @@ $text-grey: hsl(0, 1%, 26%);
 $shadow-grey: hsla(0, 1%, 26%, 0.37);
 $white: white;
 $black: black;
+$light-blue: hsl(180, 100%, 89%);
+$bright-blue: hsl(180, 100%, 50%);
 
 // Font family
 $font-stack: 'Alegreya', serif;
+
+//Media-queries
+$mobile-media: 800px;

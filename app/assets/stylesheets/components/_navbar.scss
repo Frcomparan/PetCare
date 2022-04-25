@@ -1,32 +1,89 @@
 nav {
   align-items: center;
-  background-color: $light-grey-opacity;
+  background-color: $white;
   display: flex;
   font-size: 2rem;
   justify-content: space-between;
-  padding: 1rem 8rem;
+  border: 1rem;
+  box-shadow: 0 2px 7px $black;
   position: fixed;
+  border-radius: 0 0 10px 10px;
   width: 100%;
-  z-index: 1;
+  height: 5rem;
 
-  .right-nav {
-    @include center-flex-row;
-    gap: 1rem;  
-    width: 20rem;
-    
-    a {
-      color: black;
-      font-size: 1.5rem;
-      text-decoration: none;
+  .nav-container {
+    width: 100%;
+    position: relative;
+
+    .logo {
+      position: fixed;
+      margin: 0 33%;
     }
-    
-    ul {
+  
+    .right-nav {
       @include center-flex-row;
-      background-color: $light-grey;
-      border-radius: 1rem;
-      justify-content: space-evenly;
-      list-style: none;
-      width: 6.5rem;
+      padding: 0 10%;
+      width: 100%;
+      
+      a {
+        display: none;
+      }
+      
+      ul {
+        li:nth-child(2) {
+          background-color: $light-blue;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          color: $black;
+          @include center-grid;
+          box-shadow: 0 0 2px $black;
+        }
+
+        color: $light-blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 1rem;
+        list-style: none;
+      }
     }
   }
 }
+
+// nav {
+//   align-items: center;
+//   background-color: $white;
+//   display: flex;
+//   font-size: 2rem;
+//   justify-content: space-between;
+//   padding: 1rem 8rem;
+//   border: 1rem;
+//   box-shadow: 0 2px 7px $black;
+//   position: absolute;
+//   border-radius: 0 0 10px 10px;
+//   width: 100%;
+
+//   .right-nav {
+//     @include center-flex-row;
+//     gap: 1rem;  
+//     width: 20rem;
+    
+//     a {
+//       color: black;
+//       font-size: 1.5rem;
+//       text-decoration: none;
+//     }
+    
+//     ul {
+//       @include center-flex-row;
+//       background-color: $light-blue;
+//       border-radius: 1rem;
+//       justify-content: space-evenly;
+//       list-style: none;
+//       width: 6.5rem;
+//       box-shadow: 0 0 7px $black;
+//     }
+//   }
+// }
