@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "homes/index", type: :view do
   before(:each) do
+    @user = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027', role: 0,
+      address: 'Av. Tecnologico #559', email:"prueba@example", password:"123456")
+    @user.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
     assign(:homes, [
       Home.create!(
         title: "Title",
@@ -9,7 +12,7 @@ RSpec.describe "homes/index", type: :view do
         description: "Description",
         price: "9.99",
         score: "9.99",
-        user: nil
+        user: @user
       ),
       Home.create!(
         title: "Title",
@@ -17,18 +20,19 @@ RSpec.describe "homes/index", type: :view do
         description: "Description",
         price: "9.99",
         score: "9.99",
-        user: nil
+        user: @user
       )
     ])
   end
 
   it "renders a list of homes" do
     render
-    assert_select "tr>td", text: "Title".to_s, count: 2
-    assert_select "tr>td", text: "Address".to_s, count: 2
-    assert_select "tr>td", text: "Description".to_s, count: 2
-    assert_select "tr>td", text: "9.99".to_s, count: 2
-    assert_select "tr>td", text: "9.99".to_s, count: 2
-    assert_select "tr>td", text: nil.to_s, count: 2
+    assert_select "p>strong", text: "Title:".to_s, count: 2
+    assert_select "p>strong", text: "Address:".to_s, count: 2
+    assert_select "p>strong", text: "Description:".to_s, count: 2
+    assert_select "p>strong", text: "Price:".to_s, count: 2
+    assert_select "p>strong", text: "Score:".to_s, count: 2
+    assert_select "p>strong", text: "User:".to_s, count: 2
+    assert_select "p>strong", text: "Home Photos:".to_s, count: 2
   end
 end

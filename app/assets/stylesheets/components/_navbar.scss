@@ -5,8 +5,9 @@ nav {
   font-size: 2rem;
   justify-content: space-between;
   padding: 1rem 8rem;
-  position: absolute;
+  position: fixed;
   width: 100%;
+  z-index: 1;
 
   .right-nav {
     @include center-flex-row;

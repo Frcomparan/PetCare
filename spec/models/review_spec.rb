@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Review, type: :model do
   before(:each) do
     user_guest = User.create(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
-                             address: 'Av. Tecnologico #559')
+                             address: 'Av. Tecnologico #559', email:"prueba@example", password:"123456")
     user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
     user_guest.save!
     home = Home.create(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
