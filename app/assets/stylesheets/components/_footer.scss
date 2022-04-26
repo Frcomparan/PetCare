@@ -9,19 +9,18 @@ footer {
 
   .footer-info {
     color: $black;
-    display: flex;
-    flex-direction: column;
     margin: 0 10%;
     width: auto;
     
     figure {
+      @include center-grid;
       border-bottom: 1px solid black;
       padding-bottom: 1rem;
       width: 100%;
   
       img {
         border-radius: 2rem;
-        width: 100%;
+        width: 60%;
       }
     }
     

@@ -7,7 +7,6 @@ nav {
   display: flex;
   font-size: 2rem;
   height: 5rem;
-  justify-content: space-between;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -48,6 +47,53 @@ nav {
           height: 35px;
           width: 35px;
         }        
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-mobile) {
+  nav {
+    padding: 0 10%;
+
+    .nav-container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .logo {
+        position: static;
+        margin: 0;
+      }
+
+      .right-nav {
+        display: flex;
+        justify-content: end;
+        gap: 1rem;  
+        width: 20rem;
+        padding: 0;
+        
+        a {
+          color: black;
+          font-size: 1.5rem;
+          text-decoration: none;
+        }
+        
+        ul {
+          @include center-flex-row;
+          background-color: $light-blue;
+          border-radius: 1rem;
+          justify-content: space-evenly;
+          list-style: none;
+          width: 6.5rem;
+          box-shadow: 0 0 7px $black;
+          color: $black;
+
+          li:nth-child(2) {
+            box-shadow: none;
+            width: auto;
+          }
+        }
       }
     }
   }
