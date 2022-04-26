@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <%= render "partials/navbar" %>
     <div class="content">
       <% if notice %>
         <p class="notice"><%= notice %></p>
@@ -25,6 +25,6 @@
       <% end %>
       <%= yield %>
     </div>
-    <%= render "layouts/footer" %>
+    <%= render "partials/footer" %>
   </body>
 </html>

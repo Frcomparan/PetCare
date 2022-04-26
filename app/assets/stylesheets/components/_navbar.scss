@@ -6,7 +6,7 @@ nav {
   box-shadow: $y-shadow;
   display: flex;
   font-size: 2rem;
-  height: 5rem;
+  height: 5.5rem;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -19,15 +19,15 @@ nav {
       margin: 0 33%;
       position: fixed;
     }
-  
+    
+    .right-nav > a {
+      display: none;
+    }
+
     .right-nav {
       @include center-flex-row;
       padding: 0 10%;
       width: 100%;
-      
-      a {
-        display: none;
-      }
       
       ul {
         align-items: center;
@@ -44,8 +44,8 @@ nav {
           border-radius: 50%;
           box-shadow: $low-shadow;
           color: $black;
-          height: 35px;
-          width: 35px;
+          height: 30px;
+          width: 30px;
         }        
       }
     }
@@ -73,10 +73,11 @@ nav {
         width: 20rem;
         padding: 0;
         
-        a {
+        a:first-child {
           color: black;
           font-size: 1.5rem;
           text-decoration: none;
+          display: inline-block;
         }
         
         ul {
