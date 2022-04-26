@@ -1,9 +1,9 @@
 main {
   @include center-flex-column;
-  margin: 1rem 10% 5rem 10%;
+  padding: 1rem 10% 5rem 10%;
   margin-top: 1rem;
   gap: 1.5rem;
-  width: auto;
+  width: 100%;
 
   .search-home {
     background-color: $white;
@@ -11,8 +11,6 @@ main {
     width: 100%;
 
     .search-section {
-      border: none;
-
       label {
         display: none;
       }
@@ -39,9 +37,8 @@ main {
     }
 
     .cards {
-      display: flex;
       width: 100%;
-      
+
       .card {
         border-bottom: 1px solid $shadow-grey;
         border-radius: 5%;
@@ -49,7 +46,7 @@ main {
         display: inline-block;
         height: 33rem;
         margin-right: 2rem;
-        min-width: 22rem;
+        max-width: 22rem;
         overflow: hidden;
         
         figure {
@@ -83,11 +80,59 @@ main {
   width: 100%;
 }
 
-// .section-img {
-//   background-image: image-url('landing-page/landing-page-1.jpg');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   height: 35vh;
-//   width: 100%;
-// }
+@media (min-width: $breakpoint-mobile) {
+  .section-img {
+    background-image: image-url('landing-page/landing-page-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: -1rem;
+    height: 45vh;
+    width: 100%;
+  }
+
+  main {
+    position: relative;
+    top: -20rem;
+
+    .search-home {
+      width: 80%;
+      padding: 0.5rem 1rem 0.5rem 2rem;
+
+      .search-section {
+        border-right: 1px solid black;
+        width: 33%;
+        
+        input {
+          width: 90%;
+        }
+
+        label {
+          display: inline-block;
+        }
+      }
+  
+      div:nth-child(2), div:nth-child(3) {
+        display: inline-block;
+      }
+
+      .search {
+        width: 7%;
+
+        div {
+          background-color: $bright-blue;
+          box-shadow: 0px 0px 3px $black;
+        }
+      }
+    }
+
+    .search-options {
+      max-width: 100%;
+    }
+
+    .btn {
+      max-width: 30rem;
+    }
+  }
+}

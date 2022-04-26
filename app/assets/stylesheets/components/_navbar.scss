@@ -86,7 +86,7 @@ nav {
           justify-content: space-evenly;
           list-style: none;
           width: 6.5rem;
-          box-shadow: 0 0 7px $black;
+          box-shadow: 0 0 3px $black;
           color: $black;
 
           li:nth-child(2) {
@@ -98,39 +98,3 @@ nav {
     }
   }
 }
-
-// nav {
-//   align-items: center;
-//   background-color: $white;
-//   display: flex;
-//   font-size: 2rem;
-//   justify-content: space-between;
-//   padding: 1rem 8rem;
-//   border: 1rem;
-//   box-shadow: 0 2px 7px $black;
-//   position: absolute;
-//   border-radius: 0 0 10px 10px;
-//   width: 100%;
-
-//   .right-nav {
-//     @include center-flex-row;
-//     gap: 1rem;  
-//     width: 20rem;
-    
-//     a {
-//       color: black;
-//       font-size: 1.5rem;
-//       text-decoration: none;
-//     }
-    
-//     ul {
-//       @include center-flex-row;
-//       background-color: $light-blue;
-//       border-radius: 1rem;
-//       justify-content: space-evenly;
-//       list-style: none;
-//       width: 6.5rem;
-//       box-shadow: 0 0 7px $black;
-//     }
-//   }
-// }
