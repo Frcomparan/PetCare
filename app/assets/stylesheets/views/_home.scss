@@ -6,8 +6,6 @@ main {
   width: 100%;
 
   .search-home {
-    background-color: $white;
-    box-shadow: 0 3px 4px $black;
     width: 100%;
 
     .search-section {
@@ -121,14 +119,33 @@ main {
         width: 7%;
 
         div {
-          background-color: $bright-blue;
+          background-color: $primary-color;
           box-shadow: 0px 0px 3px $black;
         }
       }
     }
 
     .search-options {
-      max-width: 100%;
+      width: 100%;
+      overflow: auto;
+
+      .cards {
+
+        .cards-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          gap: 2rem;
+
+          .card {
+            margin: 0;
+          }
+
+          .card:last-child {
+            justify-self: center;
+          }
+        }
+      }
     }
 
     .btn {

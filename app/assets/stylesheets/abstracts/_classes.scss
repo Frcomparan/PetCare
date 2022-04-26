@@ -25,7 +25,8 @@
 
 .search-home {
   @include center-flex-row;
-  background-color: $light-grey-opacity;
+  background-color: $white;
+  box-shadow: 0 3px 4px $black;
   border-radius: 4rem;
   justify-content: space-between;
   max-width: 100rem;

@@ -32,7 +32,7 @@ nav {
       ul {
         align-items: center;
         border-radius: 1rem;
-        color: $light-blue;
+        color: $secundary-color;
         display: flex;
         justify-content: space-between;
         list-style: none;
@@ -40,7 +40,7 @@ nav {
 
         li:nth-child(2) {
           @include center-grid;
-          background-color: $light-blue;
+          background-color: $secundary-color;
           border-radius: 50%;
           box-shadow: 0 0 2px $black;
           color: $black;
@@ -81,7 +81,7 @@ nav {
         
         ul {
           @include center-flex-row;
-          background-color: $light-blue;
+          background-color: $secundary-color;
           border-radius: 1rem;
           justify-content: space-evenly;
           list-style: none;
