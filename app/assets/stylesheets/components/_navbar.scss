@@ -66,19 +66,19 @@ nav {
         margin: 0;
       }
 
+      .right-nav > a {
+        color: black;
+        font-size: 1.5rem;
+        text-decoration: none;
+        display: inline-block;
+      }
+
       .right-nav {
         display: flex;
         justify-content: end;
         gap: 1rem;  
         width: 20rem;
         padding: 0;
-        
-        a:first-child {
-          color: black;
-          font-size: 1.5rem;
-          text-decoration: none;
-          display: inline-block;
-        }
         
         ul {
           @include center-flex-row;

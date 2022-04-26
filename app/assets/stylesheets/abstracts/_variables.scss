@@ -5,8 +5,8 @@ $text-grey: hsl(0, 1%, 26%);
 $shadow-grey: hsla(0, 1%, 26%, 0.37);
 $white: white;
 $black: black;
-$secundary-color: hsl(180, 100%, 89%);
-$primary-color: hsl(180, 100%, 50%);
+$secundary-color: hsl(246, 56%, 80%);
+$primary-color: hsl(253, 49%, 54%);
 
 // Font family
 $font-stack: 'Alegreya', serif;
@@ -20,3 +20,7 @@ $medium-shadow: 0 0 5px $black;
 $large-shadow: 0 0 7px $black;
 $y-shadow: 0 2px 5px $black;
 $y-shadow-reverse: 0 -2px 5px $black;
+
+//Borders
+$simple-boder-black: 1px solid $black;
+$simple-boder-white: 1px solid $white;

@@ -99,7 +99,7 @@ main {
       padding: 0.5rem 1rem 0.5rem 2rem;
 
       .search-section {
-        border-right: 1px solid black;
+        border-right: $simple-boder-black;
         width: 33%;
         
         input {
