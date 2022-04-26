@@ -3,7 +3,7 @@ nav {
   background-color: $white;
   border-radius: 0 0 10px 10px;
   border: 1rem;
-  box-shadow: 0 2px 4px $black;
+  box-shadow: $y-shadow;
   display: flex;
   font-size: 2rem;
   height: 5rem;
@@ -42,7 +42,7 @@ nav {
           @include center-grid;
           background-color: $secundary-color;
           border-radius: 50%;
-          box-shadow: 0 0 2px $black;
+          box-shadow: $low-shadow;
           color: $black;
           height: 35px;
           width: 35px;
@@ -86,7 +86,7 @@ nav {
           justify-content: space-evenly;
           list-style: none;
           width: 6.5rem;
-          box-shadow: 0 0 3px $black;
+          box-shadow: $low-shadow;
           color: $black;
 
           li:nth-child(2) {
