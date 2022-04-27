@@ -4,7 +4,6 @@ footer {
   bottom: 0;
   box-shadow: $y-shadow-reverse;
   padding: 3rem 0;
-  position: relative;
   width: 100%;
 
   .footer-info {
@@ -105,9 +104,9 @@ footer {
     }
   
     span {
+      display: block;
       margin-top: 1rem;
       text-align: center;
-      display: block;
     }
   }
 }
@@ -123,8 +122,8 @@ footer {
       width: auto;
       
       figure {
-        width: 22rem;
         border: none;
+        width: 22rem;
     
         img {
           width: 100%;
@@ -136,11 +135,11 @@ footer {
         text-align: left;
         
         .contact {
+          border: none;
           display: flex;
           flex-direction: column;
-          width: auto;
           gap: 0;
-          border: none;
+          width: auto;
     
           .contact-info {
             align-content: flex-start;
@@ -152,9 +151,9 @@ footer {
         }
     
         .list {
+          border: none;
           margin-top: 1.7rem;
           width: 30%;
-          border: none;
     
           ul {
             display: grid;
@@ -170,14 +169,14 @@ footer {
         }
     
         .social {
-          margin-top: 1.7rem;
           border: none;
+          margin-top: 1.7rem;
           padding: 0;
 
           div {
-            width: 4.3rem;
-            height: 4.4rem;
             font-size: 2rem;
+            height: 4.4rem;
+            width: 4.3rem;
 
             a i {
               font-size: 2rem;

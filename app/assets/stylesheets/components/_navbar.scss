@@ -62,33 +62,33 @@ nav {
       justify-content: space-between;
 
       .logo {
-        position: static;
         margin: 0;
+        position: static;
       }
 
       .right-nav > a {
         color: black;
+        display: inline-block;
         font-size: 1.5rem;
         text-decoration: none;
-        display: inline-block;
       }
 
       .right-nav {
         display: flex;
-        justify-content: end;
         gap: 1rem;  
-        width: 20rem;
+        justify-content: end;
         padding: 0;
+        width: 20rem;
         
         ul {
           @include center-flex-row;
           background-color: $secundary-color;
           border-radius: 1rem;
+          box-shadow: $low-shadow;
+          color: $black;
           justify-content: space-evenly;
           list-style: none;
           width: 6.5rem;
-          box-shadow: $low-shadow;
-          color: $black;
 
           li:nth-child(2) {
             box-shadow: none;

@@ -1,37 +1,37 @@
 .menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 35px;
   background-color: $secundary-color;
   color: $black;
-  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
   padding: 2rem;
+  position: absolute;
+  top: 35px;
+  width: 100vw;
+  z-index: 11;
   
   a {
-    text-decoration: none;
     color: $text-grey;
     font-size: 2.2rem;
     font-weight: 400;
+    text-decoration: none;
   }
 }
 
 .options-menu {
+  border-bottom: $simple-boder-black;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  border-bottom: $simple-boder-black;
   padding: 3rem 0;
 }
 
 .general-menu {
   h1 {
-    font-weight: 600;
-    font-size: 2.4rem;
     border-bottom: $simple-boder-black;
+    font-size: 2.4rem;
+    font-weight: 600;
     padding-bottom: 2rem;
   }
 
@@ -53,12 +53,13 @@
   }
 
   .menu {
-    right: 0;
-    width: 25rem;
-    height: auto;
-    left: auto;
     border-radius: 2rem;
     box-shadow: $low-shadow;
+    height: auto;
+    left: auto;
+    padding-top: 1rem;
+    right: 0;
+    width: 25rem;
 
     a {
       font-size: 1.5rem;
@@ -66,10 +67,10 @@
   }
 
   .options-menu {
+    border-bottom: $simple-boder-black;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border-bottom: $simple-boder-black;
     padding: 1rem 0;
   }
   
