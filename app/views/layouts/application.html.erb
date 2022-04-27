@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <%= render "partials/navbar" %>
     <div class="content">
       <% if notice %>
         <p class="notice"><%= notice %></p>
@@ -20,11 +20,8 @@
       <% if alert %>
         <p class="alert"><%= alert %></p>
       <% end %>
-      <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
-      <% end %>
       <%= yield %>
     </div>
-    <%= render "layouts/footer" %>
+    <%= render "partials/footer" %>
   </body>
 </html>

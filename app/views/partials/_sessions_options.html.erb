@@ -1,0 +1,21 @@
+<aside class="session-menu menu">
+  <section class="options-menu">
+    <% if !user_signed_in? %>
+      <%= link_to "Iniciar sesión", new_user_session_path %>
+      <%= link_to "Registrate", new_user_registration_path %>
+    <% else %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, data: { turbo_method: :delete } %>
+    <% end %>  
+  </section>
+  <% if current_user %>
+    <section class="options-menu">
+      <%= link_to "Mis mascotas", pets_path %>
+      <%= link_to "Mis reservaciones", root_path %>
+      <% if current_user.guest? %>
+        <%= link_to "Hazte anfitrión", root_path %>
+      <% elsif current_user.host? %>
+        <%= link_to "Mis alojamientos", homes_path %>
+      <% end %>
+    </section>
+  <% end %>
+</aside>

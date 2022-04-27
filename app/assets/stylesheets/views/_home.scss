@@ -1,43 +1,50 @@
-.section-img {
-  background-image: image-url('landing-page/landing-page-1.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 35vh;
-  width: 100%;
-}
-
 main {
   @include center-flex-column;
-  margin: 0 10%;
-  position: relative;
-  top: -10rem;
-  width: auto;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem 10% 5rem 10%;
+  width: 100%;
+
+  .search-home {
+    width: 100%;
+
+    .search-section {
+      label {
+        display: none;
+      }
+    }
+
+    div:nth-child(2), div:nth-child(3) {
+      display: none;
+    }
+  }
 
   .search-options {
     background-color: $white;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px $black;
+    box-shadow: $medium-shadow;
     margin-top: 10px;
+    max-width: 80vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
     padding: 2rem;
-    width: 100%;
+    white-space: nowrap;
     
-    p {
-      font-size: medium;
-      margin-bottom: 1.5rem;
+    p:first-child {
+      display: none;
     }
 
     .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-around;
-      
+      width: 100%;
+
       .card {
         border-bottom: 1px solid $shadow-grey;
         border-radius: 5%;
+        box-shadow: $medium-shadow;
+        display: inline-block;
         height: 33rem;
-        max-width: 26rem;
+        margin-right: 2rem;
+        max-width: 22rem;
         overflow: hidden;
         
         figure {
@@ -60,14 +67,6 @@ main {
         text-decoration: none;
       }
     }
-
-    .card:last-child {
-      justify-self: center;
-    }
-
-    .card:hover {
-      box-shadow: 0px 0px 5px $black;
-    }
   }
 }
 
@@ -76,5 +75,89 @@ main {
   height: 20px;
   justify-content: center;
   margin: 10px auto 0;
-  width:50%;
+  width: 100%;
+}
+
+@media (min-width: $breakpoint-mobile) {
+  .section-img {
+    background-image: image-url('landing-page/landing-page-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    position: absolute;
+    top: -1rem;
+    width: 100%;
+  }
+
+  main {
+    padding-top: 10vh;
+    position: relative;
+
+    .search-home {
+      padding: 0.5rem 1rem 0.5rem 2rem;
+      width: 60%;
+
+      .search-section {
+        border-right: $simple-boder-black;
+        width: 33%;
+        
+        input {
+          width: 90%;
+        }
+
+        label {
+          display: inline-block;
+        }
+      }
+  
+      div:nth-child(2), div:nth-child(3) {
+        display: inline-block;
+      }
+
+      .search {
+        width: 7%;
+
+        div {
+          background-color: $primary-color;
+          box-shadow: $low-shadow;
+        }
+      }
+    }
+
+    .search-options {
+      overflow: auto;
+      padding: 2rem 4rem 4rem;
+      width: auto;
+
+      p:first-child {
+        display: inline-block;
+        padding-bottom: 2rem;
+      }
+
+      .cards {
+        .cards-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: space-evenly;
+
+          .card {
+            box-shadow: none;
+            height: 38rem;
+            margin: 0;
+            max-width: 24rem;
+          }
+
+          .card:hover {
+            box-shadow: $large-shadow;
+          }
+        }
+      }
+    }
+
+    .btn {
+      max-width: 30rem;
+    }
+  }
 }

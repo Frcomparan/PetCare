@@ -1,32 +1,101 @@
 nav {
   align-items: center;
-  background-color: $light-grey-opacity;
+  background-color: $white;
+  border-radius: 0 0 10px 10px;
+  border: 1rem;
+  box-shadow: $y-shadow;
   display: flex;
   font-size: 2rem;
-  justify-content: space-between;
-  padding: 1rem 8rem;
+  height: 5.5rem;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
 
-  .right-nav {
-    @include center-flex-row;
-    gap: 1rem;  
-    width: 20rem;
-    
-    a {
-      color: black;
-      font-size: 1.5rem;
-      text-decoration: none;
+  .nav-container {
+    position: relative;
+    width: 100%;
+
+    .logo {
+      margin: 0 33%;
+      position: fixed;
     }
     
-    ul {
+    .right-nav > a {
+      display: none;
+    }
+
+    .right-nav {
       @include center-flex-row;
-      background-color: $light-grey;
-      border-radius: 1rem;
-      justify-content: space-evenly;
-      list-style: none;
-      width: 6.5rem;
+      padding: 0 10%;
+      width: 100%;
+      
+      ul {
+        align-items: center;
+        border-radius: 1rem;
+        color: $secundary-color;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 100%;
+
+        li:nth-child(2) {
+          @include center-grid;
+          background-color: $secundary-color;
+          border-radius: 50%;
+          box-shadow: $low-shadow;
+          color: $black;
+          height: 30px;
+          width: 30px;
+        }        
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-mobile) {
+  nav {
+    padding: 0 10%;
+
+    .nav-container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .logo {
+        margin: 0;
+        position: static;
+      }
+
+      .right-nav > a {
+        color: black;
+        display: inline-block;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+
+      .right-nav {
+        display: flex;
+        gap: 1rem;  
+        justify-content: end;
+        padding: 0;
+        width: 20rem;
+        
+        ul {
+          @include center-flex-row;
+          background-color: $secundary-color;
+          border-radius: 1rem;
+          box-shadow: $low-shadow;
+          color: $black;
+          justify-content: space-evenly;
+          list-style: none;
+          width: 6.5rem;
+
+          li:nth-child(2) {
+            box-shadow: none;
+            width: auto;
+          }
+        }
+      }
     }
   }
 }
