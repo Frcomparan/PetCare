@@ -4,8 +4,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :profile_photo, style: "display: block" %>
-    <%= f.file_field :profile_photo %>
+    <%= image_tag(resource.profile_photo) if resource.profile_photo.attached? %> 
+  </div>
+
+  <div class="field">
+    <%= f.file_field :profile_photo %> 
   </div>
 
   <div class="field">
