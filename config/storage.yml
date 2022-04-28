@@ -17,15 +17,15 @@ local:
 # Remember not to checkin your GCS keyfile to a repository
 google:
   service: GCS
-  project: PetCare
+  project: <%= ENV['PROJECT'] %>
   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
-  bucket: petcare-bucket
+  bucket: <%= ENV['BUCKET'] %>
 
 google_dev:
   service: GCS
-  project: PetCare
+  project: <%= ENV['PROJECT'] %>
   credentials: <%= Rails.root.join("config/secrets/petcare.json") %>
-  bucket: petcare-bucket
+  bucket: %= ENV['BUCKET'] %>
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:

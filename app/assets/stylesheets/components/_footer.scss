@@ -113,7 +113,9 @@ footer {
 
 @media (min-width: $breakpoint-mobile) {
   footer {
+    bottom: 0;
     margin: 0;
+    position: fixed;
 
     .footer-info {
       display: flex;
