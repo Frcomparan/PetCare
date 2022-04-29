@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :host_reservations, class_name: 'Reservation', foreign_key: 'host_id'
   has_many :guest_reviews, class_name: 'Review', foreign_key: 'guest_id'
   has_one_attached :profile_photo
+  after_commit :add_default_profile_photo, on: %i[create update]
 
   validates :name, :birthdate, :address, presence: true
   validates :phone, length: { is: 10 }
@@ -23,4 +24,28 @@ class User < ApplicationRecord
       errors.add(:profile_photo, "Not a valid image") 
     end 
   end
+
+  def profile_photo_thumbnail 
+    if profile_photo.attached?
+      profile_photo.variant(resize: '150x150!').processed
+    else 
+      '/default-profile.jpg'
+    end  
+  end
+
+  private
+
+  def add_default_profile_photo 
+    unless profile_photo.attached?
+      profile_photo.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default-profile.jpg'
+           )
+          ), 
+           filename: 'default-profile.jpg',
+          content_type: 'image/jpg'
+        )
+    end
+  end  
 end
