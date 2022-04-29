@@ -4,7 +4,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field", id="foto">
+      <div class="photo">
         <% if resource.profile_photo.attached? %>
           <%= image_tag(resource.profile_photo) %>
         <% else  %>
@@ -60,4 +60,4 @@
       </div>
     <% end %>
   </div>  
-<main>
+</main>

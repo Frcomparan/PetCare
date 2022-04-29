@@ -1,10 +1,9 @@
 .content {
-  background-color: $light-purple;
+  background-color: $secundary-color;
 }
 
 .container-log {
-  position: relative;
-  top: 25px;
+  margin: 20px 0;
   width: 100%;
 
   a {
@@ -15,7 +14,7 @@
     color: $black;
 
     #file-upload-button {
-      background-color: $light-purple;
+      background-color: $secundary-color;
     }
   }
 }
@@ -26,12 +25,6 @@
 
 .new_user{
   width: 90%;
-
-  i {
-    font-size: 130px;
-    left: 26%;
-    position: relative;
-  }
 }
 
 .button-log {
@@ -44,18 +37,27 @@
   width: 100%;
 }
 
-.img-circular {
-  -moz-border-radius: 100px;  
-  -webkit-border-radius: 100px;
-  background-size: cover;
-  border-radius: 100px;
-  display: block;
-  height: 150px;
-  width: 150px;
-}
-
-#foto {
+.photo {
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .img-circular {
+    -moz-border-radius: 100px;  
+    -webkit-border-radius: 100px;
+    background-size: cover;
+    border-radius: 100px;
+    display: block;
+    height: 150px;
+    margin: 10px 0;
+    width: 150px;
+  }
+
+  input{
+    border-radius: 15px;
+    padding: 10px;
+  }
 }
 
 .container-positon {
@@ -71,11 +73,11 @@
     width: 80%;
 
     input {
-      background-color: $light-purple;
+      background-color: $secundary-color;
     }
 
     select {
-      background-color: $light-purple
+      background-color: $secundary-color
     }
 
     .container-positon {
@@ -123,4 +125,3 @@
     }
   }
 }
-
