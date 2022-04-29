@@ -1,0 +1,18 @@
+<nav>
+  <div class="nav-container">
+    <div class="left-nav">
+      <div class="logo">
+        <%= link_to '<i class="fa-solid fa-paw"></i> <span>PetCare</span>'.html_safe, '/' %>
+      </div>
+    </div>
+
+    <div class="right-nav">
+      <%= link_to 'Hazte anfitrión', '/' %>
+      <ul class="menus">
+        <li class="options-icon"><i class="fa-solid fa-bars"></i></li>
+        <li><i class="fa-regular fa-user"><%= render 'partials/sessions_options' %></i></li>
+      </ul>
+    </div>
+  </div>
+
+</nav>

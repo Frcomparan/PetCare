@@ -7,34 +7,34 @@
 }
 
 .button {
-  background-color: $light-grey-opacity;
+  background-color: $white;
   border-radius: 20px;
   border: none;
+  box-shadow: $medium-shadow;
   font-size: 20px;
   font-weight: 400;
   height: 4.5rem;
-  width: 42%;
+  width: 100%;
 }
 
 .button:hover {
-  box-shadow: 0px 0px 5px black;
+  box-shadow: $medium-shadow;
   cursor: pointer;
   transform: scale(1.02);
 }
 
 .search-home {
   @include center-flex-row;
-  background-color: $light-grey-opacity;
-  border-radius: 2rem;
+  background-color: $white;
+  border-radius: 4rem;
+  box-shadow: $y-shadow;
   justify-content: space-between;
   max-width: 100rem;
-  padding: 1rem;
-  width: 60%;
+  padding: 0.5rem 1rem;
 
   .search-section {
-    border-right: 1px solid black;
     margin-left: 1rem;
-    width: 30%;
+    width: 100%;
 
     label {
       color: black;
@@ -46,6 +46,7 @@
       border: none;
       color: $text-grey;
       display: block;
+      width: 100%;
     }
 
     input::placeholder {
@@ -59,7 +60,6 @@
 
     div {
       @include center-grid;
-      background-color: $light-grey;
       border-radius: 50%;
       height: 3rem;
       width: 3rem;
@@ -78,16 +78,16 @@
 
 .content {
   @include center-flex-column;
-  margin-top: 5.4rem;
-  min-height: 50rem;
   font-size: 2rem;
+  min-height: 50rem;
+  padding-top: 5.4rem;
 }
 
 .notice, .alert{
   border-radius: 1rem;
   font-size: 2rem;
-  position: absolute;
   margin: 0 66%;
+  position: absolute;
   text-align: center;
   top: 8rem;
   width: 28rem;
