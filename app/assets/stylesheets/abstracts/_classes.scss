@@ -80,10 +80,25 @@
   @include center-flex-column;
   font-size: 2rem;
   min-height: 50rem;
+  min-width: calc(100vh - 329px);
   padding-top: 5.4rem;
 }
 
+@keyframes msg-animation {
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
 .notice, .alert{
+  animation-duration: 5000ms;
+  animation-fill-mode: forwards;
+  animation-name: msg-animation;
   border-radius: 1rem;
   font-size: 2rem;
   margin: 0 66%;
