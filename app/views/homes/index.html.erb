@@ -3,10 +3,10 @@
 
   <nav class="filter-nav">
     <ul>
-      <li><a href="/homes">Más recientes</a></li>
-      <li><a href="/homes">Mejor reputación</a></li>
-      <li><a href="/homes">Menor costo</a></li>
-      <li><a href="/homes">Mayor costo</a></li>
+      <li><%= link_to 'Más recientes', homes_path(filter: 'date') %></li>
+      <li><%= link_to 'Mejor reputación', homes_path(filter: 'score') %></li>
+      <li><%= link_to 'Menor costo', homes_path(filter: 'price_lower') %></li>
+      <li><%= link_to 'Mayor costo', homes_path(filter: 'price_higher') %></li>
     </ul>
   </nav>
 
