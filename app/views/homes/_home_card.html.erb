@@ -1,0 +1,26 @@
+<div class="home-card" id="<%= dom_id home %>">
+  <figure>
+    <%= image_tag home.photos[0].variant(resize_to_limit: [500, 500]) %>
+  </figure>
+  
+  <div class="home-info">
+    <p>
+      <%= home.title %>
+    </p>
+
+    <p>
+      <i class="fa-solid fa-star"></i>
+      <%= home.score %>
+    </p>
+
+    <p>
+      <%= home.address %>
+    </p>
+
+    <p>
+      $<%= home.price %> MXN
+    </p>
+
+  </div>
+
+</div>

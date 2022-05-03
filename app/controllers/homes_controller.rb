@@ -6,7 +6,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = Home.all
+    @homes = params.key?(:filter) ? Home.search_filter(params[:filter]) : Home.all
   end
 
   # GET /homes/1 or /homes/1.json
@@ -58,6 +58,6 @@ class HomesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def home_params
-    params.require(:home).permit(:title, :address, :description, :price, :score, :user_id, photos: [])
+    params.require(:home).permit(:title, :address, :description, :price, :score, :user_id, :filter, photos: [])
   end
 end

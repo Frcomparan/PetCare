@@ -52,7 +52,7 @@ nav {
   }
 }
 
-@media (min-width: $breakpoint-mobile) {
+@media only screen and (min-width: $breakpoint-mobile) {
   nav {
     padding: 0 10%;
 
