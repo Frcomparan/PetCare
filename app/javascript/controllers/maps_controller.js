@@ -29,6 +29,10 @@ export default class extends Controller {
       })
       this._map.addListener("click", (e) => {
         this.placeMarkerAndPanTo(e.latLng, this.map());
+        //alert(JSON.stringify(e.latLng.toJSON(), null, 2));
+        let position = e.latLng.toJSON();
+        this.latitudeTarget.value = position.lat;
+        this.longitudeTarget.value = position.lng;        
       });
     }
     return this._map
@@ -41,7 +45,6 @@ export default class extends Controller {
       map: this.map(),
     });
     map.panTo(latLng);
-    this.autocomplete();
   }
 
   hideMarkers() {
