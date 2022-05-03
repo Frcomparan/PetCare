@@ -1,0 +1,127 @@
+.content {
+  background-color: $secundary-color;
+}
+
+.container-log {
+  margin: 20px 0;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  input {
+    color: $black;
+
+    #file-upload-button {
+      background-color: $secundary-color;
+    }
+  }
+}
+
+.actions {
+  padding: 20px;
+}
+
+.new_user{
+  width: 90%;
+}
+
+.button-log {
+  background-color: $white;
+  border-radius: 20px;
+  border: none;
+  font-size: 20px;
+  font-weight: 400;
+  height: 4.5rem;
+  width: 100%;
+}
+
+.photo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .img-circular {
+    -moz-border-radius: 100px;  
+    -webkit-border-radius: 100px;
+    background-size: cover;
+    border-radius: 100px;
+    display: block;
+    height: 150px;
+    margin: 10px 0;
+    width: 150px;
+  }
+
+  input{
+    border-radius: 15px;
+    padding: 10px;
+  }
+}
+
+.container-positon {
+  @include center-flex-column;
+  width: 100%;
+}
+
+@media only screen and (min-width:800px) {
+  .container-log {
+    background-color: $white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px $black;
+    width: 80%;
+
+    input {
+      background-color: $secundary-color;
+    }
+
+    select {
+      background-color: $secundary-color
+    }
+
+    .container-positon {
+      width: 60%;
+ 
+      .img-circular {
+        -moz-border-radius: 100px;  
+        -webkit-border-radius: 100px;
+        background-size: cover;
+        border-radius: 100px;
+        display: block;
+        height: 150px;
+        width: 150px;
+      }
+
+      h2 {
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      img {
+        align-items: center;
+        justify-content: center;
+      }
+      div.field:nth-child(1) {
+        align-items: center;  
+        justify-content: center;
+        text-align: center;      
+      }
+
+      .button-log {
+        width: 46%;
+      }
+
+      .devise {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        .field input { 
+          justify-items: left;
+          width: 95%;
+        }
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ google_dev:
   service: GCS
   project: <%= ENV['PROJECT'] %>
   credentials: <%= Rails.root.join("config/secrets/petcare.json") %>
-  bucket: %= ENV['BUCKET'] %>
+  bucket: <%= ENV['BUCKET'] %>
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
