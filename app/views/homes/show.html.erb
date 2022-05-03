@@ -1,8 +1,53 @@
-<%= render @home %>
+ <div class="img-photo">
+  <%= image_tag @home.photos[0].variant(resize_to_limit: [350, 350]) %>
+ </div>
+ 
+<div class="content-show">
+  <div class="title">
+    <h1>Casa para mascotas cute...</h1>
+  </div>
+  
+  <div class = "reputation" >
+    <div>
+      <i class="fa-solid fa-star"></i>
+      <span><%=@home.score%></span>
+      <p>(4 opiniones)</p>
+    </div>
+    <p>Cristiano Ronaldo Dos Santos Aveira</p>
+  </div>
 
-<div>
-  <%= link_to "Edit this home", edit_home_path(@home) %> |
-  <%= link_to "Back to homes", homes_path %>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 
-  <%= button_to "Destroy this home", @home, method: :delete %>
+  <div class = "house-pets-info">
+    <span>Gatos | Perros</span>
+    <span>Hasta 2 mascotas</span>
+  </div>
+
+  <div class = "reservation">
+    <h3>Agenda tu reservación</h3>
+    <div class="days">
+      <p>Llegada</p>
+      <p>Salida</p>
+    </div>
+    <div class ="pets">
+      <p>Mascotas</p>
+    </div>
+    <button>Reservar</button>
+  </div>
+
+  <div class="opinions">
+    <h3>Opiniones</h2>
+    <div>
+    <span><i class="fa-solid fa-user"></i></span>
+    <span>Jorge Dávalos</span>
+    <span><i class="fa-solid fa-star"> <%= @home.score%></i></span>
+    </div>
+    <p>Lorem ipsum alv alv alv</p>
+  </div>
+
+  <div>
+    <%= link_to "Edit this home", edit_home_path(@home) %> |
+    <%= link_to "Back to homes", homes_path %>
+    <%= button_to "Destroy this home", @home, method: :delete %>
+  </div>
 </div>
