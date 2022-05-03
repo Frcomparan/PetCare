@@ -79,8 +79,7 @@
 .content {
   @include center-flex-column;
   font-size: 2rem;
-  min-height: 50rem;
-  min-width: calc(100vh - 329px);
+  min-height: calc(100vh - 329px);
   padding-top: 5.4rem;
 }
 

@@ -1,10 +1,9 @@
 <aside class="general-menu menu">
   <h1>Mejora tu busqueda</h1>
   <section class="options-menu">
-    <a href="/">Para grandes compañeros</a>
-    <a href="/">Para pequeños compañeros</a>
-    <a href="/">Mejores evaluaciones</a>
-    <a href="/">Opcion de filtro 4...</a>
-    <a href="/">Opcion de filtro 5...</a>
+    <li><%= link_to 'Más recientes', homes_path(filter: 'date') %></li>
+    <li><%= link_to 'Mejor reputación', homes_path(filter: 'score') %></li>
+    <li><%= link_to 'Menor costo', homes_path(filter: 'price_lower') %></li>
+    <li><%= link_to 'Mayor costo', homes_path(filter: 'price_higher') %></li>
   </section>
 </aside>
