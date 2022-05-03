@@ -2,27 +2,7 @@
 </section>
 
 <main class="home-main">
-  <form class="search-home">
-    <div class="location search-section">
-      <label>Ubicación</label>
-      <input type="text" class="search-input" placeholder="Lugar cercano...">
-    </div>
-    <div class="check-in search-section">
-      <label>Llegada</label>
-      <input type="date" class="search-input" placeholder="¿Cuándo?">
-    </div>
-    <div class="check-out search-section">
-      <label>Salida</label>
-      <input type="date" class="search-input" placeholder="¿Cuándo?">
-    </div>
-    <div class="search">
-      <div>
-        <button type="submit" class="">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-    </div>
-  </form>
+  <%= render 'partials/searcher' %>
 
   <section class="search-options">
     <div>

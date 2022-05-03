@@ -41,7 +41,7 @@
   }
 }
 
-@media (min-width: $breakpoint-mobile) {
+@media only screen and (min-width: $breakpoint-mobile) {
   .menus {
     position: relative;
   }

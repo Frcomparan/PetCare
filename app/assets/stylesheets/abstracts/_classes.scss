@@ -37,7 +37,7 @@
     width: 100%;
 
     label {
-      color: black;
+      color: $black;
       font-weight: 600;
     }
 
@@ -134,7 +134,7 @@
     background-color: $white;
     border-radius: 2rem;
     border: none;
-    color: white;
+    color: $black;;
     margin: 1rem 0;
     padding: 0.8rem 1.2rem;
     width: 100%;
