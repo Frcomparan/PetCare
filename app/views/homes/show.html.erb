@@ -1,53 +1,69 @@
- <div class="img-photo">
-  <%= image_tag @home.photos[0].variant(resize_to_limit: [350, 350]) %>
- </div>
- 
-<div class="content-show">
-  <div class="title">
-    <h1>Casa para mascotas cute...</h1>
+<div class="show-desktop">
+  <div class="img-photo">
+    <%= image_tag @home.photos[0].variant(resize_to_limit: [375, 375]) %>
   </div>
   
-  <div class = "reputation" >
-    <div>
-      <i class="fa-solid fa-star"></i>
-      <span><%=@home.score%></span>
-      <p>(4 opiniones)</p>
+  <div class="content-show">
+    <div class="title">
+      <h2><%= @home.title %></h2>
     </div>
-    <p>Cristiano Ronaldo Dos Santos Aveira</p>
-  </div>
-
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-
-  <div class = "house-pets-info">
-    <span>Gatos | Perros</span>
-    <span>Hasta 2 mascotas</span>
-  </div>
-
-  <div class = "reservation">
-    <h3>Agenda tu reservación</h3>
-    <div class="days">
-      <p>Llegada</p>
-      <p>Salida</p>
+    
+    <div class = "reputation" >
+      <div class = "score-house">
+        <i class="fa-solid fa-star"></i>
+        <span><%=@home.score%></span>
+        <p>(4 opiniones)</p>
+      </div>
+      <p id="name-rep"><%= @home.user.name%></p>
     </div>
-    <div class ="pets">
-      <p>Mascotas</p>
-    </div>
-    <button>Reservar</button>
-  </div>
 
-  <div class="opinions">
-    <h3>Opiniones</h2>
-    <div>
-    <span><i class="fa-solid fa-user"></i></span>
-    <span>Jorge Dávalos</span>
-    <span><i class="fa-solid fa-star"> <%= @home.score%></i></span>
-    </div>
-    <p>Lorem ipsum alv alv alv</p>
-  </div>
+    <p class="show-house-text"><%= @home.description%></p>
 
-  <div>
-    <%= link_to "Edit this home", edit_home_path(@home) %> |
-    <%= link_to "Back to homes", homes_path %>
-    <%= button_to "Destroy this home", @home, method: :delete %>
+    <div class = "house-pets-info">
+      <span>Gatos | Perros</span>
+      <span>Hasta 2 mascotas</span>
+    </div>
+
+    <div class = "reservation">
+      <h3>Agenda tu reservación</h3>
+      <div class="reservation-form">
+        <div class="days">
+          <div>
+            <p>Llegada</p>
+            <span><input type="date" class="reservation-date"></span>
+          </div>
+          <div>
+            <p>Salida</p>
+            <span><input type="date" class="reservation-date"></span>
+          </div>
+        </div>
+        <div class ="pets">
+          <select class="reservation-select">
+            <option selected>Mascotas</option>
+            <option value="value1">1</option>
+            <option value="value2">2</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-reservation">Reservar</button>
+    </div>
+
+    <div class="opinions">
+      <h3>Opiniones</h2>
+      <div class="opinion-user">
+        <div>
+          <span><i class="fa-solid fa-user"></i></span>
+          <span class="nombre">Jorge Dávalos</span>
+        </div>
+        <span><i class="fa-solid fa-star"> <%= @home.score%></i></span>
+      </div>
+      <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+    </div>
+
+    <div class="options-show">
+      <a href= <%= edit_home_path(@home) %>><i class="fa-solid fa-pen-to-square"></i></a>
+      <a href= <%= homes_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
+      <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, homes_delete_path(@home) %>
+    </div>
   </div>
 </div>
