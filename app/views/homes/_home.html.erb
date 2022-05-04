@@ -34,7 +34,6 @@
     <% home.photos.each do |photo| %>
       <%= image_tag photo.variant(resize_to_limit: [100, 100]) %>
     <% end %>
-    
   </p>
 
   <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&markers=color:red|label:P|#{home.latitude},#{home.longitude}&center=#{home.latitude},#{home.longitude}&key=#{ENV['MAPS_API_KEY']}" %>

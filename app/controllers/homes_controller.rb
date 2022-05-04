@@ -6,7 +6,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = Home.all
+    @homes = params.key?(:filter) ? Home.search_filter(params[:filter]) : Home.all
   end
 
   # GET /homes/1 or /homes/1.json
