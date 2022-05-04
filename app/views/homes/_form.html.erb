@@ -24,11 +24,6 @@
     <%= form.text_field :title %>
   </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :address, style: "display: block" %>
-    <%#= form.text_field :address %>
-<!--  </div>-->
-
   <div class="field">
     <%= form.label :address %>
     <%= form.search_field :address,  class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
