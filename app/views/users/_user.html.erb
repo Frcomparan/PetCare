@@ -25,21 +25,21 @@
       <%= user.address %>
     </p>
   <% end %>
-
+  
   <% if !user.pets.size.zero? %>
     <p><strong>Mascotas registradas:</strong></p>
-    <div class="field photos_field">
-    <% user.pets.each do |pet| %>
-        <% if action_name == 'profile' %>
-          <%= link_to pet_path(pet), class: 'photo pet' do %>
-            <%= image_tag(pet.photo) %>
-            <div class="trash-icon"></div>
+    <div class="field photos-field">
+      <% user.pets.each do |pet| %>
+          <% if action_name == 'profile' %>
+            <%= link_to pet_path(pet), class: 'photo pet' do %>
+              <%= image_tag(pet.photo) %>
+              <div class="trash-icon"></div>
+            <% end %>
+          <% else %>
+            <figure class="photo pet">
+              <%= image_tag(pet.photo) %>
+            </figure>
           <% end %>
-        <% else %>
-          <figure class="photo pet">
-            <%= image_tag(pet.photo) %>
-          </figure>
-        <% end %>
       <% end %>
       <% if action_name == 'profile' %>
         <%= link_to new_pet_path, class: 'photo pet new-link' do %>
@@ -49,15 +49,15 @@
       <% end %>
     </div>
   <% end %>
-
+  
   <% if !user.homes.size.zero? %>
     <p><strong>Casa publicadas:</strong></p>
-    <div class="field photos_field">
+    <div class="field photos-field">
       <% user.homes.each do |home| %>
-        <%= link_to home_path(home), class: 'photo' do %>
-          <%= image_tag(home.photos[0]) %>
-          <div class="trash-icon"></div>
-        <% end %>
+          <%= link_to home_path(home), class: 'photo' do %>
+            <%= image_tag(home.photos[0]) %>
+            <div class="trash-icon"></div>
+          <% end %>
       <% end %>
       <% if action_name == 'profile' %>
         <%= link_to new_pet_path, class: 'photo new-link' do %>

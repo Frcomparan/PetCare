@@ -9,7 +9,7 @@
   position: absolute;
   top: 35px;
   width: 100vw;
-  z-index: 11;
+  z-index: 12;
   
   a {
     color: $text-grey;
@@ -27,7 +27,7 @@
   padding: 3rem 0;
 }
 
-.show { 
+.show-menu { 
   display: flex !important;
 }
 
