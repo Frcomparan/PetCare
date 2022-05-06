@@ -26,6 +26,22 @@
     </p>
   <% end %>
 
+  <p><strong>Mascotas registradas:</strong></p>
+  <% if user.pets %>
+    <div class="field photos_field">
+      <% user.pets.each do |pet| %>
+          <%= link_to pet_path(pet), class: 'photo pet' do %>
+            <%= image_tag(pet.photo) %>
+            <div class="trash-icon"></div>
+          <% end %>
+      <% end %>
+      <%= link_to new_pet_path, class: 'photo pet new-link' do %>
+        <span>+</span>
+        <div class="trash-icon"></div>
+      <% end %>
+    </div>
+  <% end %>
+
   <p><strong>Casa publicadas:</strong></p>
   <% if user.homes %>
     <div class="field photos_field">
@@ -34,6 +50,10 @@
             <%= image_tag(home.photos[0]) %>
             <div class="trash-icon"></div>
           <% end %>
+      <% end %>
+      <%= link_to new_pet_path, class: 'photo new-link' do %>
+        <span>+</span>
+        <div class="trash-icon"></div>
       <% end %>
     </div>
   <% end %>
