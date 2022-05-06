@@ -18,9 +18,9 @@
         <div class="upload upload-edit">
           <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
           <% if pet.photo.attached? %>
+            <span id="add" hidden >+</span>
             <%= image_tag(pet.photo, id: 'output')  %>
           <% else %>
-            <span id="add">+</span>
             <img id="output"/>
           <% end %>
         </div>

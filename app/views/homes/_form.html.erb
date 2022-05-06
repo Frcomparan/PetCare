@@ -49,13 +49,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :latitude, style: "display: block" %>
-    <%= form.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" }%>
+    <%= form.hidden_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
   </div>
 
   <div class="field">
-    <%= form.label :longitude, style: "display: block" %>
-    <%= form.text_field :longitude, class: 'form-control', data: { target: "maps.longitude" }  %>
+    <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
   </div>
 
   <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>

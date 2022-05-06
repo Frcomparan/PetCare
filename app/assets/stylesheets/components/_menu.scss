@@ -19,6 +19,11 @@
   }
 }
 
+.filter-options .general-menu .options-menu li:nth-child(2) {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .options-menu {
   border-bottom: $simple-boder-black;
   display: flex;
