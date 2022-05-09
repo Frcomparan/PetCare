@@ -17,7 +17,7 @@
         <%= link_to "Mis alojamientos", homes_path %>
       <% end %>
       <% if current_user.role == "admin" %>
-      <%= link_to "Admin usuarios", homes_path %>
+      <%= link_to "Admin usuarios", users_path %>
       <% end %>
     </section>
   <% end %>

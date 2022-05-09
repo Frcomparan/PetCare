@@ -1,0 +1,27 @@
+.table {
+    border-spacing: 2px;
+    font-size: 15px;
+    margin: none;
+    padding-top: 15px;
+    width: 100%;
+  
+    td {
+      background-color: $secundary-color;
+      border-collapse: collapse;
+      border: solid 1px $primary-color;
+      color: black;
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    th {
+      background-color: $primary-color;
+      color: rgb(214, 202, 202);
+      height: 8px;
+      padding: 10px 15px;
+    }
+
+    i {
+      color: $secundary-color;
+    }
+  }
