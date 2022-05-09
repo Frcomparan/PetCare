@@ -44,13 +44,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :user_name => '209debbe2d5188',
-  :password => '28256e996da706',
-  :address => 'smtp.mailtrap.io',
-  :domain => 'smtp.mailtrap.io',
-  :port => '2525',
-  :authentication => :cram_md5
-}
+    :user_name => ENV['MAIL_NAME'],
+    :password => ENV['MAIL_PW'],
+    :address => ENV['MAIL_ADDRESS'],
+    :domain => ENV['MAIL_DOMAIN'],
+    :port => ENV['MAIL_PORT'],
+    :authentication => :cram_md5
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HomesController < ApplicationController
-  before_action :authenticate_user!, except: %i[index]
+  before_action :authenticate_user!, except: %i[index show]
   load_and_authorize_resource
 
   # GET /homes or /homes.json
@@ -18,7 +18,9 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1/edit
-  def edit; end
+  def edit
+    delete_attachment(params[:photo_id]) if params.key?(:photo_id)
+  end
 
   # POST /homes or /homes.json
   def create
@@ -52,6 +54,12 @@ class HomesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to homes_url, notice: 'Home was successfully destroyed.' }
     end
+  end
+
+  def delete_attachment(photo_id)
+    attachment = ActiveStorage::Attachment.find(photo_id)
+    attachment.purge
+    redirect_to edit_home_url(@home)
   end
 
   private
