@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_05_04_234602) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_05_09_230107) do
+>>>>>>> Add validation to Reservation model
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,8 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_234602) do
     t.bigint "guest_id", null: false
     t.bigint "host_id", null: false
     t.bigint "home_id", null: false
-    t.datetime "check_in"
-    t.datetime "check_out"
+    t.date "check_in"
+    t.date "check_out"
     t.integer "pets_number"
     t.decimal "amount"
     t.datetime "created_at", null: false

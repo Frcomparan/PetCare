@@ -15,7 +15,9 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
+    @home = params[:home]
     @reservation = Reservation.new
+    redirect_to homes_path if !params.key?(:home)
   end
 
   # GET /reservations/1/edit
@@ -24,6 +26,8 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.guest = current_user
+    @reservation.host = Home.find_by(id: @reservation.home_id).user
 
     respond_to do |format|
       if @reservation.save
@@ -64,6 +68,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:guest_id, :host_id, :home_id, :check_in, :check_out, :pets_number, :amount)
+    params.require(:reservation).permit(:home_id, :check_in, :check_out, :pets_number, :amount)
   end
 end

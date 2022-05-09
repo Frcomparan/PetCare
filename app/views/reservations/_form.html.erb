@@ -5,45 +5,34 @@
 
       <ul>
         <% reservation.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li><%= error.attribute %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div>
-    <%= form.label :guest_id, style: "display: block" %>
-    <%= form.text_field :guest_id %>
-  </div>
-
-  <div>
-    <%= form.label :host_id, style: "display: block" %>
-    <%= form.text_field :host_id %>
-  </div>
-
-  <div>
-    <%= form.label :home_id, style: "display: block" %>
-    <%= form.text_field :home_id %>
+    <%= form.hidden_field :home_id, value: @home %>
   </div>
 
   <div>
     <%= form.label :check_in, style: "display: block" %>
-    <%= form.datetime_field :check_in %>
+    <%= form.date_field :check_in, min: Date.today, required: true %>
   </div>
 
   <div>
     <%= form.label :check_out, style: "display: block" %>
-    <%= form.datetime_field :check_out %>
+    <%= form.date_field :check_out, min: (Date.today + 1.days), required: true %>
   </div>
 
   <div>
     <%= form.label :pets_number, style: "display: block" %>
-    <%= form.number_field :pets_number %>
+    <%= form.number_field :pets_number, required: true %>
   </div>
 
   <div>
     <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, required: true %>
   </div>
 
   <div>
