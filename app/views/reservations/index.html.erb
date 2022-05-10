@@ -3,12 +3,22 @@
 <h1>Reservations</h1>
 
 <div id="reservations">
-  <% @reservations.each do |reservation| %>
-    <%= render reservation %>
-    <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p>
+  <span>Hechas</span>
+  <% @guest_reservations.each do |reservation| %>
+    <div class="guest-reservations" id=<%= dom_id reservation %>>
+      <%= render reservation %>
+      <p>
+        <%= link_to "Show this reservation", reservation %>
+      </p>
+    </div>
+  <% end %>
+  <span>Solicitadas</span>
+  <% @host_reservations.each do |reservation| %>
+    <div class="host-reservation" id=<%= dom_id reservation %>>
+      <%= render reservation %>
+      <p>
+        <%= link_to "Show this reservation", reservation %>
+      </p>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New reservation", new_reservation_path %>

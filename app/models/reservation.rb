@@ -7,13 +7,13 @@ class Reservation < ApplicationRecord
 
   validates :check_in, :check_out, :pets_number, presence: true
   validate :valid_dates?
-  validate :same_user?
+  before_create :same_user?
   validate :available?
 
-  enum role: { pending: 0, aproved: 1, canceled: 2 }
+  enum role: { pending: 0, aproved: 1, canceled: 2, finished: 3 }
 
   def available?
-    taken = Reservation.where('check_in <= ? and check_out >= ?', check_out, check_in)
+    taken = Reservation.where('check_in <= ? and check_out >= ? and id <> ? and home_id = ?', check_out, check_in, id, home_id)
     errors.add('Hay una reservación en la fecha seleccionada') unless taken.size.zero?
   end
 

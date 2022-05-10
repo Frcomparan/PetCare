@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @guest_reservations = Reservation.all.where(guest_id: current_user)
+    @host_reservations = Reservation.all.where(host_id: current_user)
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -49,16 +50,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1 or /reservations/1.json
-  def destroy
-    @reservation.destroy
-
-    respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -68,6 +59,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:home_id, :check_in, :check_out, :pets_number, :amount)
+    params.require(:reservation).permit(:home_id, :check_in, :check_out, :pets_number, :amount, :status)
   end
 end

@@ -1,37 +1,39 @@
-<div id="<%= dom_id reservation %>">
-  <p>
-    <strong>Guest:</strong>
-    <%= reservation.guest_id %>
-  </p>
+<p>
+  <strong>Guest:</strong>
+  <%= reservation.guest.name %>
+</p>
 
-  <p>
-    <strong>Host:</strong>
-    <%= reservation.host_id %>
-  </p>
+<p>
+  <strong>Host:</strong>
+  <%= reservation.host.name %>
+</p>
 
-  <p>
-    <strong>Home:</strong>
-    <%= reservation.home_id %>
-  </p>
+<p>
+  <strong>Home:</strong>
+  <%= reservation.home.title%>
+</p>
 
-  <p>
-    <strong>Check in:</strong>
-    <%= reservation.check_in %>
-  </p>
+<p>
+  <strong>Check in:</strong>
+  <%= reservation.check_in %>
+</p>
 
-  <p>
-    <strong>Check out:</strong>
-    <%= reservation.check_out %>
-  </p>
+<p>
+  <strong>Check out:</strong>
+  <%= reservation.check_out %>
+</p>
 
-  <p>
-    <strong>Pets number:</strong>
-    <%= reservation.pets_number %>
-  </p>
+<p>
+  <strong>Pets number:</strong>
+  <%= reservation.pets_number %>
+</p>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= reservation.amount %>
-  </p>
+<p>
+  <strong>Amount:</strong>
+  <%= reservation.amount %>
+</p>
 
-</div>
+<p>
+  <strong>Status:</strong>
+  <%= reservation.status %>
+</p>
