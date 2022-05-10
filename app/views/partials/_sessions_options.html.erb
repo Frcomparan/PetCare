@@ -4,6 +4,7 @@
       <%= link_to "Iniciar sesión", new_user_session_path %>
       <%= link_to "Registrate", new_user_registration_path %>
     <% else %>
+      <%= link_to "Mi perfil", profile_users_path %>
       <%= link_to "Cerrar sesión", destroy_user_session_path, data: { turbo_method: :delete } %>
     <% end %>  
   </section>
