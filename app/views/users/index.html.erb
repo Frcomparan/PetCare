@@ -10,6 +10,6 @@
       <th>Actions</th>
     </thead> 
     <% @users.each do |user| %>
-      <%= render user %>
+      <%= render 'users/list' , user: user%>
     <% end %>
   </table>
