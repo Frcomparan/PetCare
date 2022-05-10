@@ -1,13 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<p><%= notice %></p>
 
 <%= render @reservation %>
 
 <div>
-  
   <% if @reservation.guest == current_user %>
     <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %>
   <% end %> 
   <%= link_to "Back to reservations", reservations_path %>
-
-  <%= button_to "Rechazar reservación", reservation_path(@reservation, reservation: { status: 2 }), method: :put %>
+  <% if @reservation.pending? %>
+    <%= button_to "Rechazar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put %>
+    <%= button_to "Aceptar reservación", reservation_path(@reservation, reservation: { status: 'aproved' }), method: :put %>
+  <% end %>
+  
 </div>

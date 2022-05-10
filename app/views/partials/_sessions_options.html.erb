@@ -11,7 +11,7 @@
   <% if current_user %>
     <section class="options-menu">
       <%= link_to "Mis mascotas", pets_path %>
-      <%= link_to "Mis reservaciones", root_path %>
+      <%= link_to "Mis reservaciones", reservations_path %>
       <% if current_user.guest? %>
         <%= link_to "Hazte anfitrión", root_path %>
       <% elsif current_user.host? %>

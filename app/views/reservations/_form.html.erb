@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.hidden_field :home_id, value: @home %>
-  </div>
-
+  
+  <% unless action_name == 'edit' %>
+    <div>
+      <%= form.hidden_field :home_id, value: @home %>
+    </div>
+  <% end %>
+  
   <div>
     <%= form.label :check_in, style: "display: block" %>
     <%= form.date_field :check_in, min: Date.today, required: true %>
