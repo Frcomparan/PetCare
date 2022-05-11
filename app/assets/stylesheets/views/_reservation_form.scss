@@ -1,0 +1,72 @@
+.reservation-main {
+  @include center-flex-column;
+  margin-top: 0;
+  padding-top: 0;
+
+  h1 {
+    display: none;
+  }
+}
+
+.reservation-form {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  .reservation-main {
+   padding-top: 2rem;
+  }
+
+  .reservation-info {
+    display: flex;
+    width: 100%;
+
+    img {
+      width: 50%;
+    }
+
+    div {
+      padding-left: 2rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .reservation-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .hidden {
+      display: none;
+    }
+
+    .field {
+      max-width: 40%;
+    }
+
+    .confirm {
+      display: grid;
+      width: 100%;
+
+      .actions {
+
+        input {
+          border-radius: 2rem;
+          border: none;
+          font-size: 2rem;
+          justify-self: center;
+          padding: 1rem;
+        }
+
+        input:hover {
+          box-shadow: $low-shadow;
+          transform: scale(1.04);
+        }
+      }
+    }
+  }
+}

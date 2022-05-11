@@ -16,13 +16,15 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @home = params[:home]
+    @home = Home.find_by(id: params[:home])
     @reservation = Reservation.new
     redirect_to homes_path if !params.key?(:home)
   end
 
   # GET /reservations/1/edit
-  def edit; end
+  def edit;
+    @home = Home.find_by(id: params[:id])
+  end
 
   # POST /reservations or /reservations.json
   def create
