@@ -79,7 +79,7 @@
 .content {
   @include center-flex-column;
   font-size: 2rem;
-  min-height: calc(100vh - 329px);
+  min-height: calc(100vh - 229px);
   padding-top: 5.4rem;
 }
 
@@ -109,14 +109,14 @@
 }
 
 .alert {
-  background-color: rgba(250, 140, 140, 0.658);
-  border: 1px solid rgb(250, 140, 140);
+  background-color: $error-bg;
+  border: 1px solid $error-border;
   z-index: 2;
 }
 
 .notice {
-  background-color: rgba(175, 250, 140, 0.658);
-  border: 1px solid rgb(175, 250, 140);
+  background-color: $valid-bg;
+  border: 1px solid $valid-border;
   z-index: 2;
 }
 
@@ -157,6 +157,7 @@
   @include center-grid;
   margin-top: 1rem;
 }
+
 .upload {
   @include center-flex-column;
   background-color: $light-grey-opacity;

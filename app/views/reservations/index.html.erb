@@ -1,32 +1,30 @@
 <p><%= notice %></p>
-
-<h1>Reservations</h1>
-
-<div id="reservations">
-  <% if @host_reservations.size.zero? and @guest_reservations.size.zero? %>
-    <p>No ha realizado ninguna reservación</p>
-  <% else %>
-    <% unless @guest_reservations.size.zero? %>
-      <span>Hechas</span>
-      <% @guest_reservations.each do |reservation| %>
-        <div class="guest-reservations" id=<%= dom_id reservation %>>
-          <%= render reservation %>
-          <p>
-            <%= link_to "Show this reservation", reservation %>
-          </p>
-        </div>
+<main class="reservation-main">
+  <h1>Reservaciones</h1>
+    <% if @host_reservations.size.zero? and @guest_reservations.size.zero? %>
+      <p>No ha realizado ninguna reservación</p>
+    <% else %>
+      <% unless @guest_reservations.size.zero? %>
+        <span>Hechas</span>
+        <% @guest_reservations.each do |reservation| %>
+          <div class="guest-reservations" id=<%= dom_id reservation %>>
+            <%= render reservation %>
+            <p>
+              <%= link_to "Show this reservation", reservation %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+      <% unless @host_reservations.size.zero? %>
+        <span>Solicitadas</span>
+        <% @host_reservations.each do |reservation| %>
+          <div class="host-reservation" id=<%= dom_id reservation %>>
+            <%= render reservation %>
+            <p>
+              <%= link_to "Show this reservation", reservation %>
+            </p>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-    <% unless @host_reservations.size.zero? %>
-      <span>Solicitadas</span>
-      <% @host_reservations.each do |reservation| %>
-        <div class="host-reservation" id=<%= dom_id reservation %>>
-          <%= render reservation %>
-          <p>
-            <%= link_to "Show this reservation", reservation %>
-          </p>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+</main>

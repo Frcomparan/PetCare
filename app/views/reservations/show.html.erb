@@ -1,15 +1,11 @@
 <p><%= notice %></p>
+<main class="reservation-main">
+  <%= render @reservation %>
 
-<%= render @reservation %>
-
-<div>
-  <% if @reservation.guest == current_user %>
-    <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %>
-  <% end %> 
-  <%= link_to "Back to reservations", reservations_path %>
-  <% if @reservation.pending? %>
-    <%= button_to "Rechazar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put %>
-    <%= button_to "Aceptar reservación", reservation_path(@reservation, reservation: { status: 'aproved' }), method: :put %>
-  <% end %>
-  
-</div>
+  <div>
+    <% if @reservation.guest == current_user %>
+      <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %>
+    <% end %> 
+    <%= link_to "Back to reservations", reservations_path %>
+  </div>
+</main>
