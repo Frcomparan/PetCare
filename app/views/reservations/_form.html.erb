@@ -20,12 +20,12 @@
   
   <div class="field">
     <%= form.label :check_in, style: "display: block" %>
-    <%= form.date_field :check_in, min: Date.today, required: true %>
+    <%= form.date_field :check_in, min: Date.today, required: true, onchange: 'totalAmount()' %>
   </div>
 
   <div class="field">
     <%= form.label :check_out, style: "display: block" %>
-    <%= form.date_field :check_out, min: (Date.today + 1.days), required: true %>
+    <%= form.date_field :check_out, min: (Date.today + 1.days), required: true, onchange: 'totalAmount()' %>
   </div>
 
   <div class="field">
@@ -36,7 +36,8 @@
   <div class="confirm">
     <div>
       <h3>Total:</h3>
-      <p class="amount">$000,00</p>
+      <p id="price" hidden><%= @home.price %></p>
+      <p id="amount">$0</p>
     </div>
 
     <div class="actions">

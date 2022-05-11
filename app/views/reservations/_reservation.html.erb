@@ -12,30 +12,23 @@
       </div>
     </section>
     <section class="reservation-date">
-      <p>Se solicito una reservación del <%= reservation.check_in.strftime('%d de %B de %Y') %> al <%= reservation.check_out.strftime('%d de %B de %Y') %></p>
       <p>
-        <strong>Total:</strong>
-        <%= reservation.amount %>
+        Se solicito una reservación del 
+        <strong><%= reservation.check_in.strftime('%d/%m/%Y') %></strong> al 
+        <strong><%= reservation.check_out.strftime('%d/%m/%Y') %></strong>
       </p>
+      <p><strong>Total: </strong>$<%= reservation.amount %></p>
     </section>
   </div>
   <div class="reservation-guest">
     <h1>Reservación solicitada por:</h1>
     <div>
-      <p>
-        <strong>Huesped:</strong>
-        <%= reservation.guest.name %>
-      </p>
-      <p>
-        <strong>Mascotas a cuidar:</strong>
-        <%= reservation.pets_number %>
-      </p>
-      <p>
-        <strong>Status:</strong>
-        <%= reservation.status %>
-      </p>
+      <p><strong>Huesped:</strong> <%= reservation.guest.name %></p>
+      <p><strong>Mascotas a cuidar:</strong> <%= reservation.pets_number %></p>
+      <p><strong>Status:</strong> <%= reservation.status %></p>
     </div>
     <figure>
+      <p>Mascotas del huesped: </p>
       <% reservation.guest.pets.each do |pet| %>
         <%= image_tag pet.photo.variant(resize_to_limit: [500, 500]) %>
       <% end %>
@@ -48,9 +41,11 @@
         <%= button_to "Aceptar reservación", reservation_path(@reservation, reservation: { status: 'aproved' }), method: :put, class: 'approve-button' %>
       </div>
     <% else %>
-      <div class="status-buttons">
-        <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
-      </div>
+      <% unless @reservation.canceled? %>  
+        <div class="status-buttons">
+          <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
+        </div>
+      <% end %>
     <% end %>    
   <% end %>
 </article>

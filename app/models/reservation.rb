@@ -10,6 +10,7 @@ class Reservation < ApplicationRecord
   validate :available?
   
   before_create :same_user?
+  validate :set_amount
 
   enum status: { pending: 0, aproved: 1, canceled: 2, finished: 3 }
 
@@ -25,5 +26,9 @@ class Reservation < ApplicationRecord
   def valid_dates?
     correct_date = check_in < check_out
     errors.add('Tu fecha de salida no puede ser menor a la fecha de entrada') unless correct_date
+  end
+
+  def set_amount
+    self.amount = (check_out - check_in).to_i * home.price
   end
 end

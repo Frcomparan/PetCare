@@ -21,6 +21,10 @@
     flex-wrap: wrap;
     width: 100%;
 
+    p {
+      font-weight: bold;
+    }
+
     img {
       width: 50%;
     }
@@ -115,6 +119,10 @@
 
     figure {
       width: 35%;
+
+      p {
+        width: 100%;
+      }
     }
   }
 
