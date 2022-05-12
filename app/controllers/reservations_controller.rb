@@ -23,15 +23,15 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit;
-    @home = Home.find_by(id: params[:id])
+    @home = @reservation.home
   end
 
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @home = Home.find_by(id: @reservation.home_id)
     @reservation.guest = current_user
-    @reservation.host = Home.find_by(id: @reservation.home_id).user
-
+    @reservation.host = @home.user
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
@@ -44,6 +44,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
     @reservation.status = 'pending'
+    @home = Home.find_by(id: @reservation.home_id)
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully updated.' }

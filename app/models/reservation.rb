@@ -6,16 +6,26 @@ class Reservation < ApplicationRecord
   belongs_to :home
 
   validates :check_in, :check_out, :pets_number, presence: true
+  validate :same_user?
   validate :valid_dates?
   validate :available?
-  
-  before_create :same_user?
   validate :set_amount
+
+  scope :valid_update, lambda { |check_out, check_in, id, home_id|
+                         where('check_in <= ? and check_out >= ? and id <> ? and home_id = ?', check_out, check_in, id, home_id)
+                       }
+  scope :valid_create, lambda { |check_out, check_in, home_id|
+                         where('check_in <= ? and check_out >= ? and home_id = ?', check_out, check_in, home_id)
+                       }
 
   enum status: { pending: 0, aproved: 1, canceled: 2, finished: 3 }
 
   def available?
-    taken = Reservation.where('check_in <= ? and check_out >= ? and home_id = ?', check_out, check_in, home_id)
+    taken = if id
+              Reservation.valid_update(check_out, check_in, id, home_id)
+            else
+              Reservation.valid_create(check_out, check_in, home_id)
+            end
     errors.add('Hay una reservación en la fecha seleccionada') unless taken.size.zero?
   end
 
