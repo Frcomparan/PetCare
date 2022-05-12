@@ -15,7 +15,7 @@ class Reservation < ApplicationRecord
   enum status: { pending: 0, aproved: 1, canceled: 2, finished: 3 }
 
   def available?
-    taken = Reservation.where('check_in <= ? and check_out >= ? and id <> ? and home_id = ?', check_out, check_in, id, home_id)
+    taken = Reservation.where('check_in <= ? and check_out >= ? and home_id = ?', check_out, check_in, home_id)
     errors.add('Hay una reservación en la fecha seleccionada') unless taken.size.zero?
   end
 
