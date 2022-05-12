@@ -224,36 +224,6 @@
   width: 50%;
 }
 
-.profile {
-  width: 100%;
-
-  .profile-photo {
-    @include center-grid;
-
-    img {
-      border-radius: 50%;
-      border: 2px solid $black;
-      height: 250px;
-      object-fit: cover;
-      width: 250px;
-    }
-  }
-
-  .photo {
-    width: 20%;
-  }
-
-  .new-link {
-    @include center-flex-column;
-    background-color: $light-grey-opacity;
-    text-decoration: none;
-  }
-
-  .pet {
-    max-width: 20%;
-  }
-}
-
 .file-field {
   label {
     display: grid;
