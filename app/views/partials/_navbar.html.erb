@@ -16,7 +16,18 @@
           <i class="fa-regular fa-user"><%= render 'partials/sessions_options' %></i>
         </li>
       </ul>
+      <div class="notification-menu" onclick="showNotifications()">
+        <i class="fa-solid fa-bell">
+        <% if user_signed_in? %>
+          <% unless current_user.host_reservations.where(status: 0).size.zero? %>
+            <div class="reservation-count">
+              <span><%= current_user.host_reservations.where(status: 0).size %></span>
+            </div>
+            <%= render "partials/notifications" %>
+          <% end %>
+        <% end %>
+        </i>
+      </div>
     </div>
   </div>
-
 </nav>
