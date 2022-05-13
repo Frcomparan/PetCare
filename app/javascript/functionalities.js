@@ -56,3 +56,13 @@ window.onclick = function(event) {
     }
   }
 };
+
+const showDni = function() {
+  select_location = document.getElementById('user_role')
+  if(select_location.value == 'host') {
+     document.getElementById('hidden_div').style.display = 'block';
+    }
+   else {
+      document.getElementById('hidden_div').style.display = 'none';
+    }
+ };
