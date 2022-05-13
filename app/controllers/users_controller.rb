@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  # PATCH/PUT /users/1 or /users/1.json
+  def verify
+    @user.update(verified: !@user.verified)
+  end
+
   def profile
     @user = current_user
   end

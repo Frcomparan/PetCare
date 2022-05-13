@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   root "pages#home"
 
   match '/users',   to: 'users#index',   via: 'get'
+
+  put '/users/:id', action: :verify, controller: 'users'
 end
