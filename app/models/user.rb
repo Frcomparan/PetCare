@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validate :validate_dni_photo 
  
 
-  enum role: { guest: 0, host: 1, admin: 2}
+  enum role: { guest: 0, host: 1, admin: 2 }
   
   private 
   def validate_profile_photo 

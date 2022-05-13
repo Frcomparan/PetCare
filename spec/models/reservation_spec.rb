@@ -4,18 +4,20 @@ require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
   before(:each) do
-    user_guest = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
-                             address: 'Av. Tecnologico #559', email:"prueba@example", password:"123456")
-    user_host = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
-                            address: 'Av. Tecnologico #559', email:"prueba2@example", password:"123456")
-    user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
-    user_guest.save!
-    user_host.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png', content_type: 'image/png')
-    user_host.save!
-    home = Home.create(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
-                       price: 560, user_id: user_host.id)
-    @reservation = Reservation.new(guest_id: user_guest.id, host_id: user_host.id, home_id: home.id,
-                                   check_in: 'Tue, 12 Apr 2022 16:40:04 -0500', check_out: 'Tue, 13 Apr 2022 20:40:04 -0500', pets_number: 3, amount: 0)
+    @user_guest = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+                           address: 'Av. Tecnologico #559', email: 'prueba@example', password: '123456')
+    @user_host = User.new(name: 'Marco Polo', gender: 'Male', birthdate: '05/07/2000', phone: '3121358027',
+                          address: 'Av. Tecnologico #559', email: 'prueba2@example', password: '123456')
+    @user_guest.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png',
+                                     content_type: 'image/png')
+    @user_guest.save!
+    @user_host.profile_photo.attach(io: File.open('img/logo-bc.png'), filename: 'logo-bc.png',
+                                    content_type: 'image/png')
+    @user_host.save!
+    @home = Home.create(title: 'Sweet Home', address: 'Av. Niños Heroes', description: 'Perfect home for your dog',
+                        price: 560, user_id: @user_host.id)
+    @reservation = Reservation.new(guest_id: @user_guest.id, host_id: @user_host.id, home_id: @home.id,
+                                   check_in: '12/05/2022', check_out: '16/05/2022', pets_number: 3, amount: 0)
   end
 
   it 'create reservation with valid data' do
@@ -41,6 +43,28 @@ RSpec.describe Reservation, type: :model do
     it 'create reservation without unnecessary fields' do
       @reservation.amount = nil
       expect(@reservation).to be_valid
+    end
+  end
+
+  context 'creating reservations with wrong data' do
+    before(:each) do
+      @reservation_2 = Reservation.new(guest_id: @user_guest.id, host_id: @user_host.id, home_id: @home.id,
+                                       check_in: '10/05/2022', check_out: '13/05/2022', pets_number: 3, amount: 0)
+    end
+
+    it 'create reservation with the same host and guest' do
+      @reservation.host_id = @user_guest_id
+      expect(@reservation).not_to be_valid
+    end
+
+    it 'create reservation in a reserved date' do
+      @reservation.save!
+      expect(@reservation_2).not_to be_valid
+    end
+
+    it 'create reservation without wrong dates' do
+      @reservation_2.check_out = '08/05/2022'
+      expect(@reservation_2).not_to be_valid
     end
   end
 end

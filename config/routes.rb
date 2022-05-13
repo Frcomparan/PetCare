@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/index'
+  resources :reservations
   devise_for :users
   resources :homes
   resources :pets

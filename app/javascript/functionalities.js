@@ -6,6 +6,10 @@ const showUserMenu = () => {
   document.getElementById("session-menu").classList.toggle("show-menu");
 };
 
+const showNotifications = () => {
+  document.getElementById("notifications-container").classList.toggle("show-menu");
+};
+
 const loadFile = (event) => {
   let img = document.getElementById('output');
   document.getElementById('add').style.display = 'none';
@@ -42,7 +46,7 @@ const addImages = (uploadPhotos, container) => {
   }
 };
 
-window.onclick = function(event) {
+const hideMenus = (event) => {
   let filter_validation = (event.target.matches('.filter-options') || event.target.matches('.fa-bars'));
   let user_validation = (event.target.matches('.user-options') || event.target.matches('.fa-user'));
   if (!(user_validation || filter_validation)) {
@@ -55,6 +59,21 @@ window.onclick = function(event) {
       }
     }
   }
+}
+
+const hideNotifications = (event) => {
+  let validation = (event.target.matches('.notification-menu') || event.target.matches('.fa-bell'));
+  if (!validation) {
+    let dropdowns = document.getElementById("notifications-container");
+    if (dropdowns.classList.contains('show-menu')) {
+      dropdowns.classList.remove('show-menu');
+    }
+  }
+}
+
+window.onclick = function(event) {
+  hideMenus(event);
+  hideNotifications(event);
 };
 
 const showDni = function() {
