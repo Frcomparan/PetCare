@@ -1,21 +1,21 @@
 .principal-info {
   div.title {
+    display: flex;
     justify-content: center;
     width: 100%;
-    display: flex;
     
     h2 {
-        margin-bottom: 15px;
-        text-align: center;
+      margin-bottom: 15px;
+      text-align: center;
     }
   }
   .reputation {
     display: flex;
+    font-size: 1.5rem;
     justify-content: space-between;
     margin: 0 25px 20px;
-    font-size: 1.5rem;
     
-    #name-rep{
+    #name-rep {
       text-decoration: underline;
     }
 
@@ -26,7 +26,7 @@
 }
 
 .photos-selection {
-  display: none
+  display: none;
 }
 
 .content-show { 
@@ -64,10 +64,11 @@
 
   h3 {
     margin-bottom: 30px;
+    margin-top: 20px;
     text-align: center;
   }
 
-  .reservation-form{
+  .reservation-form {
     border-radius: 15px;
     border: none;
     box-shadow: 0 0 3px black;
@@ -75,7 +76,7 @@
     padding: 5px;
     width: 85%;
 
-    p{
+    p {
       margin: 12px;
     }
   }
@@ -90,21 +91,21 @@
       width: 50%;
     }
 
-    .reservation-date{
+    .reservation-date {
       background-color: $white;
     }
   }
 
-  .reservation-select{
+  .reservation-select {
     width: 100%;
   }
 
   .btn-reservation {
-      background-color: $primary-color;
-      border-radius: 15px;
-      height: 30px;
-      margin-bottom: 15px;
-      width: 40%;
+    background-color: $primary-color;
+    border-radius: 15px;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 40%;
   }
 }
 
@@ -116,7 +117,11 @@
     margin-bottom: 15px;
   }
 
-  .opinion-user{
+  .opinion {
+    margin-bottom: 20px;
+  }
+
+  .opinion-user {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -126,7 +131,7 @@
     }
   }
   
-  p{
+  p {
     text-align: justify;
   }
 
@@ -136,8 +141,8 @@
 
     p {
       border-bottom: 1px solid black;
-      width: 30%;
       text-align: center;
+      width: 30%;
     }
   }
 }
@@ -149,20 +154,60 @@
   width: 60%;
 }
 
-@media (min-width: $breakpoint-mobile){
+.button-img {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  
+  .forward, .back {
+    background-color: $white;
+    border-radius: 50%;
+    opacity: 0.6;
+    width: 10%;
+  }
+}
+
+.img-photo {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+@media (min-width: $breakpoint-mobile) {
   .show-desktop {
-    box-shadow: 0 0 3px black;
-    border: none;
-    width: 90%;
-    margin: 30px auto;
     border-radius: 15px;
-    padding: 30px;
+    border: none;
+    box-shadow: 0 0 3px black;
     display: flex;
+    margin: 30px auto;
+    padding: 30px;
+    width: 90%;
+  }
+
+  .photos-selection {
+    cursor: pointer;
+    display: block;
+    object-fit: cover;
+    opacity: .7;
+    transition: .3s;
+  }
+
+  .photos-selection:hover {
+    opacity: 1;
+  }
+
+  .active {
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+    opacity:  1 !important;
   }
 
   .first-section {
-    flex-direction: column-reverse;
     display: flex;
+    flex-direction: column-reverse;
     top: 0;
   }
 
@@ -173,8 +218,8 @@
 
   .content-show {
     .house-pets-info {
-      flex-direction: column;
       border-bottom: none;
+      flex-direction: column;
       justify-content: flex-start;
       
       span {
@@ -186,10 +231,10 @@
   }
 
   .opinions {
-    box-shadow: 0 0 3px black;
     border-radius: 15px;
-    padding: 8px;
+    box-shadow: 0 0 3px black;
     height: 235px;
+    padding: 32px;
 
     .wrap-opnions {
       display: flex;
@@ -199,5 +244,26 @@
     section.opinion {
       width: 45%;
     }
+  }
+
+  .img-photo {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .photo-secundary {
+      margin-bottom: 5px;
+      margin-left: 5px;
+      width: 60px;
+    }
+  }
+
+  .principal-info .reputation {
+    margin-left: 0;
+    margin-right: 66px;
+    margin-top: 10px;
+  }
+  
+  .button-img {
+  display: none;
   }
 }

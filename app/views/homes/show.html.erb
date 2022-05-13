@@ -2,10 +2,14 @@
   <section class="principal-info">
     <div class="first-section">
       <div class="img-photo">
-        <%= image_tag @home.photos[0], width: "375" %>
+        <div class="button-img">
+          <button class="back">&#60</button>
+          <button class="forward">&#62</button>
+        </div>
+        <%= image_tag @home.photos[0], width: "375", class: "img-main active" %>
         <aside class="photos-selection">
           <% @home.photos.each do |photo| %>
-            <%= image_tag photo.variant(resize_to_limit: [20, 20]) %>
+            <%= image_tag photo, class: "photo-secundary" %>
           <% end %>
         </aside>
       </div>
@@ -22,19 +26,13 @@
       <p id="name-rep"><%= @home.user.name%></p>
     </div>
   </section>
- 
-  
   <div class="content-show">
-    
-
     <p class="show-house-text"><%= @home.description%></p>
-
     <div class="home-reservation">
       <div class = "house-pets-info">
         <span>Gatos | Perros</span>
         <span>Hasta 2 mascotas</span>
       </div>
-
       <div class = "reservation">
         <h3>Agenda tu reservación</h3>
         <div class="reservation-form">
@@ -59,7 +57,6 @@
         <button class="btn-reservation">Reservar</button>
       </div>
     </div>
-
     <div class="opinions">
       <h3>Opiniones</h2>
       <div class="wrap-opnions">
@@ -88,11 +85,11 @@
         <p>Mostrar más</p>
       </div>
     </div>
-
     <div class="options-show">
       <a href= <%= edit_home_path(@home) %>><i class="fa-solid fa-pen-to-square"></i></a>
       <a href= <%= homes_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
       <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, homes_delete_path(@home) %>
     </div>
   </div>
+  <script> photos(); photosMobile(); </script>
 </div>
