@@ -6,7 +6,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = Home.all
+    @homes = params.key?(:filter) ? Home.search_filter(params[:filter]) : Home.all
   end
 
   # GET /homes/1 or /homes/1.json
@@ -18,7 +18,9 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1/edit
-  def edit; end
+  def edit
+    delete_attachment(params[:photo_id]) if params.key?(:photo_id)
+  end
 
   # POST /homes or /homes.json
   def create
@@ -54,10 +56,16 @@ class HomesController < ApplicationController
     end
   end
 
+  def delete_attachment(photo_id)
+    attachment = ActiveStorage::Attachment.find(photo_id)
+    attachment.purge
+    redirect_to edit_home_url(@home)
+  end
+
   private
 
   # Only allow a list of trusted parameters through.
   def home_params
-    params.require(:home).permit(:title, :address, :description, :price, :score, :user_id, photos: [])
+    params.require(:home).permit(:title, :address, :latitude, :longitude, :description, :price, :score, :user_id, photos: [])
   end
 end

@@ -10,6 +10,10 @@ input {
   margin: 20px 0;
   width: 100%;
 
+  .new_user {
+    width: 90%;
+  }
+
   a {
     text-decoration: none;
   }
@@ -25,10 +29,6 @@ input {
 
 .actions {
   padding: 20px;
-}
-
-.new_user{
-  width: 90%;
 }
 
 .button-log {
@@ -75,7 +75,11 @@ input {
   width: 100%;
 }
 
-@media only screen and (min-width:800px) {
+@media only screen and (min-width: $breakpoint-mobile) {
+  .new_user {
+    width: 370px;
+  }
+
   .container-log {
     background-color: $white;
     border-radius: 20px;
@@ -87,7 +91,7 @@ input {
     }
 
     .container-positon {
-      width: 60%;
+      width: 80%;
  
       .img-circular {
         -moz-border-radius: 100px;  
@@ -124,9 +128,18 @@ input {
         display: flex;
         justify-content: space-between;
 
-        .field input { 
-          justify-items: left;
-          width: 95%;
+        .field {
+          width: 33%;
+
+          label {
+            text-align: left;
+            width: 100%;
+          }
+
+          input { 
+            justify-items: left;
+            width: 100%;
+          }
         }
       }
     }

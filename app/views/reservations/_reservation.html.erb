@@ -1,0 +1,51 @@
+<article class="reservation">
+  <div class="reservation-detail">
+    <h1>Datos de la reservación</h1>
+    <section class="reservation-info">
+      <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
+      <div>
+        <h2><%= reservation.home.title %></h2>
+        <h3>Dirección:</h3>
+        <p><%= reservation.home.address %></p>
+        <h3>Ofrecido:</h3>
+        <%= link_to reservation.home.user.name, user_path(reservation.home.user)%>
+      </div>
+    </section>
+    <section class="reservation-date">
+      <p>
+        Se solicito una reservación del 
+        <strong><%= reservation.check_in.strftime('%d/%m/%Y') %></strong> al 
+        <strong><%= reservation.check_out.strftime('%d/%m/%Y') %></strong>
+      </p>
+      <p><strong>Total: </strong>$<%= reservation.amount %></p>
+    </section>
+  </div>
+  <div class="reservation-guest">
+    <h1>Reservación solicitada por:</h1>
+    <div>
+      <p><strong>Huesped:</strong> <%= reservation.guest.name %></p>
+      <p><strong>Mascotas a cuidar:</strong> <%= reservation.pets_number %></p>
+      <p><strong>Status:</strong> <%= reservation.status %></p>
+    </div>
+    <figure>
+      <p>Mascotas del huesped: </p>
+      <% reservation.guest.pets.each do |pet| %>
+        <%= image_tag pet.photo.variant(resize_to_limit: [500, 500]) %>
+      <% end %>
+    </figure>
+  </div>
+  <% if action_name == 'show' %>
+    <% if @reservation.pending? && @reservation.host == current_user %>
+      <div class="status-buttons">
+        <%= button_to "Rechazar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
+        <%= button_to "Aceptar reservación", reservation_path(@reservation, reservation: { status: 'aproved' }), method: :put, class: 'approve-button' %>
+      </div>
+    <% else %>
+      <% unless @reservation.canceled? %>  
+        <div class="status-buttons">
+          <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
+        </div>
+      <% end %>
+    <% end %>    
+  <% end %>
+</article>

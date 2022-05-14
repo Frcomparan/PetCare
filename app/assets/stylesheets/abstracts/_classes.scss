@@ -37,7 +37,7 @@
     width: 100%;
 
     label {
-      color: black;
+      color: $black;
       font-weight: 600;
     }
 
@@ -79,11 +79,26 @@
 .content {
   @include center-flex-column;
   font-size: 2rem;
-  min-height: 50rem;
+  min-height: calc(100vh - 229px);
   padding-top: 5.4rem;
 }
 
+@keyframes msg-animation {
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
 .notice, .alert{
+  animation-duration: 5000ms;
+  animation-fill-mode: forwards;
+  animation-name: msg-animation;
   border-radius: 1rem;
   font-size: 2rem;
   margin: 0 66%;
@@ -94,14 +109,14 @@
 }
 
 .alert {
-  background-color: rgba(250, 140, 140, 0.658);
-  border: 1px solid rgb(250, 140, 140);
+  background-color: $error-bg;
+  border: 1px solid $error-border;
   z-index: 2;
 }
 
 .notice {
-  background-color: rgba(175, 250, 140, 0.658);
-  border: 1px solid rgb(175, 250, 140);
+  background-color: $valid-bg;
+  border: 1px solid $valid-border;
   z-index: 2;
 }
 
@@ -118,7 +133,7 @@
   input {
     border-radius: 2rem;
     border: none;
-    color: white;
+    color: $black;;
     margin: 1rem 0;
     padding: 0.8rem 1.2rem;
     width: 100%;
@@ -140,4 +155,121 @@
 .actions {
   @include center-grid;
   margin-top: 1rem;
+}
+
+.upload {
+  @include center-flex-column;
+  background-color: $light-grey-opacity;
+  justify-self: center;
+  min-height: 150px;
+  min-width: 150px;
+  position: relative;
+
+  img {
+    display: none;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.photos-field {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .photo {
+    display: inline-block;
+    flex-grow: 1;
+    height: auto;
+    width: 33%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.file-field .photos-field {
+  justify-self: baseline;
+  min-height: 80px;
+  min-width: 80px;
+}
+
+.photo {
+  position: relative;
+
+  .trash-icon {
+    background-color: $shadow-grey;
+    color: $black;
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.photo:hover {
+  .trash-icon {
+    @include center-grid;
+  }
+}
+
+.show {
+  margin: 20px 0;
+  width: 50%;
+}
+
+.profile {
+  width: 100%;
+
+  .profile-photo {
+    @include center-grid;
+
+    img {
+      border-radius: 50%;
+      border: 2px solid $black;
+      height: 250px;
+      object-fit: cover;
+      width: 250px;
+    }
+  }
+
+  .photo {
+    width: 20%;
+  }
+
+  .new-link {
+    @include center-flex-column;
+    background-color: $light-grey-opacity;
+    text-decoration: none;
+  }
+
+  .pet {
+    max-width: 20%;
+  }
+}
+
+.file-field {
+  label {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  .upload-edit {
+    img {
+      display: block;
+    }
+  }
+  .upload:hover {
+    background-color: $shadow-grey;
+  }
+
+  .input-file {
+    display: none;
+  }
 }

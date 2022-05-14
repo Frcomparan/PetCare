@@ -2,10 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
          
   has_many :pets
-  has_one :home, dependent: :destroy
+  has_many :homes, dependent: :destroy
   has_many :guest_reservations, class_name: 'Reservation', foreign_key: 'guest_id'
   has_many :host_reservations, class_name: 'Reservation', foreign_key: 'host_id'
   has_many :guest_reviews, class_name: 'Review', foreign_key: 'guest_id'
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :phone, length: { is: 10 }
   validate :validate_profile_photo 
 
-  enum role: { guest: 0, host: 1, admin: 2}
+  enum role: { guest: 0, host: 1, admin: 2 }
   
   private 
   def validate_profile_photo 

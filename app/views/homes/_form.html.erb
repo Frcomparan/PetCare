@@ -1,4 +1,7 @@
-<%= form_with(model: home) do |form| %>
+<%= form_with(model: home , local: true, data: {
+  controller: :maps,
+  action: "google-maps-callback@window->maps#initializeMap"
+}) do |form| %>
   <% if home.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(home.errors.count, "error") %> prohibited this home from being saved:</h2>
@@ -11,9 +14,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :photos, style: "display: block" %>
-    <%= form.file_field :photos, multiple: true %>
+  <% if action_name == 'edit' %>
+    <span><strong>Borrar fotos:</strong></span>
+    <div class="field photos-field">
+      <% home.photos.each do |photo| %>
+        <%= link_to edit_home_path(home, photo_id: photo), class: 'photo' do %>
+          <%= image_tag(photo) %>
+          <div class="trash-icon">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field file-field">
+    <%= form.label :photos do %>
+      <span><strong>Subir fotos:</strong></span>
+      <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file'%>
+      <div class="upload photos-field" id="upload">
+        <span id="add">+</span>
+      </div>
+    <% end %>
   </div>
 
   <div class="field">
@@ -22,9 +44,19 @@
   </div>
 
   <div class="field">
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+    <%= form.label :address %>
+    <%= form.search_field :address,  class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
   </div>
+
+  <div class="field">
+    <%= form.hidden_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
+  </div>
+
+  <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
 
   <div class="field">
     <%= form.label :description, style: "display: block" %>

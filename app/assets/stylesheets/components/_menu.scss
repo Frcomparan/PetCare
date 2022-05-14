@@ -9,7 +9,7 @@
   position: absolute;
   top: 35px;
   width: 100vw;
-  z-index: 11;
+  z-index: 12;
   
   a {
     color: $text-grey;
@@ -19,12 +19,21 @@
   }
 }
 
+.filter-options .general-menu .options-menu li:nth-child(2) {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .options-menu {
   border-bottom: $simple-boder-black;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   padding: 3rem 0;
+}
+
+.show-menu { 
+  display: flex !important;
 }
 
 .general-menu {
@@ -41,15 +50,20 @@
   }
 }
 
-@media (min-width: $breakpoint-mobile) {
-  .menus {
+@media only screen and (min-width: $breakpoint-mobile) {
+  #menus {
+    border-radius: 50%;
     position: relative;
+    width: 30px;
   }
 
-  .menus:hover {
-    .menu {
-      display: flex;
-    }
+  #menus:hover {
+    box-shadow: $medium-shadow;
+    cursor: pointer;
+  }
+
+  #user-options {
+    width: 100%;
   }
 
   .menu {
@@ -74,7 +88,7 @@
     padding: 1rem 0;
   }
   
-  .general-menu {
+  #filter-options {
     display: none;
   }
 }

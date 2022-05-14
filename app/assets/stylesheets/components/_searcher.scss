@@ -1,0 +1,46 @@
+.search-home {
+    width: 100%;
+
+  .search-section {
+    label {
+      display: none;
+    }
+  }
+
+  div:nth-child(2), div:nth-child(3) {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  .search-home {
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    width: 60%;
+
+    .search-section {
+      border-right: $simple-boder-black;
+      width: 33%;
+      
+      input {
+        width: 90%;
+      }
+
+      label {
+        display: inline-block;
+      }
+    }
+
+    div:nth-child(2), div:nth-child(3) {
+      display: inline-block;
+    }
+
+    .search {
+      width: 7%;
+
+      div {
+        background-color: $primary-color;
+        box-shadow: $low-shadow;
+      }
+    }
+  }
+}
