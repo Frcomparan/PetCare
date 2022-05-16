@@ -87,19 +87,19 @@ const showDni = function() {
  };
 
  setVerified = (user) => {
-    var csrf = document.querySelector('meta[name="csrf-token"]').content;
-    var xhr = new XMLHttpRequest();
-    xhr.open("PUT", "users/"+ user);
-    xhr.setRequestHeader('X-CSRF-Token', csrf);
-    xhr.send();
-    xhr.onload = function() {
-        if (xhr.status != 204) {
-            alert('Error');
-        } else {
-            alert('Operacion exitosa');
-        }
-  };
-    xhr.onerror = function() {
-        alert('NO CONNECTION');
-  };
-}
+   var csrf = document.querySelector('meta[name="csrf-token"]').content;
+   var xhr = new XMLHttpRequest();
+   xhr.open("PUT", "users/" + user);
+   xhr.setRequestHeader("X-CSRF-Token", csrf);
+   xhr.send();
+   xhr.onload = function () {
+     if (xhr.status != 204) {
+       alert("Error");
+     } else {
+       alert("Operacion exitosa");
+     }
+   };
+   xhr.onerror = function () {
+     alert("NO CONNECTION");
+   };
+};

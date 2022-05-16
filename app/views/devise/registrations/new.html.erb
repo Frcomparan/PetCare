@@ -51,7 +51,7 @@
 
         <div class="field">
           <%= f.label :role, t('devise.label.role') %>
-          <%= f.select :role, ['guest', 'host'], {}, :onchange => "showDni();"%>
+          <%= f.select :role, ['guest', 'host'], {}, onchange: "showDni();"%>
         </div>
       </div>
    
@@ -69,5 +69,4 @@
     <% end %>
   </div> 
 </main>
-
   
