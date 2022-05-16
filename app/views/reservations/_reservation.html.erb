@@ -41,9 +41,12 @@
         <%= button_to "Aceptar reservación", reservation_path(@reservation, reservation: { status: 'aproved' }), method: :put, class: 'approve-button' %>
       </div>
     <% else %>
-      <% unless @reservation.canceled? %>  
+      <% unless @reservation.canceled? || @reservation.finished? %>  
         <div class="status-buttons">
           <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
+          <% if @reservation.host == current_user %>
+            <%= button_to "Finalizar reservación", reservation_path(@reservation, reservation: { status: 'finished' }), method: :put, class: 'approve-button' %>
+          <% end %>
         </div>
       <% end %>
     <% end %>    

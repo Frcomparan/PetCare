@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.reservation {
+  background-color: $white;
+  box-shadow: $medium-shadow;
+  padding: 5px;
+}
+
 .reservation-info {
   border-bottom: 1px solid $black;
   padding-bottom: 2rem;

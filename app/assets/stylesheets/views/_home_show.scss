@@ -53,7 +53,7 @@
   width: 100%;
 }
 
-.reservation {
+.home-reservation .reservation {
   @include center-flex-column;
   border-radius: 15px;
   border: none;
@@ -103,9 +103,19 @@
   .btn-reservation {
     background-color: $primary-color;
     border-radius: 15px;
+    border: 1px solid $black;
+    color: black;
     height: 30px;
     margin-bottom: 15px;
+    padding-top: 5px;
+    text-align: center;
+    text-decoration: none;
     width: 40%;
+  }
+
+  .btn-reservation:hover {
+    cursor: pointer;
+    transform: scale(1.05);
   }
 }
 
@@ -179,6 +189,7 @@
 
 @media (min-width: $breakpoint-mobile) {
   .show-desktop {
+    background-color: $white;
     border-radius: 15px;
     border: none;
     box-shadow: 0 0 3px black;
