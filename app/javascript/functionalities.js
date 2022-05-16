@@ -76,15 +76,14 @@ window.onclick = function(event) {
   hideNotifications(event);
 };
 
-const showDni = function() {
-  select_location = document.getElementById('user_role')
-  if(select_location.value == 'host') {
-     document.getElementById('hidden_div').style.display = 'block';
-    }
-   else {
-      document.getElementById('hidden_div').style.display = 'none';
-    }
- };
+const showDni = function () {
+  select_location = document.getElementById("user_role");
+  if (select_location.value == "host") {
+    document.getElementById("hidden_div").style.display = "block";
+  } else {
+    document.getElementById("hidden_div").style.display = "none";
+  }
+};
 
  setVerified = (user) => {
    var csrf = document.querySelector('meta[name="csrf-token"]').content;
