@@ -3,7 +3,25 @@
   border-radius: 20px 0 20px 0;
   box-shadow: $medium-shadow;
   padding: 8px;
+  position: relative;
   width: 80%;
+}
+
+.edit-link {
+  position: absolute;
+  right: 8px;
+  top: 312px;
+}
+
+.score-link {
+  background-color: $light-grey-opacity;
+  border-radius: 5px;
+  color: $primary-color;
+  font-size: 1.6rem;
+  padding: 0 3px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
 }
 
 .profile {
@@ -25,6 +43,7 @@
     height: 150px;
     max-width: 50%;
     object-fit: cover;
+    position: relative;
     width: 45%;
   }
 
@@ -44,6 +63,11 @@
     border-radius: 20px;
     box-shadow: $large-shadow;
     padding: 20px;
+  }
+
+  .edit-link {
+    right: 20px;
+    top: 20px;
   }
 
   .user-info p {
@@ -69,13 +93,13 @@
     }
 
     .photo {
-      height: 140px;
-      max-width: 140px;
-      width: 140px;
+      height: 154px;
+      max-width: 154px;
+      width: 154px;
     }
 
     .new-link {
-      max-width: 140px;
+      max-width: 154px;
     }
   }
 }
