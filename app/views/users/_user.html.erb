@@ -6,18 +6,18 @@
     </figure>
 
     <div class="user-info">
-      <p><strong>Nombre:</strong> <%= user.name %></p>
+      <p><strong>Nombre:</strong><br><%= user.name %></p>
 
       <% if action_name == 'profile' %>
-        <p><strong>Dirección:</strong> <%= user.address %></p>
+        <p><strong>Dirección:</strong><br><%= user.address %></p>
       <% end %>
 
-      <p><strong>Telefono:</strong> <%= user.phone %></p>
+      <p><strong>Telefono:</strong><br><%= user.phone %></p>
 
-      <p><strong>Genero:</strong> <%= user.gender %></p>
+      <p><strong>Genero:</strong><br>Maculino<%= user.gender %></p>
 
       <% if action_name == 'profile' %>
-        <p><strong>Fecha de nacimiento:</strong> <%= user.birthdate %></p>
+        <p><strong>Fecha de nacimiento:</strong><br><%= user.birthdate %></p>
       <% end %>
     </div>
   </section>

@@ -1,8 +1,9 @@
 .show-user {
-  width: 80%;
   background-color: $white;
+  border-radius: 20px 0 20px 0;
   box-shadow: $medium-shadow;
   padding: 8px;
+  width: 80%;
 }
 
 .profile {
@@ -12,23 +13,69 @@
     @include center-grid;
 
     img {
-      border: 2px solid $black;
+      border-radius: 20px 0 20px 0;
+      box-shadow: $low-shadow;
+      height: 300px;
       object-fit: cover;
       width: 100%;
-      height: 300px;
     }
   }
 
   .photo {
-    width: 45%;
-    max-width: 50%;
     height: 150px;
+    max-width: 50%;
     object-fit: cover;
+    width: 45%;
+  }
+
+  .photo img {
+    border-radius: 6px; 
   }
 
   .new-link {
     @include center-flex-column;
     background-color: $light-grey-opacity;
     text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  .show-user {
+    border-radius: 20px;
+    box-shadow: $large-shadow;
+    padding: 20px;
+  }
+
+  .user-info p {
+    font-size: 2.3rem;
+  }
+
+  .profile {
+    .profile-photo {
+      img {
+        border-radius: 0 20px 0 20px;
+        height: 350px;
+        width: 350px;
+      }
+    }
+
+    .profile-section {
+      display: flex;
+    }
+
+    .user-info {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+
+    .photo {
+      height: 140px;
+      max-width: 140px;
+      width: 140px;
+    }
+
+    .new-link {
+      max-width: 140px;
+    }
   }
 }
