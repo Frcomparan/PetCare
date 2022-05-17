@@ -1,0 +1,23 @@
+<main class="reviews-main">
+
+  <section class="house-reviewed">
+    <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]) %>
+    <%= @home.title %>
+    <%= @home.address %>
+    <%= link_to @home.user.name, user_path(@home.user)%>
+  </section>
+
+  <% if @reviews.size.zero?%>
+    <p>Esta casa no tiene comentarios</p>
+  <% else %>
+    <% unless @reviews.size.zero? %>
+      <% @reviews.each do |review| %>
+        <div class="guest-reviews" id=<%= dom_id review %>>
+            <%= link_to review do %>
+              <%= render review %>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</main>

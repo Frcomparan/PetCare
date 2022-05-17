@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :reservations, except: [:destroy]
-  resources :reviews, except: [:edit, :update, :destroy]
+  resources :reviews, only: [:show, :new, :create]
   resources :homes
   resources :pets
   resources :users, only: [:show] do
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/homes/:id/reviews' => 'reviews#index', as: 'homes_reviews'
   get '/homes/:id/delete' => 'homes#destroy', as: 'homes_delete'
   get 'users/index'
 

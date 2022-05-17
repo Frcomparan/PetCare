@@ -51,4 +51,7 @@
       <% end %>
     <% end %>    
   <% end %>
+  <% if reservation.finished? %>
+    <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
+  <% end %>
 </article>
