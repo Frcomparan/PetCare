@@ -1,7 +1,11 @@
-<article class="reservation">
-  <%= image_tag review.guest.profile_photo.variant(resize_to_limit: [100, 100]) %>
-  <span><%= review.guest.name %></span>
-  <i class="fa-solid fa-star"></i>
-  <p><%= review.score %></p>
-  <p><%= review.comment %></p>
+<article class="review">
+  <div class="user-link">
+    <%= image_tag review.guest.profile_photo.variant(resize_to_limit: [100, 100]) %>
+    <span><%= review.guest.name %></span>
+  </div>
+  <div class="score">
+    <i class="fa-solid fa-star"></i>
+    <span><%= review.score %></span>
+  </div>
+  <p class="comment"><%= review.comment %></p>
 </article>

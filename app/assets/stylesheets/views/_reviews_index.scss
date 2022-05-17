@@ -1,0 +1,66 @@
+@media only screen and (min-width: $breakpoint-mobile) {
+  .reviews-main {
+    background-color: $white;
+    box-shadow: $medium-shadow;
+    margin: 30px 0;
+    padding: 20px;
+    width: 80%;
+  }
+
+  .house-reviewed {
+    display: flex;
+    width: 100%;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 20px;
+    }
+
+    img {
+      border: 1px solid $light-grey;
+      width: 50%;
+    }
+  }
+
+  .user-link {
+    @include center-flex-row;
+    text-decoration: none;
+
+    img {
+      border-radius: 50%;
+      height: 40px;
+      margin-right: 8px;
+      width: 40px;
+    }
+  }
+
+  .reviews {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+
+    .review {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .score {
+      @include center-flex-row;
+    }
+
+    .comment {
+      font-size: 1.5rem;
+      max-height: 78px;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+}
