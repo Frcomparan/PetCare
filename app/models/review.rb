@@ -4,4 +4,16 @@ class Review < ApplicationRecord
 
   validates :score, :comment, presence: true
   validates_numericality_of :score, in: 0..100
+
+  validate :can_comment?
+
+  def can_comment?
+    errors.add('No tiene ningun comentario pendiente') unless Review.left_comment?(home, guest.id)
+  end
+
+  def self.left_comment?(home, user)
+    reviews = Review.all.where(home_id: home)
+    reservations = Reservation.all.where('home_id = ? and status = 3 and guest_id = ?', home, user)
+    return reviews.size < reservations.size
+  end
 end
