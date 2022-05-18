@@ -10,7 +10,6 @@
     <% end %>
     <div class="home-detail">
       <h2><%= @home.title %></h2>
-      
       <p><%= @home.address %></p>
       <%= link_to user_path(@home.user), class: 'user-link' do %>
         <%= image_tag@home.user.profile_photo.variant(resize_to_limit: [100, 100]) %>

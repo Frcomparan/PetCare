@@ -53,7 +53,7 @@
       <% end %>
     <% end %>    
   <% end %>
-  <% if Review.left_comment?(reservation.home_id, current_user) %>
+  <% if Review.left_review?(reservation.home_id, current_user) %>
     <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
   <% end %>
 </article>

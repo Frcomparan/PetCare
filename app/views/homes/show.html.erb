@@ -6,7 +6,7 @@
           <button class="back">&#60</button>
           <button class="forward">&#62</button>
         </div>
-        <%= image_tag @home.photos[0], width: "375", class: "img-main active" %>
+        <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]), class: "img-main active" %>
         <aside class="photos-selection">
           <% @home.photos.each do |photo| %>
             <%= image_tag photo, class: "photo-secundary" %>
@@ -18,12 +18,15 @@
       </div>
     </div>
     <div class = "reputation" >
-      <div class = "score-house">
+      <div class="score">
         <i class="fa-solid fa-star"></i>
-        <span><%=@home.score%></span>
-        <p>(4 opiniones)</p>
+        <span><%= @home.score %></span><br>
+        <p>(<%= Review.total_reviews(@home.id) %> comentarios)</p>
       </div>
-      <p id="name-rep"><%= @home.user.name%></p>
+      <%= link_to user_path(@home.user), class: 'user-link' do %>
+        <%= image_tag@home.user.profile_photo.variant(resize_to_limit: [100, 100]) %>
+        <%= @home.user.name %>
+      <% end %>
     </div>
   </section>
   <div class="content-show">
@@ -35,7 +38,7 @@
       </div>
       <div class = "reservation">
         <h3>Agenda tu reservación</h3>
-        <div class="reservation-form">
+        <div class="reservation-preview">
           <div class="days">
             <div>
               <p>Llegada</p>
@@ -59,30 +62,21 @@
     </div>
     <div class="opinions">
       <h3>Opiniones</h2>
-      <div class="wrap-opnions">
-        <section class="opinion">
-          <div class="opinion-user">
-            <div>
-              <span><i class="fa-solid fa-user"></i></span>
-              <span class="nombre">Jorge Dávalos</span>
-            </div>
-            <span><i class="fa-solid fa-star"> <%= @home.score %></i></span>
+        <% if Review.total_reviews(@home.id) <= 0 %>
+          <p>Esta casa no tiene comentarios</p>
+        <% else %>
+          <div class="reviews">
+            <% @reviews.each do |review| %>
+              <div class="opinion" id=<%= dom_id review %>>
+                  <%= link_to review do %>
+                    <%= render review %>
+                  <% end %>
+              </div>
+            <% end %>
           </div>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
-        </section>
-        <section class="opinion">
-          <div class="opinion-user">
-            <div>
-              <span><i class="fa-solid fa-user"></i></span>
-              <span class="nombre">Jorge Dávalos</span>
-            </div>
-            <span><i class="fa-solid fa-star"> <%= @home.score %></i></span>
-          </div>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
-        </section>
-      </div>
+        <% end %>
       <div class="plus">
-        <p>Mostrar más</p>
+        <%= link_to 'Mostrar más', homes_reviews_path %>
       </div>
     </div>
     <div class="options-show">
