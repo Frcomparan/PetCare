@@ -16,4 +16,11 @@ class Home < ApplicationRecord
     results = results.public_send("filter_by_#{filtering_param}")
     results
   end
+
+  def self.update_score(home)
+    reviews = Review.where(home_id: home.id)
+    score = 0
+    reviews.each { |review| score += review.score }
+    home.update(score: (score/reviews.size))
+  end
 end

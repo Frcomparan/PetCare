@@ -6,9 +6,14 @@ class Review < ApplicationRecord
   validates_numericality_of :score, in: 0..100
 
   validate :can_comment?
+  after_save :update_score
 
   def can_comment?
     errors.add('No tiene ningun comentario pendiente') unless Review.left_comment?(home, guest.id)
+  end
+
+  def update_score
+    Home.update_score(home)
   end
 
   def self.left_comment?(home, user)
