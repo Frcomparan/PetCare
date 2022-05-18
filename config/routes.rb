@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   resources :reservations
   devise_for :users
   resources :homes
@@ -16,4 +17,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+
+  match '/users',   to: 'users#index',   via: 'get'
+
+  put '/users/:id', action: :verify, controller: 'users'
 end
