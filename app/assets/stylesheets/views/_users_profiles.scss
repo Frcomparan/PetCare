@@ -1,0 +1,105 @@
+.show-user {
+  background-color: $white;
+  border-radius: 20px 0 20px 0;
+  box-shadow: $medium-shadow;
+  padding: 8px;
+  position: relative;
+  width: 80%;
+}
+
+.edit-link {
+  position: absolute;
+  right: 8px;
+  top: 312px;
+}
+
+.score-link {
+  background-color: $light-grey-opacity;
+  border-radius: 5px;
+  color: $primary-color;
+  font-size: 1.6rem;
+  padding: 0 3px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+.profile {
+  width: 100%;
+
+  .profile-photo {
+    @include center-grid;
+
+    img {
+      border-radius: 20px 0 20px 0;
+      box-shadow: $low-shadow;
+      height: 300px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .photo {
+    height: 150px;
+    max-width: 50%;
+    object-fit: cover;
+    position: relative;
+    width: 45%;
+  }
+
+  .photo img {
+    border-radius: 6px; 
+  }
+
+  .new-link {
+    @include center-flex-column;
+    background-color: $light-grey-opacity;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  .show-user {
+    border-radius: 20px;
+    box-shadow: $large-shadow;
+    padding: 20px;
+  }
+
+  .edit-link {
+    right: 20px;
+    top: 20px;
+  }
+
+  .user-info p {
+    font-size: 2.3rem;
+  }
+
+  .profile {
+    .profile-photo {
+      img {
+        border-radius: 0 20px 0 20px;
+        height: 350px;
+        width: 350px;
+      }
+    }
+
+    .profile-section {
+      display: flex;
+    }
+
+    .user-info {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+
+    .photo {
+      height: 154px;
+      max-width: 154px;
+      width: 154px;
+    }
+
+    .new-link {
+      max-width: 154px;
+    }
+  }
+}

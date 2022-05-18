@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'abstracts/classes';
@@ -10,7 +10,9 @@
 @import 'components/notifications';
 @import 'views/home';
 @import 'views/sign_up';
+@import 'views/home_show';
 @import 'views/homes_index';
 @import 'views/users';
 @import 'views/reservation_form';
 @import 'views/reservation';
+@import 'views/users_profiles';

@@ -1,30 +1,26 @@
 <div class="profile" id="<%= dom_id user %>">
 
-  <figure class="profile-photo">
-    <%= image_tag user.profile_photo.variant(resize_to_limit: [300, 300]) %>
-  </figure>
+  <section class="profile-section">
+    <figure class="profile-photo">
+      <%= image_tag user.profile_photo.variant(resize_to_limit: [500, 500]) %>
+    </figure>
 
-  <p>
-    <strong>Nombre:</strong>
-    <%= user.name %>
-  </p>
+    <div class="user-info">
+      <p><strong>Nombre:</strong><br><%= user.name %></p>
 
-  <p>
-    <strong>Telefono:</strong>
-    <%= user.phone %>
-  </p>
+      <% if action_name == 'profile' %>
+        <p><strong>Dirección:</strong><br><%= user.address %></p>
+      <% end %>
 
-  <% if action_name == 'profile' %>
-    <p>
-      <strong>Fecha de nacimiento:</strong>
-      <%= user.birthdate %>
-    </p>
+      <p><strong>Telefono:</strong><br><%= user.phone %></p>
 
-    <p>
-      <strong>Dirección:</strong>
-      <%= user.address %>
-    </p>
-  <% end %>
+      <p><strong>Genero:</strong><br><%= user.gender %></p>
+
+      <% if action_name == 'profile' %>
+        <p><strong>Fecha de nacimiento:</strong><br><%= user.birthdate %></p>
+      <% end %>
+    </div>
+  </section>
   
   <% if !user.pets.size.zero? %>
     <p><strong>Mascotas registradas:</strong></p>
@@ -56,6 +52,10 @@
       <% user.homes.each do |home| %>
           <%= link_to home_path(home), class: 'photo' do %>
             <%= image_tag(home.photos[0]) %>
+            <span class="score-link">
+              <i class="fa-solid fa-star"></i>
+              <%= home.score %>
+            </span>
             <div class="trash-icon"></div>
           <% end %>
       <% end %>
@@ -68,6 +68,6 @@
     </div>
   <% end %>
   <% if action_name == 'profile' %>
-    <%= link_to "Actualizar informacion", edit_user_registration_path %>
+    <%= link_to '<i class="fa-solid fa-pen-to-square edit-link"></i>'.html_safe, edit_user_registration_path %>
   <% end %>
 </div>

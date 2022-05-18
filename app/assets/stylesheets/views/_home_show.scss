@@ -1,0 +1,269 @@
+.principal-info {
+  div.title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+    h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  }
+  .reputation {
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: space-between;
+    margin: 0 25px 20px;
+    
+    #name-rep {
+      text-decoration: underline;
+    }
+
+    .score-house{
+      width: 40%;
+    }
+  }
+}
+
+.photos-selection {
+  display: none;
+}
+
+.content-show { 
+  @include center-flex-column;  
+  font-size: 14px;
+  margin: 0 25px;
+}
+
+.show-house-text {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.home-reservation {
+  width: 100%;
+}
+
+.house-pets-info {
+  border-bottom: solid 2px;
+  display: flex;
+  font-size: small;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.reservation {
+  @include center-flex-column;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 3px black;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .reservation-form {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 3px black;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 85%;
+
+    p {
+      margin: 12px;
+    }
+  }
+
+  .days {
+    border-bottom: solid 2px;
+    display: flex;
+    justify-content: space-around;
+
+    p {
+      margin: 7px;
+      width: 50%;
+    }
+
+    .reservation-date {
+      background-color: $white;
+    }
+  }
+
+  .reservation-select {
+    width: 100%;
+  }
+
+  .btn-reservation {
+    background-color: $primary-color;
+    border-radius: 15px;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 40%;
+  }
+}
+
+.opinions {
+  margin-bottom: 20px;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  .opinion {
+    margin-bottom: 20px;
+  }
+
+  .opinion-user {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .nombre {
+      text-decoration: underline;
+    }
+  }
+  
+  p {
+    text-align: justify;
+  }
+
+  .plus {
+    display: flex;
+    justify-content: center;
+
+    p {
+      border-bottom: 1px solid black;
+      text-align: center;
+      width: 30%;
+    }
+  }
+}
+
+.options-show {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+  width: 60%;
+}
+
+.button-img {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  
+  .forward, .back {
+    background-color: $white;
+    border-radius: 50%;
+    opacity: 0.6;
+    width: 10%;
+  }
+}
+
+.img-photo {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+@media (min-width: $breakpoint-mobile) {
+  .show-desktop {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 3px black;
+    display: flex;
+    margin: 30px auto;
+    padding: 30px;
+    width: 90%;
+  }
+
+  .photos-selection {
+    cursor: pointer;
+    display: block;
+    object-fit: cover;
+    opacity: .7;
+    transition: .3s;
+  }
+
+  .photos-selection:hover {
+    opacity: 1;
+  }
+
+  .active {
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+    opacity:  1 !important;
+  }
+
+  .first-section {
+    display: flex;
+    flex-direction: column-reverse;
+    top: 0;
+  }
+
+  .home-reservation {
+    display: flex;
+    flex-direction: initial;
+  }
+
+  .content-show {
+    .house-pets-info {
+      border-bottom: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      
+      span {
+        border-bottom: solid 2px;
+        margin-bottom: 10px;
+        width: 90%;
+      }
+    }  
+  }
+
+  .opinions {
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    height: 235px;
+    padding: 32px;
+
+    .wrap-opnions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section.opinion {
+      width: 45%;
+    }
+  }
+
+  .img-photo {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .photo-secundary {
+      margin-bottom: 5px;
+      margin-left: 5px;
+      width: 60px;
+    }
+  }
+
+  .principal-info .reputation {
+    margin-left: 0;
+    margin-right: 66px;
+    margin-top: 10px;
+  }
+  
+  .button-img {
+  display: none;
+  }
+}
