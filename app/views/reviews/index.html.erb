@@ -1,9 +1,16 @@
 <main class="reviews-main">
 
   <section class="house-reviewed">
-    <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]) %>
-    <div>
+    <%= link_to @home, class: 'home-link' do %>
+      <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]) %>
+      <div class="score">
+        <i class="fa-solid fa-star"></i>
+        <span><%= @home.score %></span>
+      </div>
+    <% end %>
+    <div class="home-detail">
       <h2><%= @home.title %></h2>
+      
       <p><%= @home.address %></p>
       <%= link_to user_path(@home.user), class: 'user-link' do %>
         <%= image_tag@home.user.profile_photo.variant(resize_to_limit: [100, 100]) %>

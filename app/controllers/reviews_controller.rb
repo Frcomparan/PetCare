@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   # GET /reviews or /reviews.json
   def index
     @home = Home.find(params[:id])
-    @reviews = Review.all
+    @reviews = Review.where(home: @home)
   end
 
   # GET /reviews/1 or /reviews/1.json

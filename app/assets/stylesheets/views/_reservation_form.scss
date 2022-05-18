@@ -26,9 +26,14 @@
     display: flex;
     width: 100%;
 
-    img {
-      width: 50%;
+    .home-link {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
     }
+    
 
     div {
       padding-left: 2rem;

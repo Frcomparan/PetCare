@@ -2,7 +2,9 @@
   <div class="reservation-detail">
     <h1>Datos de la reservación</h1>
     <section class="reservation-info">
-      <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
+      <%= link_to reservation.home, class: 'home-link' do %>
+        <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
+      <% end %>
       <div>
         <h2><%= reservation.home.title %></h2>
         <h3>Dirección:</h3>
