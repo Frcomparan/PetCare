@@ -2,6 +2,7 @@
   background-color: $white;
   border-radius: 10px;
   box-shadow: $low-shadow;
+  margin-top: 40px;
   padding: 15px;
   width: 450px;
 
@@ -40,6 +41,10 @@
 
     .actions {
       padding: 10px;
+
+      input {
+        font-size: 2rem;
+      }
     }
   }
 

@@ -1,0 +1,41 @@
+.devise-edit-user {
+  width: 800px;
+
+    .edit-sect-1 { 
+      display: flex; 
+      gap: 10px;
+    }
+
+    .edit-sect-1 > aside { width: 100%; }
+
+    .edit-sect-2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .field {
+        width: auto;
+
+        input { min-height: 45px; }
+      }
+      
+      .field:first-child { width: 220px; }
+
+      .field:nth-child(2) { width: 200px; }
+
+      .field:nth-child(3) { width: 40%; }
+
+      .field:nth-child(4), .field:last-child { width: 49%; }
+    }
+
+    .edit-pw i { font-size: 1.3rem; }
+
+    .profile-photo {
+
+      img {
+        height: 240px;
+        object-fit: cover;
+        width: 240px;
+      }
+    }
+}
