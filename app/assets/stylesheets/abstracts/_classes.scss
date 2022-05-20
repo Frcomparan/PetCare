@@ -79,6 +79,7 @@
 .content {
   @include center-flex-column;
   font-size: 2rem;
+  margin-bottom: 4rem;
   min-height: calc(100vh - 229px);
   padding-top: 5.4rem;
 }
@@ -162,14 +163,14 @@
 
   input {
     border-radius: 8px;
-    padding: 8px;
     border: none;
     box-shadow: $low-shadow;
+    padding: 8px;
   }
 
   input:hover {
-    transform: scale(1.05);
     cursor: pointer;
+    transform: scale(1.05);
   }
 }
 

@@ -25,7 +25,7 @@
   
   <div class="field">
     <%= form.label :score, 'Puntuación', style: "display: block", id: 'rangeValue' %>
-    <%= form.range_field :score, value: 0, in: 0..5, step: 0.1, class: 'slider', id: 'myRange', onmousemove: 'updateRangeValue();', onmouseup: 'updateRangeValue();' %>
+    <%= form.range_field :score, value: 0, in: 0..5, step: 0.1, id: 'myRange', onmousemove: 'updateRangeValue();', onmouseup: 'updateRangeValue();' %>
   </div>
 
   <div class="field">
