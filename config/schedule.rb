@@ -22,7 +22,7 @@
 env :PATH, ENV['PATH']
 set :output, "log/cron.log"
 
-every 1.day, at: '5:25 pm' do
+every 1.day, at: '0:00 am' do
   runner "Reservation.update_pending_reservation"
   runner "Reservation.update_approved_reservation"
 end

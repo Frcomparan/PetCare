@@ -139,6 +139,10 @@
     width: 100%;
   }
 
+  input[type="range"] {
+    width: 40%;
+  }
+
   input::placeholder {
     font-size: 1.5rem;
   }
@@ -155,6 +159,18 @@
 .actions {
   @include center-grid;
   margin-top: 1rem;
+
+  input {
+    border-radius: 8px;
+    padding: 8px;
+    border: none;
+    box-shadow: $low-shadow;
+  }
+
+  input:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 
 .upload {

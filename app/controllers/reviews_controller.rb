@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @home = Reservation.find_by(id: params[:reservation]).home
+    @reservation = Reservation.find_by(id: params[:reservation])
     @review = Review.new
   end
 
@@ -42,6 +42,6 @@ class ReviewsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def review_params
-    params.require(:review).permit(:score, :comment, :home_id, :guest_id)
+    params.require(:review).permit(:score, :comment, :home_id, :guest_id, :reservation_id)
   end
 end

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_05_11_210246) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_233327) do
+>>>>>>> Add reservation reference to revivews and update views
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,8 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_210246) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "reservation_id", null: false
     t.index ["guest_id"], name: "index_reviews_on_guest_id"
     t.index ["home_id"], name: "index_reviews_on_home_id"
+    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,5 +130,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_210246) do
   add_foreign_key "reservations", "users", column: "guest_id"
   add_foreign_key "reservations", "users", column: "host_id"
   add_foreign_key "reviews", "homes"
+  add_foreign_key "reviews", "reservations"
   add_foreign_key "reviews", "users", column: "guest_id"
 end

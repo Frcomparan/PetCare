@@ -12,7 +12,11 @@
   <% end %>
 
   <div class="hidden">
-    <%= form.hidden_field :home_id, value: @home.id %>
+    <%= form.hidden_field :home_id, value: @reservation.home_id %>
+  </div>
+
+  <div class="hidden">
+    <%= form.hidden_field :reservation_id, value: @reservation.id %>
   </div>
 
   <div class="hidden">
@@ -20,8 +24,8 @@
   </div>
   
   <div class="field">
-    <%= form.label :score, 'Puntuación', style: "display: block" %>
-    <%= form.range_field :score, in: 0..5, step: 0.1, class: 'slider', id: 'my-range' %>
+    <%= form.label :score, 'Puntuación', style: "display: block", id: 'rangeValue' %>
+    <%= form.range_field :score, value: 0, in: 0..5, step: 0.1, class: 'slider', id: 'myRange', onmousemove: 'updateRangeValue();', onmouseup: 'updateRangeValue();' %>
   </div>
 
   <div class="field">
@@ -35,3 +39,5 @@
     </div>
   </div>
 <% end %>
+<%= javascript_include_tag 'reservation' %>
+<script>updateRangeValue();</script>
