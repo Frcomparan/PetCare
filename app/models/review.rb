@@ -7,6 +7,7 @@ class Review < ApplicationRecord
   validates_numericality_of :score, in: 0..100
 
   validate :can_review?
+  validate :valid_reservation?
   after_save :update_score
 
   def can_review?
@@ -21,6 +22,10 @@ class Review < ApplicationRecord
     reviews = Review.where(home_id: home)
     reservations = Reservation.all.where('home_id = ? and status = 3 and guest_id = ?', home, user)
     return reviews.size < reservations.size
+  end
+
+  def valid_reservation?
+    errors.add('La reservación aun no ha finalizado') unless reservation.finished? 
   end
 
   def self.total_reviews(home)

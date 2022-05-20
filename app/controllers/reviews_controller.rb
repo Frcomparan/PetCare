@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
   # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
-    @home = Home.find_by(id: @review.home_id)
+    @reservation = Reservation.find_by(id: @review.reservation_id)
     respond_to do |format|
       if @review.save
         format.html { redirect_to reservations_url(), notice: 'Review was successfully created.' }
