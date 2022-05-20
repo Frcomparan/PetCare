@@ -1,0 +1,17 @@
+<h1>Users Management</h1>
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Birthdate</th>
+      <th>Address</th>
+      <th>Role</th>
+      <th>DNI</th>
+      <th>Actions</th>
+    </thead> 
+    <% @users.each do |user| %>
+      <%= render 'users/list' , user: user%>
+    <% end %>
+  </table>
+  

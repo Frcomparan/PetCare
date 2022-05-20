@@ -1,0 +1,28 @@
+<div id="<%= dom_id user %>">
+ 
+  <tbody>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.birthdate %></td>
+      <td><%= user.address %></td>
+      <td><%= user.role %></td>
+
+      <td>
+        <% if user.role =="host" %>
+          <%= image_tag user.dni_photo.variant(resize_to_limit: [100, 100]) %>
+        <% end %>
+      </td>
+      <td>
+        <% if user.role =="host" %>
+         <label class="switch">
+           <input type="checkbox" <%= user.verified ? "checked" : ""%> onchange="setVerified(<%= user.id %>)">
+           <span class="slider round"></span>
+        </label>
+        <% end %>
+      </td>      
+    </tr>
+  </tbody>
+
+</div>
