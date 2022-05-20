@@ -1,5 +1,5 @@
 .logo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   
   a {
     text-decoration: none;
@@ -79,6 +79,7 @@
 .content {
   @include center-flex-column;
   font-size: 2rem;
+  margin-bottom: 4rem;
   min-height: calc(100vh - 229px);
   padding-top: 5.4rem;
 }
@@ -139,6 +140,10 @@
     width: 100%;
   }
 
+  input[type="range"] {
+    width: 40%;
+  }
+
   input::placeholder {
     font-size: 1.5rem;
   }
@@ -155,6 +160,18 @@
 .actions {
   @include center-grid;
   margin-top: 1rem;
+
+  input {
+    border-radius: 8px;
+    border: none;
+    box-shadow: $low-shadow;
+    padding: 8px;
+  }
+
+  input:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 }
 
 .upload {

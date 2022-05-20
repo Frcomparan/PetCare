@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  resources :reservations
   devise_for :users
+  resources :reservations, except: [:destroy]
+  resources :reviews, only: [:show, :new, :create]
   resources :homes
   resources :pets
   resources :users, only: [:show] do
@@ -10,12 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
-
+  get '/homes/:id/reviews' => 'reviews#index', as: 'homes_reviews'
   get '/homes/:id/delete' => 'homes#destroy', as: 'homes_delete'
+  get 'users/index'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "pages#home"
 
   match '/users',   to: 'users#index',   via: 'get'

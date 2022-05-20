@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
   belongs_to :guest, class_name: 'User'
   belongs_to :host, class_name: 'User'
   belongs_to :home
+  has_one :review
 
   validates :check_in, :check_out, :pets_number, presence: true
   validate :same_user?
@@ -40,5 +41,15 @@ class Reservation < ApplicationRecord
 
   def set_amount
     self.amount = (check_out - check_in).to_i * home.price
+  end
+
+  def self.update_pending_reservation
+    reservations = Reservation.where('status = ? and check_in <= ?', 0, Date.today)
+    reservations.each { |reservation| reservation.update(status: 2) }
+  end
+
+  def self.update_approved_reservation
+    reservations = Reservation.where('status = ? and check_out <= ?', 1, Date.today)
+    reservations.each { |reservation| reservation.update(status: 3) }
   end
 end
