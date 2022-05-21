@@ -1,5 +1,6 @@
 .review-main {
   background-color: $white;
+  border-radius: 15px;
   box-shadow: $medium-shadow;
   margin: 30px 0;
   max-width: 800px;
@@ -10,6 +11,7 @@
   }
 
   .reservation-detail {
+    border-radius: 15px;
     border: 1px solid $light-grey;
     font-size: 1.8rem;
     padding: 15px;
@@ -28,6 +30,7 @@
   .field {
     textarea {
       background-color: $secundary-color;
+      border-radius: 5px;
       height: 90px;
       max-height: 90px;
       max-width: 100%;

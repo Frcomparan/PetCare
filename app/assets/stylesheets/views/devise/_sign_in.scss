@@ -1,6 +1,6 @@
 .devise-container {
   background-color: $white;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: $low-shadow;
   margin-top: 40px;
   padding: 15px;
@@ -17,9 +17,7 @@
     .field {
       width: 100%;
 
-      label {
-        font-size: 1.8rem;
-      }
+      label { font-size: 1.8rem; }
 
       input, select {
         border-radius: 5px;
@@ -28,9 +26,7 @@
         padding: 12px 12px;
       }
 
-      input[type="checkbox"] {
-        width: auto;
-      }
+      input[type="checkbox"] { width: auto; }
     }
 
     .remember-me {
@@ -42,17 +38,13 @@
     .actions {
       padding: 10px;
 
-      input {
-        font-size: 2rem;
-      }
+      input { font-size: 2rem; }
     }
   }
 
   .device-links {
     margin-top: 20px;
 
-    a {
-      font-size: 1.5rem;
-    }
+    a { font-size: 1.5rem; }
   }
 }

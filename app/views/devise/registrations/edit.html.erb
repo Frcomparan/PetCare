@@ -78,6 +78,19 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
+    <% unless resource.dni_photo.attached? %>
+      <div class="field file-field">
+        <%= f.label :dni_photo do %>
+          <span><strong>Debes subir tu identificación:</strong></span>
+          <div class="upload photo">
+            <%= f.file_field :dni_photo, onchange: 'loadDNI(event)', class: 'input-file' %>
+            <span id="addDNI">+</span>
+            <img id="dni"/>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="actions">
       <%= f.submit "Actualizar" %>
     </div>

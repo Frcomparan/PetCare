@@ -1,6 +1,19 @@
 .devise-edit-user {
   width: 800px;
 
+  #dni { display: none; }
+
+  .file-field {
+    align-items: center;
+
+    .upload {
+      background-color: $secundary-color;
+      justify-self: center;
+    }
+
+    .upload:hover { background-color: $primary-color; }
+  }
+
   .edit-sect-1 { 
     display: flex; 
     gap: 10px;
@@ -33,8 +46,7 @@
 
   .edit-pw i { font-size: 1.3rem; }
 
-  .profile-photo {
-
+  .photo {
     .input-file {
       display: none;
     }
