@@ -1,41 +1,75 @@
 .devise-edit-user {
   width: 800px;
 
-    .edit-sect-1 { 
-      display: flex; 
-      gap: 10px;
+  .edit-sect-1 { 
+    display: flex; 
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .edit-sect-1 > aside { 
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 70%; 
+  }
+
+  .edit-sect-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .field {
+      width: auto;
+
+      input { min-height: 45px; }
     }
+    
+    .field { width: 32% }
 
-    .edit-sect-1 > aside { width: 100%; }
+    .field:nth-child(4), .field:last-child { width: 49%; }
+  }
 
-    .edit-sect-2 {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+  .edit-pw i { font-size: 1.3rem; }
 
-      .field {
-        width: auto;
+  .profile-photo {
 
-        input { min-height: 45px; }
+    .input-file {
+      display: none;
+    }
+    img {
+      display: block;
+      height: 230px;
+      object-fit: cover;
+      width: 230px;
+    }
+  }
+
+  .edit-sect-3 {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+
+    h3 { width: 100%; }
+
+    .button_to {
+      width: auto;
+
+      button {
+        background-color: $secundary-color;
+        border-radius: 8px;
+        border: none;
+        box-shadow: $low-shadow;
+        padding: 8px;
       }
-      
-      .field:first-child { width: 220px; }
 
-      .field:nth-child(2) { width: 200px; }
-
-      .field:nth-child(3) { width: 40%; }
-
-      .field:nth-child(4), .field:last-child { width: 49%; }
-    }
-
-    .edit-pw i { font-size: 1.3rem; }
-
-    .profile-photo {
-
-      img {
-        height: 240px;
-        object-fit: cover;
-        width: 240px;
+      button:hover {
+        cursor: pointer;
+        transform: scale(1.05);
       }
     }
+  }
 }

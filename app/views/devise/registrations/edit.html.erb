@@ -1,27 +1,34 @@
 <div class="devise-container devise-edit-user">
-  <h2>Editar datos de usuario</h2>
-
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <section class="edit-sect-1">
-      <div class="profile-photo">
-        <%= image_tag(resource.profile_photo) if resource.profile_photo.attached? %> 
-      </div>
 
-      <aside>
-        <div class="field">
-          <%= f.file_field :profile_photo %> 
+    <% if action_name == "edit" %>
+      <%= f.label :profile_photo do %>
+        <div class="upload upload-edit profile-photo photo">
+          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <% if resource.profile_photo.attached? %>
+            <span id="add" hidden>+</span>
+            <%= image_tag(resource.profile_photo, id: 'output') %>
+          <% else %>
+            <img id="output"/>
+          <% end %>
+          <div class="trash-icon"></div>
         </div>
+      <% end %>
+    <% end %>
+      <aside>
+        <h2>Editar datos de usuario</h2>
 
         <div class="field">
           <%= f.label :name, 'Nombre' %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
-
+        
         <div class="field">
-          <%= f.label :gender, 'Genero', style: "display: block" %>
-          <%= f.text_field :gender %>
+          <%= f.label :email, 'Correo' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
       </aside>
     </section>
@@ -38,8 +45,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :email, 'Correo' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :gender, 'Genero', style: "display: block" %>
+        <%= f.select :gender, [["Masculino", "male"], ["Femenino", "female"]] %>
       </div>
 
       <div class="field edit-pw">
@@ -76,9 +83,10 @@
     </div>
   <% end %>
 
-  <h3>Cancelar mi cuenta</h3>
+  <div class="edit-sect-3">
+    <h3>¿No te gusta PetCare?</h3>
 
-  <p>¿No te gusta PetCare? <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to 'Regresar', :back %>
+    <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <%= link_to 'Regresar', :back %>
+  </div>
 </div>
