@@ -9,6 +9,7 @@ class Review < ApplicationRecord
   validate :can_review?
   validate :valid_reservation?
   after_save :update_score
+  after_create :create_notifications
 
   def can_review?
     errors.add('No tiene ningun comentario pendiente') unless Review.left_review?(home, guest.id)
@@ -30,5 +31,9 @@ class Review < ApplicationRecord
 
   def self.total_reviews(home)
     return Review.where(home_id: home).size
+  end
+
+  def create_notifications
+    Notification.create(recipient: reservation.host, notifiable: self)
   end
 end
