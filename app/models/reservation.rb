@@ -13,11 +13,13 @@ class Reservation < ApplicationRecord
   validate :set_amount
 
   scope :valid_update, lambda { |check_out, check_in, id, home_id|
-                         where('check_in <= ? and check_out >= ? and id <> ? and home_id = ?', check_out, check_in, id, home_id)
+                         where('check_in <= ? and check_out >= ? and id <> ? and home_id = ? and status <> 2', check_out, check_in, id, home_id)
                        }
   scope :valid_create, lambda { |check_out, check_in, home_id|
-                         where('check_in <= ? and check_out >= ? and home_id = ?', check_out, check_in, home_id)
+                         where('check_in <= ? and check_out >= ? and home_id = ? and status <> 2', check_out, check_in, home_id)
                        }
+
+  scope :reserved_dates, -> { where('status <> 2') }
 
   enum status: { pending: 0, aproved: 1, canceled: 2, finished: 3 }
 

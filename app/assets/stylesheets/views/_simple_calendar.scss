@@ -1,11 +1,11 @@
-.table .has-events { background-color: $events; }
-
-.table .prev-month, .table .next-month { background-color: $other-month; }
-
 .table .today {
   background-color: $today;
   font-weight: 900;
 }
+
+.table .has-events { background-color: $events; }
+
+.table .prev-month, .table .next-month { background-color: $other-month; }
 
 .calendar-heading {
   display: flex;
