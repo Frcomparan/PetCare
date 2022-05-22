@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
       @notification = Notification.find(params[:id])
       @notification.update_attribute(:read_at, Time.zone.now)
     else
-      @notifications.update_all(:read_at, Time.zone.now)
+      @notifications.update_all(read_at: Time.zone.now)
     end
 
     respond_to do |format|

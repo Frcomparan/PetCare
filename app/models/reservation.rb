@@ -72,7 +72,7 @@ class Reservation < ApplicationRecord
 
   def create_review_notification
     if status == 'finished'
-      msg = "Deje un comentario sobre su estadia en '#{home.title}'"
+      msg = "Realice un comentario sobre su estadia en '#{home.title}'"
       Notification.create(recipient: guest, notifiable: self, text: msg)
     end
   end

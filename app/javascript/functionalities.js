@@ -111,9 +111,16 @@ const loadDNI = (event) => {
 };
 
 markAsRead = (element) => {
-  url = "/notifications/" + element.id + "/mark_as_read";
-  console.log(url)
-  fetch(url, {
-    method: "POST"
-  });
+  if (element.id == "clear-notifications") {
+    url = "/notifications/mark_as_read";
+    fetch(url, {
+      method: "POST"
+    });
+  }
+  else {
+    url = "/notifications/" + element.id + "/mark_as_read";
+    fetch(url, {
+      method: "POST"
+    });
+  }
 }
