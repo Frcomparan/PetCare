@@ -1,11 +1,13 @@
 <section class="notifications-container" id="notifications-container">
   <div class="notifications" id="notifications">
-    <% current_user.host_reservations.where(status: 0).each do |reservation| %>
-      <%= link_to reservation do %>
-        <article class="notification">
-          <p><%= reservation.guest.name %> necesita un lugar para su mascota </p>
-          <p>Del <%= reservation.check_in.strftime('%d de %B de %Y') %> al <%= reservation.check_out.strftime('%d de %B de %Y') %></p>
-       </article>
+    <% current_user.notifications.unread.each do |notification| %>
+      <%= link_to notification.notifiable do %>
+        <% if notification.notifiable_type = 'Reservation' %>
+          <article class="notification">
+            <span><%= notification.notifiable.guest.name %> necesita un lugar spanara su mascota </span>
+            <span>del <%= notification.notifiable.check_in.strftime('%d de %B de %Y') %> al <%= notification.notifiable.check_out.strftime('%d de %B de %Y') %></sp>
+          </article>
+        <% end %>
       <% end %>
     <% end %>
   </div>

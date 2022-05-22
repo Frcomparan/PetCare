@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <% unless current_user.host_reservations.where(status: 0).size.zero? %>
             <div class="reservation-count">
-              <span><%= current_user.host_reservations.where(status: 0).size %></span>
+              <span><%= current_user.notifications.unread.size %></span>
             </div>
             <%= render "partials/notifications" %>
           <% end %>

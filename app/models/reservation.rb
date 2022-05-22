@@ -11,6 +11,7 @@ class Reservation < ApplicationRecord
   validate :valid_dates?
   validate :available?
   validate :set_amount
+  after_create :create_notifications
 
   scope :valid_update, lambda { |check_out, check_in, id, home_id|
                          where('check_in <= ? and check_out >= ? and id <> ? and home_id = ? and status <> 2', check_out, check_in, id, home_id)
@@ -61,5 +62,9 @@ class Reservation < ApplicationRecord
 
   def end_time
     self.check_out
+  end
+  
+  def create_notifications
+    Notification.create(recipient: host, notifiable: self)
   end
 end

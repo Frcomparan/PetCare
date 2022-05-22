@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show, :new, :create]
   resources :homes
   resources :pets
+  resources :notifications, only: [:index]
   resources :users, only: [:show] do
     collection do 
       get :profile
