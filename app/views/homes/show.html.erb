@@ -87,3 +87,10 @@
   </div>
   <script> photos(); photosMobile(); </script>
 </div>
+<%= month_calendar(events: @meetings) do |date, meetings| %>
+  <%= date.day %>
+
+  <% meetings.each do |meeting| %>
+    <span><strong>Ocupado</strong></span>
+  <% end %>
+<% end %>

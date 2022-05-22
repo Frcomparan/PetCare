@@ -12,6 +12,7 @@ class HomesController < ApplicationController
   # GET /homes/1 or /homes/1.json
   def show
     @reviews = Review.where(home: @home).limit(4)
+    @meetings = @home.reservations
   end
 
   # GET /homes/new

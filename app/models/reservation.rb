@@ -52,4 +52,12 @@ class Reservation < ApplicationRecord
     reservations = Reservation.where('status = ? and check_out <= ?', 1, Date.today)
     reservations.each { |reservation| reservation.update(status: 3) }
   end
+
+  def start_time
+    self.check_in
+  end
+
+  def end_time
+    self.check_out
+  end
 end
