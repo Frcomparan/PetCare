@@ -109,3 +109,11 @@ const loadDNI = (event) => {
   img.src = URL.createObjectURL(event.target.files[0]);
   img.style.display = 'block';
 };
+
+markAsRead = (element) => {
+  url = "/notifications/" + element.id + "/mark_as_read";
+  console.log(url)
+  fetch(url, {
+    method: "POST"
+  });
+}

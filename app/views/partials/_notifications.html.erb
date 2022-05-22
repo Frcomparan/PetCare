@@ -1,10 +1,10 @@
 <section class="notifications-container" id="notifications-container">
   <div class="notifications" id="notifications">
     <% current_user.notifications.unread.each do |notification| %>
-      <%= link_to notification.notifiable do %>
+      <%= link_to notification.notifiable, id: "#{notification.id}", onclick: 'markAsRead(this);' do %>
         <% if notification.notifiable_type = 'Reservation' %>
           <article class="notification">
-            <span><%= notification.notifiable.guest.name %> necesita un lugar spanara su mascota </span>
+            <span><%= notification.notifiable.guest.name %> necesita un lugar para su mascota </span>
             <span>del <%= notification.notifiable.check_in.strftime('%d de %B de %Y') %> al <%= notification.notifiable.check_out.strftime('%d de %B de %Y') %></sp>
           </article>
         <% end %>

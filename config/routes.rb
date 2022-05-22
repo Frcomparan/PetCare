@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show, :new, :create]
   resources :homes
   resources :pets
-  resources :notifications, only: [:index]
   resources :users, only: [:show] do
     collection do 
       get :profile
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   get '/homes/:id/reviews' => 'reviews#index', as: 'homes_reviews'
   get '/homes/:id/delete' => 'homes#destroy', as: 'homes_delete'
   get 'users/index'
+  post 'notifications/:id/mark_as_read' => 'notifications#mark_as_read'
+  post 'notifications/mark_as_read' => 'notifications#mark_as_read'
 
   root "pages#home"
 

@@ -19,7 +19,7 @@
       <div class="notification-menu" onclick="showNotifications()">
         <i class="fa-solid fa-bell">
         <% if user_signed_in? %>
-          <% unless current_user.host_reservations.where(status: 0).size.zero? %>
+          <% unless current_user.notifications.unread.size.zero? %>
             <div class="reservation-count">
               <span><%= current_user.notifications.unread.size %></span>
             </div>
