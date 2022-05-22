@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Review < ApplicationRecord
   belongs_to :guest, class_name: 'User'
   belongs_to :home
@@ -22,18 +24,19 @@ class Review < ApplicationRecord
   def self.left_review?(home, user)
     reviews = Review.where(home_id: home)
     reservations = Reservation.all.where('home_id = ? and status = 3 and guest_id = ?', home, user)
-    return reviews.size < reservations.size
+    reviews.size < reservations.size
   end
 
   def valid_reservation?
-    errors.add('La reservación aun no ha finalizado') unless reservation.finished? 
+    errors.add('La reservación aun no ha finalizado') unless reservation.finished?
   end
 
   def self.total_reviews(home)
-    return Review.where(home_id: home).size
+    Review.where(home_id: home).size
   end
 
   def create_notifications
-    Notification.create(recipient: reservation.host, notifiable: self)
+    msg = "#{guest.name} deja un comentario sobre su estadia en '#{home.title}'"
+    Notification.create(recipient: reservation.host, notifiable: self, text: msg)
   end
 end

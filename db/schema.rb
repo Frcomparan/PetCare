@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_012017) do
     t.datetime "read_at"
     t.integer "notifiable_id"
     t.string "notifiable_type"
+    t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

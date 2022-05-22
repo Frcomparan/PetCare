@@ -12,6 +12,7 @@ class Reservation < ApplicationRecord
   validate :available?
   validate :set_amount
   after_create :create_notifications
+  after_save :create_review_notification
 
   scope :valid_update, lambda { |check_out, check_in, id, home_id|
                          where('check_in <= ? and check_out >= ? and id <> ? and home_id = ? and status <> 2', check_out, check_in, id, home_id)
@@ -47,12 +48,12 @@ class Reservation < ApplicationRecord
   end
 
   def self.update_pending_reservation
-    reservations = Reservation.where('status = ? and check_in <= ?', 0, Date.today)
+    reservations = Reservation.where('status = ? and check_in < ?', 0, Date.today)
     reservations.each { |reservation| reservation.update(status: 2) }
   end
 
   def self.update_approved_reservation
-    reservations = Reservation.where('status = ? and check_out <= ?', 1, Date.today)
+    reservations = Reservation.where('status = ? and check_out < ?', 1, Date.today)
     reservations.each { |reservation| reservation.update(status: 3) }
   end
 
@@ -65,6 +66,14 @@ class Reservation < ApplicationRecord
   end
   
   def create_notifications
-    Notification.create(recipient: host, notifiable: self)
+    msg = "#{guest.name} necesita un lugar para su mascota del #{check_in.strftime('%d/%m/%Y')} al #{check_out.strftime('%d/%m/%Y')}"
+    Notification.create(recipient: host, notifiable: self, text: msg)
+  end
+
+  def create_review_notification
+    if status == 'finished'
+      msg = "Deje un comentario sobre su estadia en '#{home.title}'"
+      Notification.create(recipient: guest, notifiable: self, text: msg)
+    end
   end
 end
