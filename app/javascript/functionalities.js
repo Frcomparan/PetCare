@@ -116,6 +116,12 @@ markAsRead = (element) => {
     fetch(url, {
       method: "POST"
     });
+    document.getElementById("total-notifications").style.display = "none";
+    notifications = document.getElementsByClassName('notifications');
+    document.getElementById("clear-notifications").style.display = "none";
+    for (let key = 0; key < notifications['length']; key++) {
+      notifications[key].style.display = "none";
+    }
   }
   else {
     url = "/notifications/" + element.id + "/mark_as_read";

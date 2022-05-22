@@ -10,10 +10,6 @@ class NotificationsController < ApplicationController
     else
       @notifications.update_all(read_at: Time.zone.now)
     end
-
-    respond_to do |format|
-      format.json { render json: { success: true } }
-    end
   end
 
   private

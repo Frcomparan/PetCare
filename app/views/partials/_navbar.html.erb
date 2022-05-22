@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <% unless current_user.notifications.unread.size.zero? %>
             <div class="reservation-count">
-              <span><%= current_user.notifications.unread.size %></span>
+              <span id="total-notifications"><%= current_user.notifications.unread.size %></span>
             </div>
             <%= render "partials/notifications" %>
           <% end %>

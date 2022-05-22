@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @guest_reservations = Reservation.all.where(guest_id: current_user)
-    @host_reservations = Reservation.all.where(host_id: current_user)
+    @guest_reservations = Reservation.where(guest_id: current_user)
+    @host_reservations = Reservation.where(host_id: current_user)
   end
 
   # GET /reservations/1 or /reservations/1.json
