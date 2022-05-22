@@ -1,0 +1,27 @@
+.table .has-events { background-color: $events; }
+
+.table .prev-month, .table .next-month { background-color: $other-month; }
+
+.table .today {
+  background-color: $today;
+  font-weight: 900;
+}
+
+.calendar-heading {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: $primary-color;
+    padding: 4px;
+  }
+}
+
+.reservation-calendar .simple-calendar { padding: 8px; }
+
+.simple-calendar {
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: $low-shadow;
+  padding: 8px;
+}

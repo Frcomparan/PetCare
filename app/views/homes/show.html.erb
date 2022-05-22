@@ -28,6 +28,7 @@
         <%= @home.user.name %>
       <% end %>
     </div>
+    <%= render 'partials/calendar', meetings: @meetings %>
   </section>
   <div class="content-show">
     <p class="show-house-text"><%= @home.description%></p>
@@ -87,10 +88,3 @@
   </div>
   <script> photos(); photosMobile(); </script>
 </div>
-<%= month_calendar(events: @meetings) do |date, meetings| %>
-  <%= date.day %>
-
-  <% meetings.each do |meeting| %>
-    <span><strong>Ocupado</strong></span>
-  <% end %>
-<% end %>

@@ -10,6 +10,7 @@
       <h3>Ofrecido:</h3>
       <%= link_to @home.user.name, user_path(@home.user)%>
     </div>
+    <%= render 'partials/calendar', meetings: @home.reservations %>
   </section>
 
   <%= render "form", reservation: @reservation %>
