@@ -9,11 +9,13 @@ class Ability
         can :manage, :all
       elsif user.host?
         can [:read, :profile], User
+        can [:search], Home
         can [:read, :create], [Home, Pet]
         can [:update, :destroy], [Home, Pet] do |item| 
           item.user == user
         end
       elsif user.guest?
+        can [:search], Home
         can [:read, :profile], [Home, User]
         can :create, Pet
         can [:read, :update, :destroy], Pet do |item|

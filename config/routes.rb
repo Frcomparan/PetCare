@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   put '/users/:id', action: :verify, controller: 'users'
 
   post "/search_homes" => "homes#search"
+  get "/search_homes" => "homes#index"
+
+  get '/homes/search_homes', action: :index, controller: 'homes'
 end
