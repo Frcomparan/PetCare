@@ -1,9 +1,11 @@
 <%= form_with(
+  url: "search_homes",
   local: true, 
   data: {
   controller: :mapsearch,
-  action: "google-maps-callback@window->maps#initializeMap"},
+  action: "google-maps-callback@window->mapsearch#initializeMap"},
   class: "search-home",
+  html: {id: "search"}
 ) do |form| %>
 
   <div class="location search-section">
@@ -14,21 +16,23 @@
   <%= form.hidden_field :latitude, data: { target: "mapsearch.latitude" } %>
   <%= form.hidden_field :longitude, data: { target: "mapsearch.longitude" } %>
 
+  <%= form.hidden_field :ids %>
+
   <div class="check-in search-section">
-    <label>Llegada</label>
-    <input type="date" class="search-input" placeholder="¿Cuándo?">
+    <%= form.label :llegada %>
+    <%= form.date_field :llegada , class: 'search-input'%>
   </div>
 
-  <div class="check-out search-section">
-    <label>Salida</label>
-    <input type="date" class="search-input" placeholder="¿Cuándo?">
+  <div class="check-in search-section">
+    <%= form.label :salida %>
+    <%= form.date_field :salida , class: 'search-input'%>
   </div>
 
   <div class="search">
     <div>
-      <button type="submit" class="">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
+      <%= button_tag type: 'submit', data: { action: "click->mapsearch#searchNear" }, class: "" do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
     </div>
   </div>
 

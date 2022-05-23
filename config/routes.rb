@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   match '/users',   to: 'users#index',   via: 'get'
 
   put '/users/:id', action: :verify, controller: 'users'
+
+  post "/search_homes" => "homes#search"
 end

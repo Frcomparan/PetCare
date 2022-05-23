@@ -3,6 +3,7 @@
 class HomesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   load_and_authorize_resource
+  skip_before_action :verify_authenticity_token,  only: [:search]
 
   # GET /homes or /homes.json
   def index
@@ -62,10 +63,14 @@ class HomesController < ApplicationController
     redirect_to edit_home_url(@home)
   end
 
+  def search
+    puts params[:ids]
+  end
+
   private
 
   # Only allow a list of trusted parameters through.
   def home_params
-    params.require(:home).permit(:title, :address, :latitude, :longitude, :description, :price, :score, :user_id, photos: [])
+    params.permit(:title, :address, :latitude, :longitude, :description, :price, :score, :user_id, photos: [])
   end
 end
