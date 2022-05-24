@@ -1,0 +1,7 @@
+<main class="review-main review-show">
+  <%= render @review %>
+
+  <div>
+    <%= link_to "Ver todos los comentarios", homes_reviews_path(@review.home) %>
+  </div>
+</main>

@@ -1,6 +1,7 @@
 <article class="reservation">
   <div class="reservation-detail">
     <h1>Datos de la reservación</h1>
+    <%= csrf_meta_tags %>
     <section class="reservation-info">
       <%= link_to reservation.home, class: 'home-link' do %>
         <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
@@ -32,7 +33,7 @@
     <figure>
       <p>Mascotas del huesped: </p>
       <% reservation.guest.pets.each do |pet| %>
-        <%= image_tag pet.photo.variant(resize_to_limit: [500, 500]) %>
+        <%= image_tag pet.photo.variant(resize_to_limit: [300, 300]) %>
       <% end %>
     </figure>
   </div>
@@ -54,7 +55,6 @@
     <% end %>    
   <% end %>
   <% if reservation.review.nil? && reservation.finished? && Review.left_review?(reservation.home_id, current_user) %>
-    <%= reservation.guest.name %>
     <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
   <% end %>
 </article>
