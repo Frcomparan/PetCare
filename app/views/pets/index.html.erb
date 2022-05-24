@@ -1,12 +1,7 @@
-<h1>Pets</h1>
-
+<h1>Tus mascotas</h1>
 <div id="pets">
   <% @pets.each do |pet| %>
     <%= render pet %>
-    <p>
-      <%= link_to "Show this pet", pet %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New pet", new_pet_path %>
+<%= link_to "Registrar mascota", new_pet_path, class: "register-pet-link" %>

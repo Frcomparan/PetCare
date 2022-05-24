@@ -1,0 +1,50 @@
+.content-pet {
+
+  .new-pet-photo {
+    img {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
+  .field-pet-photo {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    text-align: left;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.show-pets-buttons { 
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.show-pet-link {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.register-pet-link {
+  margin-bottom: 20px;
+}
+
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  #pets {
+    display: flex;
+    gap: 20px;
+    width: 70%;
+  }
+
+  .pets-view {
+    height: 90%;
+  }
+}
