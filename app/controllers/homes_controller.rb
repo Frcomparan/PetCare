@@ -3,6 +3,7 @@
 class HomesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   load_and_authorize_resource
+  skip_before_action :verify_authenticity_token,  only: [:search, :index]
 
   # GET /homes or /homes.json
   def index
@@ -63,6 +64,15 @@ class HomesController < ApplicationController
     attachment = ActiveStorage::Attachment.find(photo_id)
     attachment.purge
     redirect_to edit_home_url(@home)
+  end
+
+  def search
+    ids = params[:ids].split(',')
+    if params[:llegada] != "" && params[:salida] != "" 
+      ids = ids.reject { |id| (Reservation.valid_create(params[:salida], params[:llegada], id).size > 0) }
+    end
+    @homes = Home.where(id: ids)
+    render action: "index", object: @homes  
   end
 
   private
