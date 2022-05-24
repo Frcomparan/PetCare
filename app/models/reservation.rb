@@ -76,4 +76,9 @@ class Reservation < ApplicationRecord
       Notification.create(recipient: guest, notifiable: self, text: msg)
     end
   end
+
+  def translate_status
+    options = { pending: 'Pendiente', aproved: 'Aprovado', canceled: 'Cancelado', finished: 'Finalizado' }
+    options[self.status.to_sym]
+  end
 end
