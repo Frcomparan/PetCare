@@ -1,0 +1,87 @@
+.devise-edit-user {
+  width: 800px;
+
+  #dni { display: none; }
+
+  .file-field {
+    align-items: center;
+
+    .upload {
+      background-color: $secundary-color;
+      justify-self: center;
+    }
+
+    .upload:hover { background-color: $primary-color; }
+  }
+
+  .edit-sect-1 { 
+    display: flex; 
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .edit-sect-1 > aside { 
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 70%; 
+  }
+
+  .edit-sect-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .field {
+      width: auto;
+
+      input { min-height: 45px; }
+    }
+    
+    .field { width: 32% }
+
+    .field:nth-child(4), .field:last-child { width: 49%; }
+  }
+
+  .edit-pw i { font-size: 1.3rem; }
+
+  .photo {
+    .input-file {
+      display: none;
+    }
+    img {
+      display: block;
+      height: 230px;
+      object-fit: cover;
+      width: 230px;
+    }
+  }
+
+  .edit-sect-3 {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+
+    h3 { width: 100%; }
+
+    .button_to {
+      width: auto;
+
+      button {
+        background-color: $secundary-color;
+        border-radius: 8px;
+        border: none;
+        box-shadow: $low-shadow;
+        padding: 8px;
+      }
+
+      button:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+    }
+  }
+}

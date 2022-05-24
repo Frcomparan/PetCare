@@ -15,6 +15,7 @@ module ProyectoFinalPfF22T4
 
     config.active_storage.replace_on_assign_to_many = false
 
+    config.time_zone = "Mexico City"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -22,6 +23,5 @@ module ProyectoFinalPfF22T4
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.active_job.queue_adapter = :resque
   end
 end

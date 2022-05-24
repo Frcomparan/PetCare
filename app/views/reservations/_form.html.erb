@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= form.label :pets_number, style: "display: block" %>
-    <%= form.number_field :pets_number, required: true %>
+    <%= form.select :pets_number, (1..current_user.pets.size), required: true %>
   </div>
 
   <div class="confirm">

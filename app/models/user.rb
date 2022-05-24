@@ -4,11 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
          
-  has_many :pets
+  has_many :pets, dependent: :destroy
   has_many :homes, dependent: :destroy
   has_many :guest_reservations, class_name: 'Reservation', foreign_key: 'guest_id'
   has_many :host_reservations, class_name: 'Reservation', foreign_key: 'host_id'
   has_many :guest_reviews, class_name: 'Review', foreign_key: 'guest_id'
+  has_many :notifications, foreign_key: :recipient_id
   has_one_attached :dni_photo
   has_one_attached :profile_photo
   after_commit :add_default_profile_photo, on: %i[create update]

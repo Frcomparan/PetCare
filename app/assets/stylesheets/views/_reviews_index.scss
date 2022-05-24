@@ -1,9 +1,25 @@
 .reviews-main {
   background-color: $white;
+  border-radius: 15px;
   box-shadow: $medium-shadow;
   margin: 30px 0;
   padding: 20px;
   width: 80%;
+}
+
+.review-show {
+  border-radius: 15px;
+  height: 220px;
+  padding: 15px;
+  width: 700px;
+
+  .review {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 10px;
+  }
 }
 
 .house-reviewed {

@@ -1,0 +1,5 @@
+<div class="reservation-calendar">
+  <%= month_calendar(events: meetings) do |date, meetings| %>
+    <%= date.day %>
+  <% end %>
+</div>
