@@ -14,7 +14,7 @@ const loadFile = (event) => {
   let img = document.getElementById('output');
   document.getElementById('add').style.display = 'none';
   img.src = URL.createObjectURL(event.target.files[0]);
-  img.style.display = 'block'
+  img.style.display = 'block';
 };
 
 const loadFiles = (event) => {
@@ -101,4 +101,11 @@ const showDni = function () {
    xhr.onerror = function () {
      alert("NO CONNECTION");
    };
+};
+
+const loadDNI = (event) => {
+  let img = document.getElementById('dni');
+  document.getElementById('addDNI').style.display = 'none';
+  img.src = URL.createObjectURL(event.target.files[0]);
+  img.style.display = 'block';
 };

@@ -1,76 +1,105 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="devise-container devise-edit-user">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <section class="edit-sect-1">
 
-  <div class="field">
-    <%= image_tag(resource.profile_photo) if resource.profile_photo.attached? %> 
-  </div>
+    <% if action_name == "edit" %>
+      <%= f.label :profile_photo do %>
+        <div class="upload upload-edit profile-photo photo">
+          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <% if resource.profile_photo.attached? %>
+            <span id="add" hidden>+</span>
+            <%= image_tag(resource.profile_photo, id: 'output') %>
+          <% else %>
+            <img id="output"/>
+          <% end %>
+          <div class="trash-icon"></div>
+        </div>
+      <% end %>
+    <% end %>
+      <aside>
+        <h2>Editar datos de usuario</h2>
 
-  <div class="field">
-    <%= f.file_field :profile_photo %> 
-  </div>
+        <div class="field">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :email, 'Correo' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </aside>
+    </section>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+    <section class="edit-sect-2">
+      <div class="field">
+        <%= f.label :birthdate, 'Fecha de nacimiento' %>
+        <%= f.date_field :birthdate %>
+      </div>
 
-  <div class="field">
-    <%= f.label :gender, style: "display: block" %>
-    <%= f.text_field :gender %>
-  </div>
+      <div class="field">
+        <%= f.label :phone, 'Teléfono' %>
+        <%= f.telephone_field :phone, autocomplete: "phone" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :birthdate %>
-    <%= f.date_field :birthdate %>
-  </div>
+      <div class="field">
+        <%= f.label :gender, 'Genero', style: "display: block" %>
+        <%= f.select :gender, [["Masculino", "male"], ["Femenino", "female"]] %>
+      </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, autocomplete: "address" %>
-  </div>
+      <div class="field edit-pw">
+        <%= f.label :password, 'Contraseña' %> <i>(Deja en blanco si no deseas cambiar tu contraseña)</i>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.telephone_field :phone, autocomplete: "phone" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field edit-pw">
+        <%= f.label :password_confirmation, 'Confirma tu contraseña' %>
+        <% if @minimum_password_length %>
+          <i><%= @minimum_password_length %> caracteres minimos</i>
+        <% end %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </section>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="field">
+      <%= f.label :address, 'Dirección' %>
+      <%= f.text_field :address, autocomplete: "address" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+
+    <div class="field edit-pw">
+      <%= f.label :current_password, 'Contraseña actual' %> <i>(Ingresa tu contraseña para confirmar tus cambios)</i>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <% unless resource.dni_photo.attached? %>
+      <div class="field file-field">
+        <%= f.label :dni_photo do %>
+          <span><strong>Debes subir tu identificación:</strong></span>
+          <div class="upload photo">
+            <%= f.file_field :dni_photo, onchange: 'loadDNI(event)', class: 'input-file' %>
+            <span id="addDNI">+</span>
+            <img id="dni"/>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Actualizar" %>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="edit-sect-3">
+    <h3>¿No te gusta PetCare?</h3>
+
+    <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <%= link_to 'Regresar', :back %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

@@ -80,7 +80,7 @@
   @include center-flex-column;
   font-size: 2rem;
   margin-bottom: 4rem;
-  min-height: calc(100vh - 229px);
+  min-height: calc(100vh - 80px);
   padding-top: 5.4rem;
 }
 
@@ -149,11 +149,12 @@
   }
 
   select {
-    background-color: $light-grey;
-    border-radius: 2rem;
-    color: white;
+    background-color: $secundary-color;
+    border-radius: 8px;
+    border: none;
+    box-shadow: $low-shadow;
     margin: 1rem 0;
-    padding: 0.8rem 1.2rem;
+    padding: 8px;
   }
 }
 
@@ -222,6 +223,7 @@
   .trash-icon {
     background-color: $shadow-grey;
     color: $black;
+    cursor: pointer;
     display: none;
     height: 100%;
     position: absolute;
@@ -252,6 +254,7 @@
       display: block;
     }
   }
+  
   .upload:hover {
     background-color: $shadow-grey;
   }
