@@ -49,6 +49,11 @@
         <%= f.select :gender, [["Masculino", "male"], ["Femenino", "female"]] %>
       </div>
 
+      <div class="field">
+          <%= f.label :role, 'Usuario' %>
+          <%= f.select :role, [["Huesped", "guest"], ["Anfitrión", "host"]], {}, onchange: "showDni();" %>
+        </div>
+
       <div class="field edit-pw">
         <%= f.label :password, 'Contraseña' %> <i>(Deja en blanco si no deseas cambiar tu contraseña)</i>
         <%= f.password_field :password, autocomplete: "new-password" %>
@@ -77,15 +82,15 @@
       <%= f.label :current_password, 'Contraseña actual' %> <i>(Ingresa tu contraseña para confirmar tus cambios)</i>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
-
-    <% unless resource.dni_photo.attached? %>
-      <div class="field file-field">
+    <% if !resource.dni_photo.attached?%>
+      <div class="field file-field" id="hidden_div">
         <%= f.label :dni_photo do %>
           <span><strong>Debes subir tu identificación:</strong></span>
           <div class="upload photo">
             <%= f.file_field :dni_photo, onchange: 'loadDNI(event)', class: 'input-file' %>
             <span id="addDNI">+</span>
             <img id="dni"/>
+            <div class="trash-icon"></div>
           </div>
         <% end %>
       </div>

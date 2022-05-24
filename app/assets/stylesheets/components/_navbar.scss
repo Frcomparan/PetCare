@@ -77,6 +77,10 @@ nav {
         text-decoration: none;
       }
 
+      .right-nav > a:hover {
+        font-weight: 700;
+      }
+
       .right-nav {
         display: flex;
         gap: 1rem;  
