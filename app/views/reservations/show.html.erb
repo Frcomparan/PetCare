@@ -1,10 +1,10 @@
 <main class="reservation-main">
   <%= render @reservation %>
 
-  <div>
+  <div class="links">
     <% if @reservation.guest == current_user %>
-      <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %>
+      <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_reservation_path(@reservation) %>
     <% end %> 
-    <%= link_to "Back to reservations", reservations_path %>
+    <%= link_to '<i class="fa-solid fa-arrow-rotate-left"></i>'.html_safe, reservations_path %>
   </div>
 </main>

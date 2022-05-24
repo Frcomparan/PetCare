@@ -55,6 +55,8 @@
     <% end %>    
   <% end %>
   <% if reservation.review.nil? && reservation.finished? && Review.left_review?(reservation.home_id, current_user) %>
-    <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
+    <%= link_to new_review_path(reservation: reservation), class: 'review-link' do %>
+      <span>Deja un comentario</span><i class="fa-solid fa-comment-dots"></i>
+    <% end %>
   <% end %>
 </article>

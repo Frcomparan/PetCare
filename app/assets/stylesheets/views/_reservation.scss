@@ -1,5 +1,5 @@
-.guest-reservation, .host-reservation {
-  width: 100%;
+.host-reservation .reservation {
+  border: 1px solid black;
 }
 
 .reservation {
@@ -77,6 +77,20 @@
     padding: 1rem;
     position: relative;
     width: 100%;
+
+    .left-review {
+      font-size: 2rem;
+      position: absolute;
+      right: 6px;
+      top: 10px;
+    }
+  }
+
+  .review-link {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    text-decoration: none;
   }
 
   h1 {
@@ -124,10 +138,18 @@
     }
 
     figure {
-      width: 35%;
+      justify-content: right;
+      max-width: 35%;
 
       p {
+        text-align: right;
         width: 100%;
+      }
+
+      img {
+        height: 70px;
+        object-fit: cover;
+        width: 100px;
       }
     }
   }
@@ -152,6 +174,7 @@
     }
 
     .reservation {
+      padding-right: 30px;
       width: 650px;
   
       p { font-size: 1.3rem; }
@@ -180,5 +203,18 @@
     }
 
     .reservation-guest > p { font-size: 2rem; }
+
+    .pending { background-color: $pending; }
+
+    .canceled { background-color: $canceled; }
+
+    .aproved { background-color: $approved; }
+
+    .finished { background-color: $finished; }
+  }
+
+  .links {
+    display: flex;
+    gap: 50px;
   }
 }

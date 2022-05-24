@@ -1,4 +1,5 @@
-<article class="reservation">
+
+<article class="reservation <%= reservation.status %>">
   <div class="reservation-detail">
     <h1><%= reservation.home.title %></h1>
     <section class="reservation-info">
@@ -27,6 +28,6 @@
     <p>Total: <strong>$<%= reservation.amount %></strong></p>
   </div>
   <% if reservation.review.nil? && reservation.finished? && Review.left_review?(reservation.home_id, current_user) %>
-    <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
+    <i class="fa-solid fa-comment-dots left-review"></i>
   <% end %>
 </article>
