@@ -1,0 +1,96 @@
+label{
+  justify-content: center;
+}
+
+#icon-back{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#second {
+  display: none;
+}
+
+@media (min-width: $breakpoint-mobile) {
+  #first {
+    display: none;
+  }
+
+  #second {
+    display: block;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .new-desktop {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 3px black;
+    margin: 30px auto;
+    padding: 30px;
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .new-home-cont {
+    display: flex;
+    margin: 0 5px;
+  }
+
+  .new-home-photo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    overflow: auto;
+
+    .field .file-field {
+      width: 80%;
+      height: 50%;
+    }
+
+    .file-field label {
+      display: unset;
+      height: 500px;
+      font-size: larger;
+    }
+
+    .file-field .photos-field {
+      min-height: 645px;
+      min-width: 80px;
+    }
+
+    strong {
+      text-align: center;
+    }
+  }
+
+  .new-home-form {
+    width: 50%;
+    align-items: center;
+
+    .field {
+      label {
+        text-align: center;
+      }
+      
+      input {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .button-back {
+    padding: 0 33%; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
