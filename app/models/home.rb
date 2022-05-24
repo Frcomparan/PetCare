@@ -5,11 +5,17 @@ class Home < ApplicationRecord
   has_many_attached :photos
 
   validates :title, :address, :description, :price, presence: true
+  validate :verified_user?
 
   scope :filter_by_price_lower, -> { order :price }
   scope :filter_by_price_higher, -> { order price: :desc }
   scope :filter_by_score, -> { order score: :desc }
   scope :filter_by_date, -> { order created_at: :desc }
+
+  def verified_user?
+    puts "\n\n\n\n\n\n\n\n\n\n\n\n #{user.verified?} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    errors.add('Debes estar verificado para registrar casas') unless user.verified?
+  end
 
   def self.search_filter(filtering_param)
     results = self.where(nil)
