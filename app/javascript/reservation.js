@@ -13,4 +13,9 @@ const totalAmount = () => {
   amount.innerText = "$" + cost * diffDays;
 }
 
+const updateRangeValue = () => {
+  value = document.getElementById('myRange').value;
+  document.getElementById('rangeValue').innerText = "Puntación: " + value;
+}
+
 window.onload = totalAmount();

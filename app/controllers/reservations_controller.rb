@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[show edit update destroy]
+  before_action :set_reservation, only: %i[show edit update]
   before_action :authenticate_user!
   # load_and_authorize_resource
 

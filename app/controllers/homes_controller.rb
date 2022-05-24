@@ -11,7 +11,9 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1 or /homes/1.json
-  def show; end
+  def show
+    @reviews = Review.where(home: @home).limit(4)
+  end
 
   # GET /homes/new
   def new

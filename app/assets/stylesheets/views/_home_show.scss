@@ -53,7 +53,7 @@
   width: 100%;
 }
 
-.reservation {
+.home-reservation .reservation {
   @include center-flex-column;
   border-radius: 15px;
   border: none;
@@ -68,7 +68,7 @@
     text-align: center;
   }
 
-  .reservation-form {
+  .reservation-preview {
     border-radius: 15px;
     border: none;
     box-shadow: 0 0 3px black;
@@ -103,9 +103,19 @@
   .btn-reservation {
     background-color: $primary-color;
     border-radius: 15px;
+    border: 1px solid $black;
+    color: black;
     height: 30px;
     margin-bottom: 15px;
+    padding-top: 5px;
+    text-align: center;
+    text-decoration: none;
     width: 40%;
+  }
+
+  .btn-reservation:hover {
+    cursor: pointer;
+    transform: scale(1.05);
   }
 }
 
@@ -175,22 +185,28 @@
   display: flex;
   justify-content: space-between;
 
+  .img-main {
+    max-width: 100vw;
+  }
 }
 
 @media (min-width: $breakpoint-mobile) {
   .show-desktop {
+    background-color: $white;
     border-radius: 15px;
     border: none;
     box-shadow: 0 0 3px black;
     display: flex;
+    justify-content: space-between;
     margin: 30px auto;
     padding: 30px;
-    width: 90%;
+    width: 1210px;
   }
 
   .photos-selection {
     cursor: pointer;
     display: block;
+    max-width: 70px;
     object-fit: cover;
     opacity: .7;
     transition: .3s;
@@ -214,6 +230,27 @@
   .home-reservation {
     display: flex;
     flex-direction: initial;
+    justify-content: end;
+    
+    .reservation {
+      max-width: 500px;
+      min-width: 410px;
+
+      .reservation-preview {
+        @include center-flex-column;
+        padding: 10px;
+
+        .days, .pets {
+          width: 80%;
+        }
+
+        .days {
+          border: none;
+          justify-content: space-between;
+          margin-bottom: 8px;
+        }
+      }
+    }
   }
 
   .content-show {
@@ -221,6 +258,8 @@
       border-bottom: none;
       flex-direction: column;
       justify-content: flex-start;
+      min-width: 200px;
+      width: 40%;
       
       span {
         border-bottom: solid 2px;
@@ -233,12 +272,21 @@
   .opinions {
     border-radius: 15px;
     box-shadow: 0 0 3px black;
-    height: 235px;
-    padding: 32px;
+    height: auto;
+    max-height: 300px;
+    padding: 20px;
 
-    .wrap-opnions {
-      display: flex;
-      justify-content: space-between;
+    .reviews {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 90px 90px;
+      max-height: 80%;
+
+      .opinion {
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+      } 
     }
 
     section.opinion {
@@ -246,9 +294,18 @@
     }
   }
 
+  .opinions > p {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
   .img-photo {
     display: flex;
     margin-bottom: 1rem;
+
+    .img-main {
+      width: 450px;
+    }
 
     .photo-secundary {
       margin-bottom: 5px;
@@ -265,5 +322,16 @@
   
   .button-img {
   display: none;
+  }
+
+  .reputation {
+    .score {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+  
+      p {
+        width: 100%;
+      }
+    }
   }
 }
