@@ -28,6 +28,7 @@
         <%= @home.user.name %>
       <% end %>
     </div>
+    <%= render 'partials/calendar', meetings: @meetings %>
   </section>
   <div class="content-show">
     <p class="show-house-text"><%= @home.description%></p>

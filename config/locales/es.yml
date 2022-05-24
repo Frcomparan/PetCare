@@ -19,3 +19,6 @@ es:
     messages:
       not_saved: No guardado
   hello: Hola Mundo
+  simple_calendar:
+    previous: "<-"
+    next: "->"

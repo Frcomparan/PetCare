@@ -29,3 +29,8 @@ $y-shadow-reverse: 0 -2px 5px $black;
 //Borders
 $simple-boder-black: 1px solid $black;
 $simple-boder-white: 1px solid $white;
+
+//Calendar
+$events: hsl(0, 100%, 73%);
+$other-month: hsl(0, 0%, 76%);
+$today: $primary-color;

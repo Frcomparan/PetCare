@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
          
-  has_many :pets
+  has_many :pets, dependent: :destroy
   has_many :homes, dependent: :destroy
   has_many :guest_reservations, class_name: 'Reservation', foreign_key: 'guest_id'
   has_many :host_reservations, class_name: 'Reservation', foreign_key: 'host_id'
