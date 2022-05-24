@@ -144,4 +144,41 @@
       width: auto;
     }
   }
+
+  .reservation-index {
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+
+    .reservation {
+      width: 650px;
+  
+      p { font-size: 1.3rem; }
+    }
+
+    .reservation-date { justify-content: center; }
+
+    .reservation-detail .reservation-date p {
+      margin: 0;
+    }
+
+    .reservation-info { 
+      padding: 0 1rem 1rem 0;
+    }
+
+    .reservation-detail h1 { 
+      font-size: 2.1rem;
+      text-align: center; 
+    }
+
+    .reservation-guest {
+      align-items: center;
+      padding-left: 2rem;
+
+      h1 { font-size: 1.8rem; }
+    }
+
+    .reservation-guest > p { font-size: 2rem; }
+  }
 }

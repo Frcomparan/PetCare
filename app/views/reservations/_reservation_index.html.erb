@@ -1,0 +1,32 @@
+<article class="reservation">
+  <div class="reservation-detail">
+    <h1><%= reservation.home.title %></h1>
+    <section class="reservation-info">
+      <div>
+        <strong><p>Dirección:</p></strong>
+        <p><%= reservation.home.address %></p>
+        <strong><p>Ofrecido:</p></strong>
+        <p><%= reservation.home.user.name %></p>
+      </div>
+    </section>
+    <section class="reservation-date">
+      <p>
+        Se solicito una reservación del 
+        <strong><%= reservation.check_in.strftime('%d/%m/%Y') %></strong> al 
+        <strong><%= reservation.check_out.strftime('%d/%m/%Y') %></strong>
+      </p>
+    </section>
+  </div>
+  <div class="reservation-guest">
+    <h1>Reservación solicitada por:</h1>
+    <div>
+      <p><strong>Huesped:</strong> <%= reservation.guest.name %></p>
+      <p><strong>Mascotas a cuidar:</strong> <%= reservation.pets_number %></p>
+      <p><strong>Estatus:</strong> <%= reservation.status %></p>
+    </div>
+    <p>Total: <strong>$<%= reservation.amount %></strong></p>
+  </div>
+  <% if reservation.review.nil? && reservation.finished? && Review.left_review?(reservation.home_id, current_user) %>
+    <%= link_to "Deja tu comentario", new_review_path(reservation: reservation) %>
+  <% end %>
+</article>

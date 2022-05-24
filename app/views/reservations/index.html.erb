@@ -1,4 +1,4 @@
-<main class="reservation-main">
+<main class="reservation-main reservation-index">
   <h1>Reservaciones</h1>
     <% if @host_reservations.size.zero? and @guest_reservations.size.zero? %>
       <p>No ha realizado ninguna reservación</p>
@@ -6,19 +6,18 @@
       <% unless @guest_reservations.size.zero? %>
         <span>Hechas</span>
         <% @guest_reservations.each do |reservation| %>
-          <div class="guest-reservations" id=<%= dom_id reservation %>>
-            <%= render reservation %>
-            <p>
-              <%= link_to "Ver reservación", reservation %>
-            </p>
-          </div>
+          <%= link_to reservation_path(reservation) do %>
+            <div class="guest-reservations">
+              <%= render "reservation_index", reservation: reservation %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
       <% unless @host_reservations.size.zero? %>
         <span>Solicitadas</span>
         <% @host_reservations.each do |reservation| %>
           <div class="host-reservation" id=<%= dom_id reservation %>>
-            <%= render reservation %>
+            <%= render "reservation_index", reservation: reservation %>
             <p>
               <%= link_to "Ver reservación", reservation %>
             </p>
