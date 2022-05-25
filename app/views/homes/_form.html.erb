@@ -27,48 +27,60 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="field file-field">
-    <%= form.label :photos do %>
-      <span><strong>Subir fotos:</strong></span>
-      <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file'%>
-      <div class="upload photos-field" id="upload">
-        <span id="add">+</span>
+<div class="new-desktop">
+  <h1 id="second">New home</h1>
+  <div class="new-home-cont">
+    <div class="new-home-photo">
+      <div class="field file-field">
+        <%= form.label :photos do %>
+          <span><strong>Subir fotos:</strong></span>
+          <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file'%>
+          <div class="upload photos-field" id="upload">
+            <span id="add">+</span>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="new-home-form">
+      <div class="field">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
 
-  <div class="field">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="field">
+        <%= form.label :address %>
+        <%= form.search_field :address,  class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
+      </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.search_field :address,  class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
-  </div>
+      <div class="field">
+        <%= form.hidden_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
+      </div>
 
-  <div class="field">
-    <%= form.hidden_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
-  </div>
+      <div class="field">
+        <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
+      </div>
 
-  <div class="field">
-    <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
-  </div>
+      <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
 
-  <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+      <div class="field">
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+      <div class="field">
+        <%= form.label :price, style: "display: block" %>
+        <%= form.text_field :price %>
+      </div> 
+      
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="button-back">
+    <div class="actions">
+      <%= form.submit class: "button" %>
+    </div>
+    <div id="icon-back">
+      <a href= <%= homes_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <% end %>
+</div>

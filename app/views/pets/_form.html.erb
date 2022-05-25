@@ -2,7 +2,6 @@
   <% if pet.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-
       <ul>
         <% pet.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <% if action_name == 'edit' %>
     <div class="field file-field">
       <%= form.label :photo do %>
@@ -27,34 +25,44 @@
       <% end %>
     </div>
   <% else %>
-    <div class="field file-field">
-      <%= form.label :photo do %>
-        <span><strong>Subir foto:</strong></span>
-        <div class="upload">
-          <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file' %>
-          <span id="add">+</span>
-          <img id="output"/>
-        </div>
-      <% end %>
+<div class="new-desktop">
+  <h1 id="second">Nueva Mascota</h1>
+  <div class="new-home-cont">
+    <div class="new-home-photo">
+      <div class="field file-field">
+        <%= form.label :photo do %>
+          <span><strong>Subir foto:</strong></span>
+          <div class="upload">
+            <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
+            <span id="add">+</span>
+            <img id="output"/>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <% end %>
+    <div class="new-home-form pets">
+      <div class="field">
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="field">
+        <%= form.label :breed, style: "display: block" %>
+        <%= form.text_field :breed %>
+      </div>
+      <div class="field">
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description %>
+      </div>
+    </div>
+  </div>
+  <div class="button-back">
+    <div class="actions">
+      <%= form.submit class: "button" %>
+    </div>
+    <div id="icon-back">
+      <a href= <%= pets_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :breed, style: "display: block" %>
-    <%= form.text_field :breed %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
