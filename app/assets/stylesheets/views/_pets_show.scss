@@ -7,7 +7,6 @@
     img {
       height: 160px;
       object-fit: cover;
-      width: 240px;
     }
   }
 
@@ -25,10 +24,8 @@
   }
 }
 
-.show-pets-buttons { 
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+.show-pets-buttons {
+  margin-top: 20px;
 }
 
 .show-pet-link {
@@ -43,7 +40,7 @@
 
 @media only screen and (min-width: $breakpoint-mobile) {
   #pets {
-    display: flex;
+    @include center-flex-row;
     flex-wrap: wrap;
     gap: 20px;
     width: 80%;
@@ -56,10 +53,9 @@
 
   .pets-view {
     background-color: $white;
-    height: 100%;
-    height: 90%;
     margin: 0;
-    padding: 10px;
+    min-height: 330px;
+    padding: 15px;
     width: 300px;
   }
 

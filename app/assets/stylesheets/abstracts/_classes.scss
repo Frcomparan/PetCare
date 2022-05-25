@@ -58,19 +58,15 @@
     @include center-grid;
     width: 10%;
 
-    div {
+    button {
       @include center-grid;
       border-radius: 50%;
+      border: none;
       height: 3rem;
       width: 3rem;
-      
-      button {
-        background-color: inherit;
-        border: none;
-      }
     }
 
-    div:hover {
+    button:hover {
       background-color: $text-grey
     }
   }
