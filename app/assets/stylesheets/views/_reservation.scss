@@ -1,5 +1,5 @@
-.guest-reservation, .host-reservation {
-  width: 100%;
+.host-reservation .reservation {
+  border: 1px solid black;
 }
 
 .reservation {
@@ -76,11 +76,21 @@
     display: grid;
     padding: 1rem;
     position: relative;
-    width: 100%;
+    width: 900px;
+
+    .left-review {
+      font-size: 2rem;
+      position: absolute;
+      right: 6px;
+      top: 10px;
+    }
   }
 
-  h1 {
-    display: block;
+  .review-link {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    text-decoration: none;
   }
 
   .reservation-detail {
@@ -88,7 +98,7 @@
     flex-wrap: wrap;
 
     h1 {
-      width: 100%;
+      width: 65%;
     }
 
     .reservation-info {
@@ -102,10 +112,6 @@
       justify-content: space-between;
       width: 30%;
 
-      p:first-child {
-        margin-top: 4.5rem;
-      }
-
       p:nth-child(2) {
         font-size: 2.5rem;
         text-align: right;
@@ -114,23 +120,35 @@
   }
 
   .reservation-guest {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 
     h1 {
+      font-size: 2.4rem;
       width: 100%;
     }
 
     figure {
-      width: 35%;
+      justify-content: right;
+      max-width: 35%;
 
       p {
+        text-align: right;
         width: 100%;
+      }
+
+      img {
+        height: 70px;
+        object-fit: cover;
+        width: 100px;
       }
     }
   }
+
+  .reservation-guest > p { font-size: 3rem; }
 
   .status-buttons {
     display: block;
@@ -143,5 +161,57 @@
       display: inline-block;
       width: auto;
     }
+  }
+
+  .reservation-index {
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+
+    .reservation {
+      padding-right: 30px;
+      width: 650px;
+  
+      p { font-size: 1.3rem; }
+    }
+
+    .reservation-date { justify-content: center; }
+
+    .reservation-detail .reservation-date p {
+      margin: 0;
+    }
+
+    .reservation-info { 
+      padding: 0 1rem 1rem 0;
+    }
+
+    .reservation-detail h1 { 
+      font-size: 2.1rem;
+      padding-left: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .reservation-guest {
+      padding-left: 2rem;
+
+      h1 { font-size: 1.8rem; }
+    }
+
+    .reservation-guest > p { font-size: 2rem; }
+
+    .pending { background-color: $pending; }
+
+    .canceled { background-color: $canceled; }
+
+    .aproved { background-color: $approved; }
+
+    .finished { background-color: $finished; }
+  }
+
+  .links {
+    display: flex;
+    gap: 50px;
   }
 }
