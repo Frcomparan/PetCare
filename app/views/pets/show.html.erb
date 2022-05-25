@@ -2,5 +2,5 @@
 <div class="show-pets-buttons">
   <a href= <%= edit_pet_path(@pet) %>><i class="fa-solid fa-pen-to-square"></i></a>
   <a href= <%= pets_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
-  <%= button_to "Eliminar", @pet, method: :delete %>
+  <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, pets_delete_path(@pet) %>
 </div>   

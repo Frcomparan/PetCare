@@ -81,11 +81,17 @@
         <%= link_to 'Mostrar más', homes_reviews_path %>
       </div>
     </div>
-    <div class="options-show">
-      <a href= <%= edit_home_path(@home) %>><i class="fa-solid fa-pen-to-square"></i></a>
-      <a href= <%= homes_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
-      <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, homes_delete_path(@home) %>
-    </div>
   </div>
   <script> photos(); photosMobile(); </script>
+</div>
+<div class="options-show">
+  
+  <% if current_user == @home.user %>
+    <a href= <%= edit_home_path(@home) %>><i class="fa-solid fa-pen-to-square"></i></a>
+  <% end %>
+  <a href= <%= homes_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
+  <% if current_user == @home.user %>
+    <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, homes_delete_path(@home) %>
+  <% end %>
+  
 </div>

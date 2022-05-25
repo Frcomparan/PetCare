@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/homes/:id/reviews' => 'reviews#index', as: 'homes_reviews'
   get '/homes/:id/delete' => 'homes#destroy', as: 'homes_delete'
+  get '/pets/:id/delete' => 'pets#destroy', as: 'pets_delete'
   get 'users/index'
   post 'notifications/:id/mark_as_read' => 'notifications#mark_as_read'
   post 'notifications/mark_as_read' => 'notifications#mark_as_read'

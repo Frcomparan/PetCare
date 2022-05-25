@@ -1,5 +1,4 @@
 .content-pet {
-
   .new-pet-photo {
     img {
       margin-bottom: 20px;
@@ -42,9 +41,19 @@
     display: flex;
     gap: 20px;
     width: 70%;
+
+    a {
+      color: $black;
+      text-decoration: none;
+    }
   }
 
   .pets-view {
+    background-color: $white;
     height: 90%;
+  }
+
+  .pets-view:hover {
+    transform: scale(1.03);
   }
 }
