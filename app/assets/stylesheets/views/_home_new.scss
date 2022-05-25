@@ -26,6 +26,7 @@ label{
   }
 
   .new-desktop {
+    background-color: $white;
     border-radius: 15px;
     border: none;
     box-shadow: $medium-shadow;
@@ -75,16 +76,6 @@ label{
   .new-home-form {
     width: 50%;
     align-items: center;
-
-    .field {
-      label {
-        text-align: center;
-      }
-      
-      input {
-        border-radius: 0;
-      }
-    }
   }
 
   .button-back {

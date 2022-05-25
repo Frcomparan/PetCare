@@ -43,26 +43,26 @@
     <% end %>
     <div class="new-home-form pets">
       <div class="field">
-        <%= form.label :name, style: "display: block" %>
+        <%= form.label :name, 'Nombre', style: "display: block" %>
         <%= form.text_field :name %>
       </div>
       <div class="field">
-        <%= form.label :breed, style: "display: block" %>
+        <%= form.label :breed, 'Raza', style: "display: block" %>
         <%= form.text_field :breed %>
       </div>
       <div class="field">
-        <%= form.label :description, style: "display: block" %>
+        <%= form.label :description, 'Descripción', style: "display: block" %>
         <%= form.text_field :description %>
       </div>
     </div>
   </div>
   <div class="button-back">
     <div class="actions">
-      <%= form.submit class: "button" %>
-    </div>
-    <div id="icon-back">
-      <a href= <%= pets_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
+      <%= form.submit 'Guardar', class: "button" %>
     </div>
   </div>
   <% end %>
+</div>
+<div id="icon-back links">
+  <a href= <%= pets_path %>><i class="fa-solid fa-arrow-rotate-left"></i></a>
 </div>
