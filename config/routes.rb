@@ -19,11 +19,10 @@ Rails.application.routes.draw do
   root "pages#home"
 
   match '/users',   to: 'users#index',   via: 'get'
-
   put '/users/:id', action: :verify, controller: 'users'
-
   post "/search_homes" => "homes#search"
   get "/search_homes" => "homes#index"
+  get "/my_homes" => "homes#my_homes", as: 'my_homes'
 
   get '/homes/search_homes', action: :index, controller: 'homes'
 end

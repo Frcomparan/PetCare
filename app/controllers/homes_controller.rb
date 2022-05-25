@@ -77,6 +77,11 @@ class HomesController < ApplicationController
     render action: "index", locals: { homes: @homes, ids: @ids }
   end
 
+  def my_homes
+    @homes = Home.where(user: current_user)
+    @homes = @homes.search_filter(params[:filter]) if params.key?(:filter)
+  end
+
   private
 
   # Only allow a list of trusted parameters through.
