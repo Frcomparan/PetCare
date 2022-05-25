@@ -7,7 +7,9 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = params.key?(:filter) ? Home.search_filter(params[:filter]) : Home.all
+    @ids = params[:homes_ids] if params.key?(:homes_ids)
+    @homes = params.key?(:homes_ids) ? Home.where(id: @ids) : Home.all
+    @homes = @homes.search_filter(params[:filter]) if params.key?(:filter)
   end
 
   # GET /homes/1 or /homes/1.json
@@ -67,12 +69,12 @@ class HomesController < ApplicationController
   end
 
   def search
-    ids = params[:ids].split(',')
+    @ids = params[:ids].split(',')
     if params[:llegada] != "" && params[:salida] != "" 
-      ids = ids.reject { |id| (Reservation.valid_create(params[:salida], params[:llegada], id).size > 0) }
+      @ids = @ids.reject { |id| (Reservation.valid_create(params[:salida], params[:llegada], id).size > 0) }
     end
-    @homes = Home.where(id: ids)
-    render action: "index", object: @homes  
+    @homes = Home.where(id: @ids)
+    render action: "index", locals: { homes: @homes, ids: @ids }
   end
 
   private
