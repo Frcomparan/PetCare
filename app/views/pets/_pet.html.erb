@@ -1,27 +1,28 @@
-<div id="<%= dom_id pet %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pet.name %>
-  </p>
-
-  <p>
-    <strong>Breed:</strong>
-    <%= pet.breed %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= pet.description %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= pet.user_id %>
-  </p>
-
-  <p>
-    <strong>Photo:</strong>
-    <%= image_tag pet.photo.variant(resize_to_limit: [100, 100]) %>
-  </p>
-
+<div id="<%= dom_id pet %>" class="pet-id">
+  <div class="new-desktop pets-view">
+    <div class="content-pet">
+      <div class="new-pet-photo">
+        <p class="img-photo">
+          <%= image_tag pet.photo.variant(resize_to_limit: [300, 300]), class:"img-main" %>
+        </p>
+      </div>  
+      <div class="field-pet-photo">
+        <p>
+        <strong>Nombre:</strong>
+          <%= pet.name %>
+        </p>
+        <p>
+          <strong>Raza:</strong>
+          <%= pet.breed %>
+        </p>
+        <p>
+          <strong>Descripción:</strong>
+          <%= pet.description %>
+        </p>
+      </div>
+      <p class="show-pet-link">
+        <%= link_to "Mostrar", pet %>
+      </p>
+    </div>
+  </div>
 </div>
