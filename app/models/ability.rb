@@ -24,6 +24,7 @@ class Ability
       end
     else
       can :read, [Home, User]
+      can :search, [Home]
     end
   end
 end

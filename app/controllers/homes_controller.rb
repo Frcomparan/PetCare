@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HomesController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show search]
   load_and_authorize_resource
   skip_before_action :verify_authenticity_token,  only: [:search, :index]
 
