@@ -16,6 +16,14 @@
   }
 }
 
+.add-model { 
+  @include center-grid;
+}
+
+.content .add-model:hover {
+  background-color: $secundary-color;
+}
+
 .home-card {
   background-color: $white;
   border-radius: 10px;

@@ -14,7 +14,7 @@
       <%= link_to "Mis reservaciones", reservations_path %>
       <% if current_user.guest? %>
         <%= link_to "Hazte anfitrión", root_path %>
-      <% elsif current_user.host? %>
+      <% elsif !current_user.guest? %>
         <%= link_to "Mis alojamientos", my_homes_path %>
       <% end %>
       <% if current_user.role == "admin" %>

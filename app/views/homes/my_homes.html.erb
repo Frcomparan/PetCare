@@ -11,6 +11,9 @@
   </nav>
 
   <div class="homes" id="homes">
+    <%= link_to new_home_path, class: 'home-card add-model' do %>
+      <span>+</span>
+    <% end %>
     <% @homes.each do |home| %>
       <%= link_to home, class: 'home-card-container' do %>
         <%= render 'home_card', home: home %>
