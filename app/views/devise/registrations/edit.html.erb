@@ -3,21 +3,21 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <section class="edit-sect-1">
-
-    <% if action_name == "edit" %>
-      <%= f.label :profile_photo do %>
-        <div class="upload upload-edit profile-photo photo">
-          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
-          <% if resource.profile_photo.attached? %>
-            <span id="add" hidden>+</span>
-            <%= image_tag(resource.profile_photo, id: 'output') %>
-          <% else %>
-            <img id="output"/>
-          <% end %>
-          <div class="trash-icon"></div>
-        </div>
+      <% if action_name == "edit" %>
+        <%= f.label :profile_photo do %>
+          <div class="upload upload-edit profile-photo photo">
+            <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
+            <% if resource.profile_photo.attached? %>
+              <span id="add" hidden>+</span>
+              <%= image_tag(resource.profile_photo, id: 'output') %>
+            <% else %>
+              <img id="output"/>
+            <% end %>
+            <div class="trash-icon"></div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+
       <aside>
         <h2>Editar datos de usuario</h2>
 
@@ -50,9 +50,9 @@
       </div>
 
       <div class="field">
-          <%= f.label :role, 'Usuario' %>
-          <%= f.select :role, [["Huesped", "guest"], ["Anfitrión", "host"]], {}, onchange: "showDni();" %>
-        </div>
+        <%= f.label :role, 'Usuario' %>
+        <%= f.select :role, [["Huesped", "guest"], ["Anfitrión", "host"]], {}, onchange: "showDni();" %>
+      </div>
 
       <div class="field edit-pw">
         <%= f.label :password, 'Contraseña' %> <i>(Deja en blanco si no deseas cambiar tu contraseña)</i>
@@ -77,11 +77,11 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-
     <div class="field edit-pw">
       <%= f.label :current_password, 'Contraseña actual' %> <i>(Ingresa tu contraseña para confirmar tus cambios)</i>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
+
     <% if !resource.dni_photo.attached?%>
       <div class="field file-field" id="hidden_div">
         <%= f.label :dni_photo do %>
@@ -103,7 +103,6 @@
 
   <div class="edit-sect-3">
     <h3>¿No te gusta PetCare?</h3>
-
     <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
     <%= link_to 'Regresar', :back %>
   </div>

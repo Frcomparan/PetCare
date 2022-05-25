@@ -7,7 +7,9 @@
     </div>
 
     <div class="right-nav">
-      <%= link_to 'Hazte anfitrión', edit_user_registration_path %>
+      <% if user_signed_in? %>
+        <%= (link_to 'Hazte anfitrión', edit_user_registration_path) if current_user.guest? %>
+      <% end %>
       <ul class="menus" id="menus">
         <li onclick="showGeneralMenu()" class="filter-options" id="filter-options">
           <i class="fa-solid fa-bars"><%= render 'partials/general_options' %></i>

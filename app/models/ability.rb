@@ -10,9 +10,13 @@ class Ability
       elsif user.host?
         can [:show, :profile], User
         can [:search, :my_homes], Home
-        can [:read, :create], [Home, Pet]
+        can [:read, :create], Pet
         can [:update, :destroy], [Home, Pet] do |item| 
           item.user == user
+        end
+        can :read, Home
+        if user.verified?
+          can :create, Home
         end
       elsif user.guest?
         can [:search, :read], Home

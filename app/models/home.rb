@@ -13,7 +13,6 @@ class Home < ApplicationRecord
   scope :filter_by_date, -> { order created_at: :desc }
 
   def verified_user?
-    puts "\n\n\n\n\n\n\n\n\n\n\n\n #{user.verified?} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
     errors.add('Debes estar verificado para registrar casas') unless user.verified?
   end
 
