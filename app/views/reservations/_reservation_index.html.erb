@@ -27,7 +27,7 @@
     </div>
     <p>Total: <strong>$<%= reservation.amount %></strong></p>
   </div>
-  <% if reservation.review.nil? && reservation.finished? && Review.left_review?(reservation.home_id, current_user) %>
+  <% if left_review?(reservation.home_id, reservation) %>
     <i class="fa-solid fa-comment-dots left-review"></i>
   <% end %>
 </article>
