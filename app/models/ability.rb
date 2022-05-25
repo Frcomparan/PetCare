@@ -15,7 +15,7 @@ class Ability
           item.user == user
         end
       elsif user.guest?
-        can [:search, :my_homes], Home
+        can [:search], Home
         can [:read, :profile], [Home, User]
         can :create, Pet
         can [:read, :update, :destroy], Pet do |item|

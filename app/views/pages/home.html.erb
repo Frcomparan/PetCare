@@ -10,30 +10,30 @@
     </div>
     <div class="cards">
       <div class="cards-container">
-        <a href="/homes" class="card">
-        <figure>
+      <%= link_to homes_path(filter: 'date'), class: 'card' do %>
+         <figure>
           <%= image_tag "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class:"image"%>
         </figure>
-        <p>Villa de Alvarez</p>
-      </a>
-      <a href="/homes" class="card">
+        <p>Más recientes</p>
+      <% end %>
+      <%= link_to homes_path(filter: 'score'), class: 'card' do %>
         <figure>
           <%= image_tag "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class:"image"%>
         </figure>
-        <p>Villa de Alvarez</p>
-      </a>
-      <a href="/homes" class="card">
+        <p>Mejor reputación</p>
+       <% end %>
+      <%= link_to homes_path(filter: 'price_lower'), class: 'card' do %>
         <figure>
           <%= image_tag "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class:"image"%>
         </figure>
-        <p>Villa de Alvarez</p>
-      </a>
-      <a href="/homes" class="card">
+        <p>Menor costo</p>
+       <% end %>
+      <%= link_to homes_path(filter: 'price_higher'), class: 'card' do %>
         <figure>
           <%= image_tag "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class:"image"%>
         </figure>
-        <p>Villa de Alvarez</p>
-      </a>
+        <p>Mayor costo</p>
+       <% end %>
     </div>
   </section>    
 
