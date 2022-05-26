@@ -58,19 +58,15 @@
     @include center-grid;
     width: 10%;
 
-    div {
+    button {
       @include center-grid;
       border-radius: 50%;
+      border: none;
       height: 3rem;
       width: 3rem;
-      
-      button {
-        background-color: inherit;
-        border: none;
-      }
     }
 
-    div:hover {
+    button:hover {
       background-color: $text-grey
     }
   }
@@ -261,5 +257,22 @@
 
   .input-file {
     display: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) {
+  .field {
+    label { font-size: 1.8rem; }
+  
+    input, select {
+      border-radius: 5px;
+      box-shadow: $low-shadow;
+      font-size: 1.5rem;
+      padding: 12px 12px;
+    }
+
+    input[type="range"] {
+      box-shadow: none;
+    }
   }
 }

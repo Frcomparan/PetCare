@@ -1,7 +1,11 @@
 <h1>Tus mascotas</h1>
 <div id="pets">
   <% @pets.each do |pet| %>
-    <%= render pet %>
+      <%= link_to pet do %>
+        <%= render pet %>
+      <% end %>
+  <% end %>
+  <%= link_to new_pet_path, class: 'home-card add-model pets-view' do %>
+    <span>+</span>
   <% end %>
 </div>
-<%= link_to "Registrar mascota", new_pet_path, class: "register-pet-link" %>

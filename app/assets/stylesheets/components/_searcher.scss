@@ -15,7 +15,7 @@
 @media only screen and (min-width: $breakpoint-mobile) {
   .search-home {
     padding: 0.5rem 1rem 0.5rem 2rem;
-    width: 60%;
+    width: 700px;
 
     .search-section {
       border-right: $simple-boder-black;
@@ -37,7 +37,7 @@
     .search {
       width: 7%;
 
-      div {
+      button {
         background-color: $primary-color;
         box-shadow: $low-shadow;
       }

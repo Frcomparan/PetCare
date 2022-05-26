@@ -1,0 +1,20 @@
+<main class="homes-main">
+  <%= render 'partials/searcher' %>
+
+  <nav class="filter-nav">
+    <ul>
+      <li><%= link_to 'Más recientes', homes_path(filter: 'date', homes_ids: ids) %></li>
+      <li><%= link_to 'Mejor reputación', homes_path(filter: 'score', homes_ids: ids) %></li>
+      <li><%= link_to 'Menor costo', homes_path(filter: 'price_lower', homes_ids: ids) %></li>
+      <li><%= link_to 'Mayor costo', homes_path(filter: 'price_higher', homes_ids: ids) %></li>
+    </ul>
+  </nav>
+
+  <div class="homes" id="homes">
+    <% homes.each do |home| %>
+      <%= link_to home, class: 'home-card-container' do %>
+        <%= render 'home_card', home: home %>
+      <% end %>
+    <% end %>
+  </div>
+</main>
