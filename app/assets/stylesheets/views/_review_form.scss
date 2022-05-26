@@ -32,6 +32,8 @@
   textarea {
     background-color: $secundary-color;
     border-radius: 5px;
+    border: none;
+    box-shadow: $low-shadow;
     height: 90px;
     max-height: 90px;
     max-width: 100%;

@@ -252,7 +252,7 @@
   }
   
   .upload:hover {
-    background-color: $shadow-grey;
+    background-color: $shadow-grey !important; 
   }
 
   .input-file {

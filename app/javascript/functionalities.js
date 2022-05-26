@@ -15,6 +15,7 @@ const loadFile = (event) => {
   document.getElementById('add').style.display = 'none';
   img.src = URL.createObjectURL(event.target.files[0]);
   img.style.display = 'block';
+  document.getElementById('upload').style.backgroundColor = 'white'
 };
 
 const loadFiles = (event) => {
@@ -25,6 +26,7 @@ const loadFiles = (event) => {
     removeChilds(document.getElementsByClassName('output'));
   }
   addImages(uploadPhotos, container);
+  document.getElementById('upload').style.backgroundColor = '#ffff'
 };
 
 const removeChilds = (imgs) => {
