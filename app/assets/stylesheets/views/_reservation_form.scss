@@ -1,11 +1,24 @@
 .reservation-main {
   @include center-flex-column;
+  background-color: $white;
   margin-top: 0;
   padding-top: 0;
 
-  h1 {
-    display: none;
+  .reservation-info{
+    div{
+      p{
+        margin-bottom: 10px;
+      }
+
+      a{
+        text-decoration: none;
+      }
+    }
   }
+}
+
+h1 {
+  display: none;
 }
 
 .reservation-form {
@@ -14,55 +27,38 @@
 
 @media only screen and (min-width: $breakpoint-mobile) {
   .reservation-main {
-    padding-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 3px black;
+    margin-bottom: 20px;
+    padding : 0;
+    width: 60%;
 
-    h1 {
-      display: block;
+    .reservation-info {
+      border-bottom: 0;
+      width: 50%;
+    }
+
+    .info-reservation-desktop{
+      display: flex;
+
+      .reservation-form{
+        width: 50%;
+      }
     }
   }
 
-  .reservation-info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    .home-link {
-      min-width: 50%;
-      width: 50%;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    div {
-      padding-left: 2rem;
-
-      a {
-        text-decoration: none;
-      }
-    }
+  h1 {
+    display: block;
   }
 
   .reservation-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
-    .hidden {
-      display: none;
-    }
-
-    .field {
-      max-width: 40%;
+    input {
+      border-radius: 8px;
     }
 
     .confirm {
-      display: grid;
-      width: 100%;
-
       .actions {
-
         input {
           border-radius: 2rem;
           border: none;

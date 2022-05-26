@@ -1,18 +1,14 @@
+<h1>Realiza tu reservación</h1>
 <main class="reservation-main reservation-index">
-  <h1>Realiza tu reservación</h1>
-
-  <section class="reservation-info">
-    <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]) %>
-    <div>
-      <h2><%= @home.title %></h2>
-      <h3>Dirección:</h3>
-      <p><%= @home.address %></p>
-      <h3>Ofrecido:</h3>
-      <%= link_to @home.user.name, user_path(@home.user)%>
-    </div>
-  </section>
-
-  <%= render "form", reservation: @reservation %>
+  <div>
+    <h2><%= @home.title %></h2>
+  </div>
+  <div class="info-reservation-desktop">
+    <section class="reservation-info">
+      <%= image_tag @home.photos[0].variant(resize_to_limit: [500, 500]) %>
+    </section>
+    <%= render "form", reservation: @reservation %>
+  </div>
 </main>
 
 <div>

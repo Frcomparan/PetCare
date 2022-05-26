@@ -10,7 +10,6 @@
     </div>
   <% end %>
 
-  
   <% unless action_name == 'edit' %>
     <div class="hidden">
       <%= form.hidden_field :home_id, value: @home.id %>
@@ -40,7 +39,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Realizar reservación' %>
+      <%= form.submit 'Confirmar reservación' %>
     </div>
   </div>
 <% end %>
