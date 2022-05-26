@@ -47,7 +47,7 @@
 
       <div class="field">
         <%= form.label :address, 'Dirección' %>
-        <%= form.search_field :address,  class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
+        <%= form.search_field :address %>
       </div>
 
       <div class="field">
@@ -58,7 +58,9 @@
         <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
       </div>
 
-      <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+      <input id="pac-input" class="controls form-control" type="search" placeholder="Search Box" data-target="maps.field" data-action="keydown->maps#preventSubmit"/>
+
+      <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map', id: 'map' %>
 
       <div class="field">
         <%= form.label :description, 'Descripción',  style: "display: block" %>
