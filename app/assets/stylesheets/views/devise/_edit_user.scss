@@ -9,6 +9,7 @@
     .upload {
       background-color: $secundary-color;
       justify-self: center;
+      width: 250px;
     }
 
     .upload:hover { background-color: $primary-color; }
@@ -39,9 +40,11 @@
       input { min-height: 45px; }
     }
     
-    .field { width: 32% }
+    .field { width: 23% }
 
-    .field:nth-child(4), .field:last-child { width: 49%; }
+    .field:first-child { width: 220px; }
+
+    .field:nth-child(5), .field:last-child { width: 49%; }
   }
 
   .edit-pw i { font-size: 1.3rem; }
@@ -50,12 +53,18 @@
     .input-file {
       display: none;
     }
+
     img {
       display: block;
       height: 230px;
       object-fit: cover;
       width: 230px;
     }
+  }
+
+  #dni {
+    height: 100%;
+    width: 100%;
   }
 
   .edit-sect-3 {
