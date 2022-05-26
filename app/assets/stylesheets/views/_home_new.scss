@@ -42,13 +42,12 @@ label {
 
   .new-home-cont {
     display: flex;
-    margin: 0 5px;
   }
 
   .new-home-photo {
     display: flex;
     flex-direction: column;
-    margin: 0 10px;
+    margin-right: 10px;
     overflow: auto;
     width: 50%;
 

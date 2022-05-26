@@ -207,6 +207,12 @@
   }
 }
 
+.photos-delete {
+  justify-content: space-between;
+  
+  .photo { max-width: 18%; }
+}
+
 .file-field .photos-field {
   justify-self: baseline;
   min-height: 80px;

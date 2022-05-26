@@ -62,8 +62,9 @@
     </div>
 
     <% if action_name == 'edit' %>
-      <span><strong>Borrar fotos:</strong></span>
+      <span><strong>Fotos actuales:</strong></span>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       <input id="pac-input" class="controls form-control" type="search" placeholder="Search Box" data-target="maps.field" data-action="keydown->maps#preventSubmit"/>
 
@@ -71,6 +72,9 @@
 =======
       <div class="field photos-field">
 >>>>>>> Add styles for home form
+=======
+      <div class="field photos-field photos-delete">
+>>>>>>> Fix problems with load of current photos in edit home
 
         <% home.photos.each do |photo| %>
           <%= link_to edit_home_path(home, photo_id: photo), class: 'photo' do %>
