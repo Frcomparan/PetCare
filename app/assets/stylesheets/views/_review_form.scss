@@ -26,15 +26,15 @@
 
 .review-form {
   width: 100%;
+}
 
-  .field {
-    textarea {
-      background-color: $secundary-color;
-      border-radius: 5px;
-      height: 90px;
-      max-height: 90px;
-      max-width: 100%;
-      padding: 10px;
-    }
+.field {
+  textarea {
+    background-color: $secundary-color;
+    border-radius: 5px;
+    height: 90px;
+    max-height: 90px;
+    max-width: 100%;
+    padding: 10px;
   }
 }

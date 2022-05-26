@@ -1,9 +1,16 @@
-div.upload {
-    height: 90%;
-}
+.new-model {
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: $medium-shadow;
+  padding: 15px;
+  width: 800px;
 
-.pets{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  form {
+    width: 100%;
+  }
+
+  .upload {
+    height: 230px;
+    width: 230px;
+  }
 }
