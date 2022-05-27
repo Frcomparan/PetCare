@@ -27,7 +27,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_url(@pet), notice: 'Pet was successfully created.' }
+        format.html { redirect_to pet_url(@pet), notice: 'Su mascota fue registrada correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -38,7 +38,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to pet_url(@pet), notice: 'Pet was successfully updated.' }
+        format.html { redirect_to pet_url(@pet), notice: 'Los datos de su mascota se actualizaron correctamente' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -50,7 +50,7 @@ class PetsController < ApplicationController
     @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to pets_url, notice: 'El registro de su mascota fue eliminado correctamente' }
     end
   end
 

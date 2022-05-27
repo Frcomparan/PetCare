@@ -34,7 +34,7 @@ class ReservationsController < ApplicationController
     @reservation.host = @home.user
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
+        format.html { redirect_to reservation_url(@reservation), notice: 'Su reservación fue realziada correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -48,7 +48,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.update(reservation_params)
         create_notifications unless @reservation.finished?
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to reservation_url(@reservation), notice: 'Los datos de su reservación se actualizaron correctamente' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

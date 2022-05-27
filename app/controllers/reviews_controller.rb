@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
     @reservation = Reservation.find_by(id: @review.reservation_id)
     respond_to do |format|
       if @review.save
-        format.html { redirect_to reservations_url(), notice: 'Review was successfully created.' }
+        format.html { redirect_to reservations_url(), notice: 'Su comentario se registro correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
