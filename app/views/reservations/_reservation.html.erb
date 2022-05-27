@@ -1,16 +1,13 @@
-<article class="reservation">
+<article class="reservation <%= reservation.status %>">
   <div class="reservation-detail">
     <h1><%= reservation.home.title %></h1>
-    <%= csrf_meta_tags %>
     <section class="reservation-info">
       <%= link_to reservation.home, class: 'home-link' do %>
         <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
       <% end %>
       <div>
-        <h3>Dirección:</h3>
         <p><%= reservation.home.address %></p>
         <%= link_to user_path(reservation.home), class: 'user-link' do %>
-          <%= image_tag reservation.home.user.profile_photo.variant(resize_to_limit: [100, 100]) %>
           <%= reservation.home.user.name %>
         <% end %>
       </div>

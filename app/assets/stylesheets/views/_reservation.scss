@@ -204,14 +204,6 @@
     }
 
     .reservation-guest > p { font-size: 2rem; }
-
-    .pending { background-color: $pending; }
-
-    .canceled { background-color: $canceled; }
-
-    .aproved { background-color: $approved; }
-
-    .finished { background-color: $finished; }
   }
 
   .links {
@@ -219,3 +211,11 @@
     gap: 50px;
   }
 }
+
+.pending { background-color: $pending; }
+
+.canceled { background-color: $canceled; }
+
+.aproved { background-color: $approved; }
+
+.finished { background-color: $finished; }
