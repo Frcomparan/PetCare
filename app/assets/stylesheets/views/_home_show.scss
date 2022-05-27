@@ -1,4 +1,6 @@
 .principal-info {
+  width: 48%;
+
   div.title {
     display: flex;
     justify-content: center;
@@ -9,6 +11,9 @@
       text-align: center;
     }
   }
+
+  & > p { margin: 8px 0; }
+
   .reputation {
     display: flex;
     font-size: 1.5rem;
@@ -29,14 +34,13 @@
   display: none;
 }
 
-.content-show { 
+.content-show {
   @include center-flex-column;  
   font-size: 14px;
   margin: 0 25px;
 }
 
 .show-house-text {
-  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -120,7 +124,6 @@
 }
 
 .opinions {
-  margin-bottom: 20px;
   width: 100%;
 
   h3 {
@@ -197,10 +200,13 @@
     border: none;
     box-shadow: 0 0 3px black;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 30px auto;
     padding: 30px;
     width: 1210px;
+
+    & > h2 { width: 100%; }
   }
 
   .photos-selection {
@@ -230,11 +236,13 @@
   .home-reservation {
     display: flex;
     flex-direction: initial;
-    justify-content: end;
+    justify-content: center;
     
     .reservation {
-      max-width: 500px;
-      min-width: 410px;
+      margin: 0;
+      width: 100%;
+
+      h3 { margin: 10px 0 }
 
       .reservation-preview {
         @include center-flex-column;
@@ -248,13 +256,39 @@
           border: none;
           justify-content: space-between;
           margin-bottom: 8px;
+
+          p { margin: 4px 0; }
+
+          div {
+            width: 50%;
+
+            input { 
+              padding: 2px;
+              width: 100%; 
+            }
+
+            input[type="date"] { border: 1px solid $text-grey; }
+          }
         }
       }
     }
   }
 
+  .address {
+    p { font-size: 1.7rem; }
+
+    a { 
+      display: block;
+      text-align: right; 
+    }
+  }
+
   .content-show {
     justify-content: space-between;
+    margin: 0;
+    width: 48%;
+
+    & > h3 { font-size: 2rem; }
 
     .house-pets-info {
       border-bottom: none;
