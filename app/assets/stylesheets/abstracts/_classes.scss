@@ -137,6 +137,8 @@
   }
 
   input[type="range"] {
+    margin: 0;
+    padding: 0;
     width: 40%;
   }
 
@@ -152,6 +154,12 @@
     margin: 1rem 0;
     padding: 8px;
   }
+}
+
+.range-field {
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
 }
 
 .actions {
@@ -209,7 +217,7 @@
 
 .photos-delete {
   justify-content: space-between;
-  
+
   .photo { max-width: 18%; }
 }
 

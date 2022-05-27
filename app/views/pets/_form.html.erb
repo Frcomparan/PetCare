@@ -48,17 +48,17 @@
         <% end %>
         <div class="field">
           <%= form.label :name, 'Nombre', style: "display: block" %>
-          <%= form.text_field :name %>
+          <%= form.text_field :name, placeholder: 'Nombre de tu mascota' %>
         </div>
         <div class="field">
           <%= form.label :breed, 'Raza', style: "display: block" %>
-          <%= form.text_field :breed %>
+          <%= form.text_field :breed, placeholder: 'Raza de tu mascota' %>
         </div>
       </aside>
     </div>
     <div class="field">
       <%= form.label :description, 'Descripción', style: "display: block" %>
-      <%= form.text_area :description %>
+      <%= form.text_area :description, placeholder: 'Breve descripción' %>
     </div>
     <div class="button-back">
       <div class="actions">
