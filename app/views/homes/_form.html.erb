@@ -10,11 +10,6 @@
   <% end %>
 
   <div class="new-desktop">
-    <% if action_name == 'new' %>
-      <h1>Registra una nueva casa</h1>
-    <% else %>
-      <h1>Actualiza la información de tu casa</h1>
-    <% end %>
     <div class="new-home-cont">
       <div class="new-home-photo">
         <div class="file-field">
@@ -28,6 +23,11 @@
         </div>
       </div>
       <div class="new-home-form">
+        <% if action_name == 'new' %>
+          <h1>Registra una nueva casa</h1>
+        <% else %>
+          <h1>Actualiza la información de tu casa</h1>
+        <% end %>
         <div class="field">
           <%= form.label :title, 'Título', style: "display: block" %>
           <%= form.text_field :title, placeholder: 'Escribe un título para tu casa' %>
@@ -35,7 +35,7 @@
 
       <div class="field">
         <%= form.label :address, 'Dirección' %>
-        <%= form.search_field :address %>
+        <%= form.text_area :address, placeholder: 'Ingresa tu dirección' %>
       </div>
 
         <div class="field">
@@ -46,11 +46,9 @@
           <%= form.hidden_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
         </div>
 
-        <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
-
         <div class="field">
           <%= form.label :description, 'Descripción',  style: "display: block" %>
-          <%= form.text_field :description, placeholder: 'Breve descripción' %>
+          <%= form.text_area :description, placeholder: 'Escribe una breve descripción de tu casa' %>
         </div>
 
         <div class="field">
@@ -61,21 +59,13 @@
       </div>
     </div>
 
+    <strong>Busca tu casa en el mapa</strong>
+    <input id="pac-input" class="controls form-control" type="search" placeholder="Busca tu casa" data-target="maps.field" data-action="keydown->maps#preventSubmit"/>
+    <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map', id: 'map' %>
+
     <% if action_name == 'edit' %>
       <span><strong>Fotos actuales:</strong></span>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <input id="pac-input" class="controls form-control" type="search" placeholder="Search Box" data-target="maps.field" data-action="keydown->maps#preventSubmit"/>
-
-      <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map', id: 'map' %>
-=======
-      <div class="field photos-field">
->>>>>>> Add styles for home form
-=======
       <div class="field photos-field photos-delete">
->>>>>>> Fix problems with load of current photos in edit home
-
         <% home.photos.each do |photo| %>
           <%= link_to edit_home_path(home, photo_id: photo), class: 'photo' do %>
             <%= image_tag(photo) %>
