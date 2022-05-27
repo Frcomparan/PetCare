@@ -108,6 +108,8 @@
     .reservation-info {
       border: none;
       width: 70%;
+
+      & > div { width: 100%; }
     }
 
     .reservation-date {
@@ -168,6 +170,8 @@
   }
 
   .reservation-index {
+    padding: 1rem 5% 5rem 5%;
+
     a {
       color: $black;
       text-decoration: none;
@@ -175,9 +179,17 @@
 
     .reservation {
       padding-right: 30px;
-      width: 650px;
+      width: 600px;
   
       p { font-size: 1.3rem; }
+    }
+
+    .revervation-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
     }
 
     .reservation-date { justify-content: center; }

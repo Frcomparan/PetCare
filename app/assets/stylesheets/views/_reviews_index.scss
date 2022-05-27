@@ -4,7 +4,7 @@
   box-shadow: $medium-shadow;
   margin: 30px 0;
   padding: 20px;
-  width: 80%;
+  width: 900px;
 }
 
 .review-show {
@@ -19,6 +19,17 @@
     gap: 5px;
     justify-content: space-between;
     padding: 10px;
+
+    .user-link { 
+      width: 90%;
+      justify-content: left;
+    }
+
+    p {
+      padding-top: 8px;
+      border-top: 1px solid $text-grey;
+      width: 100%;
+    }
   }
 }
 
@@ -31,6 +42,8 @@
     flex-direction: column;
     gap: 1rem;
     padding-left: 20px;
+
+    .user-link { justify-content: left; }
   }
 
   .home-link {
@@ -64,6 +77,8 @@
     width: 40px;
   }
 }
+
+.index-reviews { width: 100%; }
 
 .reviews {
   display: grid;

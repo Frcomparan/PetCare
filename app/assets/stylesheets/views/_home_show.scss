@@ -308,8 +308,12 @@
   .opinions {
     border-radius: 15px;
     box-shadow: 0 0 3px black;
+    display: flex;
+    flex-direction: column;
     height: auto;
+    justify-content: space-between;
     max-height: 300px;
+    min-height: 270px;
     padding: 20px;
 
     .reviews {
@@ -351,9 +355,7 @@
   }
 
   .principal-info .reputation {
-    margin-left: 0;
-    margin-right: 66px;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
   
   .button-img {

@@ -3,9 +3,10 @@
   font-weight: 900;
 }
 
+.table .prev-month, .table .next-month { background-color: $other-month; }
+
 .table .has-events { background-color: $events; }
 
-.table .prev-month, .table .next-month { background-color: $other-month; }
 
 .calendar-heading {
   display: flex;
