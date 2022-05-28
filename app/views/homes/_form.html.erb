@@ -16,7 +16,11 @@
         <div class="file-field">
           <%= form.label :photos do %>
             <span><strong>Subir fotos:</strong></span>
-            <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file'%>
+            <% if action_name == 'new' %>
+              <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file', required: true %>
+            <% else %>
+              <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file' %>
+            <% end %>
             <div class="upload photos-field" id="upload">
               <span id="add">+</span>
             </div>

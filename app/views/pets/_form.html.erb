@@ -32,7 +32,7 @@
           <%= form.label :photo do %>
             <span><strong>Subir foto:</strong></span>
             <div class="upload photo">
-              <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file' %>
+              <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file', required: true %>
               <span id="add">+</span>
               <img id="output"/>
               <div class="trash-icon"></div>
@@ -62,7 +62,7 @@
     </div>
     <div class="button-back">
       <div class="actions">
-        <%= form.submit 'Registrar mascota', class: "button" %>
+        <%= form.submit 'Guardar', class: "button" %>
       </div>
     </div>
   <% end %>

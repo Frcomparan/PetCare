@@ -6,9 +6,9 @@
 
       <%= f.label :profile_photo do %>
         <div class="upload upload-edit profile-photo photo">
-          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file', required: true %>
           <span id="add" hidden>+</span>
-          <%= image_tag("default-profile.jpg", id: 'output') %>
+          <%= image_tag("default-profile-2.png", id: 'output') %>
           <div class="trash-icon"></div>
         </div>
       <% end %>
@@ -40,12 +40,12 @@
 
       <div class="field">
         <%= f.label :gender, 'Genero', style: "display: block" %>
-        <%= f.select :gender, [["Masculino", "male"], ["Femenino", "female"]] %>
+        <%= f.select :gender, [['Sin especificar', 'unspecified'],['Masculino', 'male'], ['Femenino', 'female']] %>
       </div>
 
       <div class="field">
         <%= f.label :role, 'Usuario' %>
-        <%= f.select :role, [['Sin especificar', 'unspecified'],['Masculino', 'male'], ['Femenino', 'female']], {}, onchange: "showDni();" %>
+        <%= f.select :role, [["Huesped", "guest"], ["Anfitrión", "host"]], {}, onchange: "showDni();" %>
       </div>
 
       <div class="field edit-pw">

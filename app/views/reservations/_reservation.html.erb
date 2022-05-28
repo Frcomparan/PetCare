@@ -23,7 +23,7 @@
   <div class="reservation-guest">
     <h1>Reservación solicitada por:</h1>
     <div>
-      <p><strong>Huesped:</strong> <%= reservation.guest.name %></p>
+      <p><strong>Huesped:</strong> <%= link_to reservation.guest.name, user_path(reservation.guest) %></p>
       <p><strong>Mascotas a cuidar:</strong> <%= reservation.pets_number %></p>
       <p><strong>Status:</strong> <%= reservation.translate_status %></p>
     </div>

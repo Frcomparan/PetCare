@@ -107,14 +107,14 @@
   .btn-reservation {
     background-color: $primary-color;
     border-radius: 15px;
-    border: 1px solid $black;
+    box-shadow: $low-shadow;
     color: black;
     height: 30px;
     margin-bottom: 15px;
     padding-top: 5px;
     text-align: center;
     text-decoration: none;
-    width: 40%;
+    width: 30%;
   }
 
   .btn-reservation:hover {
@@ -206,7 +206,11 @@
     padding: 30px;
     width: 1210px;
 
-    & > h2 { width: 100%; }
+    & > h2 { 
+      margin-bottom: 8px;
+      text-align: center;
+      width: 100%; 
+    }
   }
 
   .photos-selection {
@@ -240,35 +244,50 @@
     
     .reservation {
       margin: 0;
-      width: 100%;
+      width: 80%;
 
       h3 { margin: 10px 0 }
 
       .reservation-preview {
         @include center-flex-column;
+        box-shadow: none;
         padding: 10px;
 
         .days, .pets {
+          border: 1px solid $light-grey-opacity;
+          overflow: hidden;
           width: 80%;
         }
 
+        .pets {
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+
         .days {
-          border: none;
+          border-bottom: none;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
           justify-content: space-between;
-          margin-bottom: 8px;
 
           p { margin: 4px 0; }
 
+          div:nth-child(1) { border-right: 1px solid $light-grey-opacity; }
+
           div {
+            padding: 4px;
             width: 50%;
 
-            input { 
-              padding: 2px;
+            input {
+              border: none;
               width: 100%; 
             }
-
-            input[type="date"] { border: 1px solid $text-grey; }
           }
+        }
+
+        select {
+          border: none;
+          padding: 4px;
         }
       }
     }

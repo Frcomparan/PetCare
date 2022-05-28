@@ -2,7 +2,7 @@
   <%= render @reservation %>
 
   <div class="links">
-    <% if @reservation.guest == current_user %>
+    <% if @reservation.guest == current_user && !(@reservation.finished? || @reservation.canceled?) %>
       <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_reservation_path(@reservation) %>
     <% end %> 
     <%= link_to '<i class="fa-solid fa-arrow-rotate-left"></i>'.html_safe, reservations_path %>
