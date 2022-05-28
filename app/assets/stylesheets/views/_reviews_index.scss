@@ -21,13 +21,13 @@
     padding: 10px;
 
     .user-link { 
-      width: 90%;
       justify-content: left;
+      width: 80%;
     }
 
     p {
-      padding-top: 8px;
       border-top: 1px solid $text-grey;
+      padding-top: 8px;
       width: 100%;
     }
   }
