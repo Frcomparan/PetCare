@@ -1,11 +1,12 @@
 <%= form_with(model: home , local: true, data: { controller: :maps, action: "google-maps-callback@window->maps#initializeMap" }) do |form| %>
   <% if home.errors.any? %>
-    <div style="color: red">
-      <ul>
+    <div class="invalid-form">
+      <p>Ha ocurrido un error: </p>
+      <aside>
         <% home.errors.each do |error| %>
-          <li><%= error.attribute %></li>
+          <p><%= error.attribute %></p>
         <% end %>
-      </ul>
+      </aside>
     </div>
   <% end %>
 

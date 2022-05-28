@@ -1,13 +1,13 @@
 <div class="new-model">
   <%= form_with(model: pet) do |form| %>
     <% if pet.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-        <ul>
+      <div class="invalid-form">
+        <p>Ha ocurrido un error:</p>
+        <aside>
           <% pet.errors.each do |error| %>
-            <li><%= error.full_message %></li>
+            <p><%= error.full_message %></p>
           <% end %>
-        </ul>
+        </aside>
       </div>
     <% end %>
     <div class="edit-sect-1">

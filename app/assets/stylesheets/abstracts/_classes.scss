@@ -85,6 +85,8 @@
     opacity: 1;
   }
 
+  99% { z-index: 2; }
+
   100% {
     display: none;
     opacity: 0;
@@ -92,20 +94,33 @@
   }
 }
 
-.notice, .alert{
-  animation-duration: 5000ms;
+.notice, .alert {
+  align-items: center;
+  animation-duration: 7000ms;
   animation-fill-mode: forwards;
   animation-name: msg-animation;
   border-radius: 1rem;
+  display: flex;
   font-size: 2rem;
-  margin: 0 66%;
+  height: 60px;
+  padding: 10px;
   position: absolute;
-  text-align: center;
   top: 8rem;
-  width: 28rem;
+  width: 98%;
 }
 
-.alert {
+.invalid-form {
+  animation-duration: 7000ms;
+  animation-fill-mode: forwards;
+  animation-name: msg-animation;
+  border-radius: 4px;
+  padding: 10px;
+  position: fixed;
+  right: 70px;
+  top: 70px;
+}
+
+.alert, .invalid-form {
   background-color: $error-bg;
   border: 1px solid $error-border;
   z-index: 2;
@@ -115,6 +130,7 @@
   background-color: $valid-bg;
   border: 1px solid $valid-border;
   z-index: 2;
+  color: $text-notice;
 }
 
 .field {
@@ -290,3 +306,5 @@
     }
   }
 }
+
+.field_with_errors textarea { width: 100%; }
