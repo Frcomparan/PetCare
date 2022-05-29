@@ -26,6 +26,27 @@
   }
 }
 
+.table-users {
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: $medium-shadow;
+  padding: 20px;
+}
+
+.dni-column {
+  position: relative;
+}
+
+.dni-photo {
+  width: 100px;
+}
+
+.dni-photo:hover {
+  position: absolute;
+  transform: scale(5);
+  z-index: 2;
+}
+
 #hidden_div {
   display: none;
 }
