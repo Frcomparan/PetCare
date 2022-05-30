@@ -33,12 +33,14 @@ label {
     margin: 30px auto;
     padding: 30px;
     width: 1050px;
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  
 
   .new-home-cont {
     display: flex;

@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @guest_reservations = Reservation.where(guest_id: current_user)
-    @host_reservations = Reservation.where(host_id: current_user)
+    @guest_reservations = Reservation.where(guest_id: current_user).order(created_at: :desc)
+    @host_reservations = Reservation.where(host_id: current_user).order(created_at: :desc)
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -72,7 +72,7 @@ class ReservationsController < ApplicationController
       msg = "#{current_user.name} realizo un cambio en su reservación"
       Notification.create(recipient: @reservation.host, notifiable: @reservation, text: msg)
     else
-      msg = "#{current_user.name} actualizo el estado la reservación"
+      msg = "#{current_user.name} actualizo el estado de la reservación"
       Notification.create(recipient: @reservation.guest, notifiable: @reservation, text: msg)
     end
   end
