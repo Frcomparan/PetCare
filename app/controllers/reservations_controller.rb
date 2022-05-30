@@ -34,7 +34,7 @@ class ReservationsController < ApplicationController
     @reservation.host = @home.user
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: 'Su reservación fue realziada correctamente' }
+        format.html { redirect_to reservation_url(@reservation), notice: 'Su reservación fue realizada correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
