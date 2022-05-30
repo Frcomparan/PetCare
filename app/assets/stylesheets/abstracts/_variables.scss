@@ -7,11 +7,12 @@ $white: white;
 $black: black;
 $secundary-color: hsl(246, 56%, 80%);
 $primary-color: hsl(253, 49%, 54%);
-$error-bg: rgba(250, 140, 140, 0.658);
+$error-bg: rgb(255, 211, 211);
 $error-border:rgb(250, 140, 140);
-$valid-bg: rgba(175, 250, 140, 0.658);
-$valid-border:rgb(175, 250, 140);
+$valid-bg: rgb(175, 197, 170);
+$valid-border:rgb(94, 139, 83);
 $background: hsl(0, 0%, 88%);
+$text-notice: rgb(60, 75, 56);
 
 // Font family
 $font-stack: 'Inter', sans-serif;

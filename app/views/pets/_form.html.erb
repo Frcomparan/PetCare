@@ -1,66 +1,70 @@
-<%= form_with(model: pet) do |form| %>
-  <% if pet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-      <ul>
-        <% pet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% if action_name == 'edit' %>
-    <div class="field file-field">
-      <%= form.label :photo do %>
-        <span><strong>Actualizar foto:</strong></span>
-        <div class="upload upload-edit">
-          <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
-          <% if pet.photo.attached? %>
-            <span id="add" hidden >+</span>
-            <%= image_tag(pet.photo, id: 'output')  %>
-          <% else %>
-            <img id="output"/>
+<div class="new-model">
+  <%= form_with(model: pet) do |form| %>
+    <% if pet.errors.any? %>
+      <div class="invalid-form">
+        <p>Ha ocurrido un error:</p>
+        <aside>
+          <% pet.errors.each do |error| %>
+            <p><%= error.full_message %></p>
+          <% end %>
+        </aside>
+      </div>
+    <% end %>
+    <div class="edit-sect-1">
+      <% if action_name == 'edit' %>
+        <div class="file-field">
+          <%= form.label :photo do %>
+            <span><strong>Actualizar foto:</strong></span>
+            <div class="upload photo upload-edit">
+              <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
+              <% if pet.photo.attached? %>
+                <span id="add" hidden >+</span>
+                <%= image_tag(pet.photo, id: 'output')  %>
+              <% else %>
+                <img id="output"/>
+              <% end %>
+              <div class="trash-icon"></div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="file-field">
+          <%= form.label :photo do %>
+            <span><strong>Subir foto:</strong></span>
+            <div class="upload photo">
+              <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file', required: true %>
+              <span id="add">+</span>
+              <img id="output"/>
+              <div class="trash-icon"></div>
+            </div>
           <% end %>
         </div>
       <% end %>
-    </div>
-  <% else %>
-<div class="new-desktop">
-  <h1 id="second">Nueva Mascota</h1>
-  <div class="new-home-cont">
-    <div class="new-home-photo">
-      <div class="field file-field">
-        <%= form.label :photo do %>
-          <span><strong>Subir foto:</strong></span>
-          <div class="upload">
-            <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
-            <span id="add">+</span>
-            <img id="output"/>
-          </div>
+      <aside class="new-home-form pets">
+        <% if action_name == 'new' %>
+          <h1>Registra a tu mascota</h1>
+        <% else %>
+          <h1>Actualiza la información de tu mascota</h1>
         <% end %>
+        <div class="field">
+          <%= form.label :name, 'Nombre', style: "display: block" %>
+          <%= form.text_field :name, placeholder: 'Nombre de tu mascota' %>
+        </div>
+        <div class="field">
+          <%= form.label :breed, 'Raza', style: "display: block" %>
+          <%= form.text_field :breed, placeholder: 'Raza de tu mascota' %>
+        </div>
+      </aside>
+    </div>
+    <div class="field">
+      <%= form.label :description, 'Descripción', style: "display: block" %>
+      <%= form.text_area :description, placeholder: 'Breve descripción' %>
+    </div>
+    <div class="button-back">
+      <div class="actions">
+        <%= form.submit 'Guardar', class: "button" %>
       </div>
     </div>
-    <% end %>
-    <div class="new-home-form pets">
-      <div class="field">
-        <%= form.label :name, 'Nombre', style: "display: block" %>
-        <%= form.text_field :name %>
-      </div>
-      <div class="field">
-        <%= form.label :breed, 'Raza', style: "display: block" %>
-        <%= form.text_field :breed %>
-      </div>
-      <div class="field">
-        <%= form.label :description, 'Descripción', style: "display: block" %>
-        <%= form.text_field :description %>
-      </div>
-    </div>
-  </div>
-  <div class="button-back">
-    <div class="actions">
-      <%= form.submit 'Guardar', class: "button" %>
-    </div>
-  </div>
   <% end %>
 </div>
 <div id="icon-back links">

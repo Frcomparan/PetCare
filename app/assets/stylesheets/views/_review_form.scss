@@ -11,10 +11,7 @@
   }
 
   .reservation-detail {
-    border-radius: 15px;
-    border: 1px solid $light-grey;
     font-size: 1.8rem;
-    padding: 15px;
 
     h1 { font-size: 3.2rem; }
 
@@ -26,15 +23,19 @@
 
 .review-form {
   width: 100%;
+}
 
-  .field {
-    textarea {
-      background-color: $secundary-color;
-      border-radius: 5px;
-      height: 90px;
-      max-height: 90px;
-      max-width: 100%;
-      padding: 10px;
-    }
+.field {
+  textarea {
+    background-color: $secundary-color;
+    border-radius: 5px;
+    border: none;
+    box-shadow: $low-shadow;
+    font-size: 1.5rem;
+    height: 90px;
+    margin: 1rem 0;
+    max-height: 90px;
+    max-width: 100%;
+    padding: 10px;
   }
 }

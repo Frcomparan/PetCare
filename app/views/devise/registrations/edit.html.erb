@@ -3,21 +3,18 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <section class="edit-sect-1">
-      <% if action_name == "edit" %>
-        <%= f.label :profile_photo do %>
-          <div class="upload upload-edit profile-photo photo">
-            <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
-            <% if resource.profile_photo.attached? %>
-              <span id="add" hidden>+</span>
-              <%= image_tag(resource.profile_photo, id: 'output') %>
-            <% else %>
-              <img id="output"/>
-            <% end %>
-            <div class="trash-icon"></div>
-          </div>
-        <% end %>
+      <%= f.label :profile_photo do %>
+        <div class="upload upload-edit profile-photo photo">
+          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <% if resource.profile_photo.attached? %>
+            <span id="add" hidden>+</span>
+            <%= image_tag(resource.profile_photo, id: 'output') %>
+          <% else %>
+            <img id="output"/>
+          <% end %>
+          <div class="trash-icon"></div>
+        </div>
       <% end %>
-
       <aside>
         <h2>Editar datos de usuario</h2>
 
@@ -46,7 +43,7 @@
 
       <div class="field">
         <%= f.label :gender, 'Genero', style: "display: block" %>
-        <%= f.select :gender, [["Masculino", "male"], ["Femenino", "female"]] %>
+        <%= f.select :gender, [['Sin especificar', 'unspecified'],['Masculino', 'male'], ['Femenino', 'female']] %>
       </div>
 
       <div class="field">

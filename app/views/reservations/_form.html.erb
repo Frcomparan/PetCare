@@ -1,11 +1,12 @@
 <%= form_with(model: reservation, class: 'reservation-form') do |form| %>
   <% if reservation.errors.any? %>
-    <div style="color: red">
-      <ul>
+    <div class="invalid-form">
+    <p>Ha ocurrido un error:</p>
+      <aside>
         <% reservation.errors.each do |error| %>
-          <li><%= error.attribute %></li>
+          <p><%= error.attribute %></p>
         <% end %>
-      </ul>
+      </aside>
     </div>
   <% end %>
 
@@ -39,7 +40,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit 'Realizar reservación' %>
     </div>
   </div>
 <% end %>

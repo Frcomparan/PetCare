@@ -1,21 +1,23 @@
 <main class="review-main">
-  <h1>Realiza tu comentario</h1>
+  <h1><%= @reservation.home.title %></h1>
 
   <div class="reservation-detail">
-    <h1>Casa a calificar</h1>
     <section class="reservation-info">
       <%= link_to @reservation.home, class: 'home-link' do %>
         <%= image_tag @reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
       <% end %>
       <div>
-        <h2><%= @reservation.home.title %></h2>
         <h3>Dirección:</h3>
         <p><%= @reservation.home.address %></p>
-        <h3>Ofrecido:</h3>
-        <%= link_to @reservation.home.user.name, user_path(@reservation.home.user)%>
+        <%= link_to user_path(@reservation.home), class: 'user-link' do %>
+          <%= image_tag @reservation.home.user.profile_photo.variant(resize_to_limit: [100, 100]) %>
+          <%= @reservation.home.user.name %>
+        <% end %>
       </div>
     </section>
   </div>
 
   <%= render "form", review: @review %>
 </main>
+
+<%= link_to '<i class="fa-solid fa-arrow-rotate-left"></i>'.html_safe, reservation_path(@reservation) %>

@@ -1,71 +1,92 @@
-<main class="container-log">
-  <div class="container-positon">
-    <h2><%= t('devise.form.registro') %></h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="devise-container devise-edit-user">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="photo">
-        <% if resource.profile_photo.attached? %>
-          <%= image_tag(resource.profile_photo) %>
-        <% else  %>
-          <%= image_tag("default-profile.jpg" , class: "img-circular") %>
-        <% end %>
-        <%= f.file_field :profile_photo %> 
+    <section class="edit-sect-1">
+
+      <%= f.label :profile_photo do %>
+        <div class="upload upload-edit profile-photo photo">
+          <%= f.file_field :profile_photo, onchange: 'loadFile(event)', class: 'input-file', required: true %>
+          <span id="add" hidden>+</span>
+          <%= image_tag("default-profile-2.png", id: 'output') %>
+          <div class="trash-icon"></div>
+        </div>
+      <% end %>
+      <aside>
+        <h2>Bienvenido a PetCare</h2>
+
+        <div class="field">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Escribe tu nombre' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :email, 'Correo' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Escribe tu correo' %>
+        </div>
+      </aside>
+    </section>
+
+    <section class="edit-sect-2">
+      <div class="field">
+        <%= f.label :birthdate, 'Fecha de nacimiento' %>
+        <%= f.date_field :birthdate %>
       </div>
 
       <div class="field">
-        <%= f.label :name, t('devise.label.name') %>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Escribe tu nombre" %>
+        <%= f.label :phone, 'Teléfono' %>
+        <%= f.telephone_field :phone, autocomplete: "phone" %>
       </div>
 
-      <div class="devise">
-        <div class="field">
-          <%= f.label :email, t('devise.label.email') %>
-          <%= f.email_field :email, autocomplete: "email", placeholder:"Escribe tu correo" %>
-        </div>
-        <div class="field">
-          <%= f.label :password, t('devise.label.password') %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "******" %>
-        </div>
-        <div class="field">
-          <%= f.label :password_confirmation, t('devise.label.password_confirmation') %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
-        </div>
+      <div class="field">
+        <%= f.label :gender, 'Genero', style: "display: block" %>
+        <%= f.select :gender, [['Sin especificar', 'unspecified'],['Masculino', 'male'], ['Femenino', 'female']] %>
       </div>
 
-       <div class="field">
-        <%= f.label :address, t('devise.label.address') %>
-        <%= f.text_field :address, autocomplete: "address", placeholder: "Escribe tu dirección" %>
+      <div class="field">
+        <%= f.label :role, 'Usuario' %>
+        <%= f.select :role, [["Huesped", "guest"], ["Anfitrión", "host"]], {}, onchange: "showDni();" %>
       </div>
 
-      <div class="devise">
-        <div class="field">
-          <%= f.label :birthdate, t('devise.label.birthdate') %>
-          <%= f.date_field :birthdate %>
-        </div>
-
-        <div class="field">
-          <%= f.label :phone, t('devise.label.phone') %>
-          <%= f.telephone_field :phone, autocomplete: "phone", placeholder: "000-000-0000"%>
-        </div>
-
-        <div class="field">
-          <%= f.label :role, t('devise.label.role') %>
-          <%= f.select :role, ['guest', 'host'], {}, onchange: "showDni();" %>
-        </div>
-      </div>
-   
-      <div id="hidden_div">
-        <div class="photo">
-          <%= f.label :dni_photo, t('devise.label.dni_photo') %>
-          <%= f.file_field :dni_photo %> 
-        </div>
+      <div class="field edit-pw">
+        <%= f.label :password, 'Contraseña' %>
+        <% if @minimum_password_length %>
+          <i><%= @minimum_password_length %> caracteres minimos</i>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: '******' %>
       </div>
 
-      <div class="actions">
-        <%= f.submit t('devise.label.sign_up'), data: {turbo: false}, class: "button-log" %>
+      <div class="field edit-pw">
+        <%= f.label :password_confirmation, 'Confirma tu contraseña' %>
+        <% if @minimum_password_length %>
+          <i><%= @minimum_password_length %> caracteres minimos</i>
+        <% end %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
+      </div>
+    </section>
+
+    <div class="field">
+      <%= f.label :address, 'Dirección' %>
+      <%= f.text_field :address, autocomplete: "address", placeholder: 'Escribe tu dirección' %>
+    </div>
+
+    <% if !resource.dni_photo.attached?%>
+      <div class="field file-field" id="hidden_div">
+        <%= f.label :dni_photo do %>
+          <span><strong>Debes subir tu identificación:</strong></span>
+          <div class="upload photo">
+            <%= f.file_field :dni_photo, onchange: 'loadDNI(event)', class: 'input-file' %>
+            <span id="addDNI">+</span>
+            <img id="dni"/>
+            <div class="trash-icon"></div>
+          </div>
+        <% end %>
       </div>
     <% end %>
-  </div> 
-</main>
+
+    <div class="actions">
+      <%= f.submit "Confirmar registro" %>
+    </div>
+  <% end %>
+</div>
   

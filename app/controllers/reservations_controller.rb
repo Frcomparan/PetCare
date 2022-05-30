@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @guest_reservations = Reservation.where(guest_id: current_user)
-    @host_reservations = Reservation.where(host_id: current_user)
+    @guest_reservations = Reservation.where(guest_id: current_user).order(created_at: :desc)
+    @host_reservations = Reservation.where(host_id: current_user).order(created_at: :desc)
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -34,7 +34,7 @@ class ReservationsController < ApplicationController
     @reservation.host = @home.user
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
+        format.html { redirect_to reservation_url(@reservation), notice: 'Su reservación fue realziada correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -48,7 +48,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.update(reservation_params)
         create_notifications unless @reservation.finished?
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to reservation_url(@reservation), notice: 'Los datos de su reservación se actualizaron correctamente' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -72,7 +72,7 @@ class ReservationsController < ApplicationController
       msg = "#{current_user.name} realizo un cambio en su reservación"
       Notification.create(recipient: @reservation.host, notifiable: @reservation, text: msg)
     else
-      msg = "#{current_user.name} actualizo el estado la reservación"
+      msg = "#{current_user.name} actualizo el estado de la reservación"
       Notification.create(recipient: @reservation.guest, notifiable: @reservation, text: msg)
     end
   end

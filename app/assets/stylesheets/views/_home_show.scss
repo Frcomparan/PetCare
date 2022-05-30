@@ -1,4 +1,6 @@
 .principal-info {
+  width: 48%;
+
   div.title {
     display: flex;
     justify-content: center;
@@ -9,6 +11,9 @@
       text-align: center;
     }
   }
+
+  & > p { margin: 8px 0; }
+
   .reputation {
     display: flex;
     font-size: 1.5rem;
@@ -29,14 +34,13 @@
   display: none;
 }
 
-.content-show { 
+.content-show {
   @include center-flex-column;  
   font-size: 14px;
   margin: 0 25px;
 }
 
 .show-house-text {
-  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -103,14 +107,14 @@
   .btn-reservation {
     background-color: $primary-color;
     border-radius: 15px;
-    border: 1px solid $black;
+    box-shadow: $low-shadow;
     color: black;
     height: 30px;
     margin-bottom: 15px;
     padding-top: 5px;
     text-align: center;
     text-decoration: none;
-    width: 40%;
+    width: 30%;
   }
 
   .btn-reservation:hover {
@@ -120,7 +124,6 @@
 }
 
 .opinions {
-  margin-bottom: 20px;
   width: 100%;
 
   h3 {
@@ -197,10 +200,18 @@
     border: none;
     box-shadow: 0 0 3px black;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 30px auto;
+    min-height: 750px;
     padding: 30px;
     width: 1210px;
+
+    & > h2 { 
+      margin-bottom: 8px;
+      text-align: center;
+      width: 100%; 
+    }
   }
 
   .photos-selection {
@@ -230,31 +241,76 @@
   .home-reservation {
     display: flex;
     flex-direction: initial;
-    justify-content: end;
+    justify-content: center;
     
     .reservation {
-      max-width: 500px;
-      min-width: 410px;
+      margin: 0;
+      width: 80%;
+
+      h3 { margin: 10px 0 }
 
       .reservation-preview {
         @include center-flex-column;
+        box-shadow: none;
         padding: 10px;
 
         .days, .pets {
+          border: 1px solid $light-grey-opacity;
+          overflow: hidden;
           width: 80%;
         }
 
+        .pets {
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+
         .days {
-          border: none;
+          border-bottom: none;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
           justify-content: space-between;
-          margin-bottom: 8px;
+
+          p { margin: 4px 0; }
+
+          div:nth-child(1) { border-right: 1px solid $light-grey-opacity; }
+
+          div {
+            padding: 4px;
+            width: 50%;
+
+            input {
+              border: none;
+              width: 100%; 
+            }
+          }
+        }
+
+        select {
+          border: none;
+          padding: 4px;
         }
       }
     }
   }
 
+  .address {
+    width: 100%;
+
+    p { font-size: 1.7rem; }
+
+    a { 
+      display: block;
+      text-align: right; 
+    }
+  }
+
   .content-show {
     justify-content: space-between;
+    margin: 0;
+    width: 48%;
+
+    & > h3 { font-size: 2rem; }
 
     .house-pets-info {
       border-bottom: none;
@@ -274,8 +330,12 @@
   .opinions {
     border-radius: 15px;
     box-shadow: 0 0 3px black;
+    display: flex;
+    flex-direction: column;
     height: auto;
+    justify-content: space-between;
     max-height: 300px;
+    min-height: 270px;
     padding: 20px;
 
     .reviews {
@@ -306,20 +366,22 @@
     margin-bottom: 1rem;
 
     .img-main {
+      max-height: 340px;
+      object-fit: cover;
       width: 450px;
     }
 
     .photo-secundary {
       margin-bottom: 5px;
       margin-left: 5px;
+      max-height: 40px;
+      object-fit: cover;
       width: 60px;
     }
   }
 
   .principal-info .reputation {
-    margin-left: 0;
-    margin-right: 66px;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
   
   .button-img {

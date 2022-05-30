@@ -15,7 +15,7 @@ const totalAmount = () => {
 
 const updateRangeValue = () => {
   value = document.getElementById('myRange').value;
-  document.getElementById('rangeValue').innerText = "Puntación: " + value;
+  document.getElementById('rangeValue').innerText = value;
 }
 
 window.onload = totalAmount();

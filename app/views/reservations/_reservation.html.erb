@@ -1,16 +1,15 @@
-<article class="reservation">
+<article class="reservation <%= reservation.status %>">
   <div class="reservation-detail">
     <h1><%= reservation.home.title %></h1>
-    <%= csrf_meta_tags %>
     <section class="reservation-info">
       <%= link_to reservation.home, class: 'home-link' do %>
         <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
       <% end %>
       <div>
-        <h3>Dirección:</h3>
         <p><%= reservation.home.address %></p>
-        <h3>Ofrecido:</h3>
-        <%= link_to reservation.home.user.name, user_path(reservation.home.user)%>
+        <%= link_to user_path(reservation.home), class: 'user-link' do %>
+          <%= reservation.home.user.name %>
+        <% end %>
       </div>
     </section>
     <section class="reservation-date">
@@ -24,7 +23,7 @@
   <div class="reservation-guest">
     <h1>Reservación solicitada por:</h1>
     <div>
-      <p><strong>Huesped:</strong> <%= reservation.guest.name %></p>
+      <p><strong>Huesped:</strong> <%= link_to reservation.guest.name, user_path(reservation.guest) %></p>
       <p><strong>Mascotas a cuidar:</strong> <%= reservation.pets_number %></p>
       <p><strong>Status:</strong> <%= reservation.translate_status %></p>
     </div>
@@ -41,7 +40,7 @@
         <div class="status-buttons">
           <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
           <% if @reservation.host == current_user %>
-            <%= button_to "Finalizar reservación", reservation_path(@reservation, reservation: { status: 'finished' }), method: :put, class: 'approve-button' %>
+            <%= button_to "Finalizar reservación", reservation_path(@reservation, reservation: { status: 'finished' }), method: :put, class: 'finish-button' %>
           <% end %>
         </div>
       <% end %>

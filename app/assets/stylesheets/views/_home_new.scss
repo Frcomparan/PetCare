@@ -1,8 +1,8 @@
-label{
+label {
   justify-content: center;
 }
 
-#icon-back{
+#icon-back {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
@@ -32,29 +32,31 @@ label{
     box-shadow: $medium-shadow;
     margin: 30px auto;
     padding: 30px;
-    width: 100%;
+    width: 1050px;
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  
 
   .new-home-cont {
     display: flex;
-    margin: 0 5px;
   }
 
   .new-home-photo {
     display: flex;
     flex-direction: column;
-    margin: 0 10px;
+    margin-right: 10px;
     overflow: auto;
     width: 50%;
 
-    .field .file-field {
-      width: 80%;
-      height: 50%;
+    .file-field {
+      height: 100%;
+      max-height: 480px;
+      overflow: auto;
     }
 
     .file-field label {
@@ -64,17 +66,26 @@ label{
     }
 
     .file-field .photos-field {
-      min-height: 645px;
+      min-height: 400px;
       min-width: 80px;
     }
 
     strong {
       text-align: center;
     }
+
+    .upload {
+      height: 92%;
+    }
   }
 
   .new-home-form {
     align-items: center;
+    width: 50%;
+
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 
   .button-back {
@@ -87,13 +98,17 @@ label{
 
 #pac-input {
   background-color: $white;
-  border-radius: 4px;
+  border-radius: 2px;
   border: none;
-  box-shadow: $low-shadow;
-  left: 4px;
-  padding: 4px;
+  box-shadow: 0 1px 4px -1px $text-grey;
+  font-size: 1.7rem;
+  height: 40px;
+  left: -60px;
+  padding: 4px 4px 4px 8px;
   position: relative;
-  top: 35px;
-  width: 400px;
+  top: 51px;
+  width: 550px;
   z-index: 2;
 }
+
+.map { margin-bottom: 10px; }

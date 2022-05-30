@@ -1,13 +1,12 @@
 <%= form_with(model: review, class: 'review-form') do |form| %>
   <% if review.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
+    <div class="invalid-form">
+      <p>Ha ocurrido un error:</p>
+      <aside>
         <% review.errors.each do |error| %>
-          <li><%= error.attribute %></li>
+          <p><%= error.attribute %></p>
         <% end %>
-      </ul>
+      </aside>
     </div>
   <% end %>
 
@@ -22,15 +21,15 @@
   <div class="hidden">
     <%= form.hidden_field :guest_id, value: current_user.id %>
   </div>
-  
-  <div class="field">
-    <%= form.label :score, 'Puntuación', style: "display: block", id: 'rangeValue' %>
-    <%= form.range_field :score, value: 0, in: 0..5, step: 0.1, id: 'myRange', onmousemove: 'updateRangeValue();', onmouseup: 'updateRangeValue();' %>
-  </div>
 
   <div class="field">
     <%= form.label :comment, 'Comentario', style: "display: block" %>
     <%= form.text_area :comment %>
+  </div>
+
+  <div class="field range-field">
+    <%= form.label :score, '', style: "display: block", id: 'rangeValue' %>
+    <%= form.range_field :score, value: 0, in: 0..5, step: 0.1, id: 'myRange', onmousemove: 'updateRangeValue();', onmouseup: 'updateRangeValue();' %>
   </div>
 
   <div class="confirm">

@@ -9,10 +9,10 @@
       <td><%= user.address %></td>
       <td><%= user.role %></td>
 
-      <td>
+      <td class="dni-column">
         <% if user.role =="host" %>
           <% unless user.dni_photo_attachment.nil? %>
-            <%= image_tag user.dni_photo.variant(resize_to_limit: [100, 100]) %>
+            <%= image_tag user.dni_photo.variant(resize_to_limit: [600, 600]), class: 'dni-photo' %>
           <% end %>
         <% end %>
       </td>

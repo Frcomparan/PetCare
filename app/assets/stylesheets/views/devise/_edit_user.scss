@@ -1,5 +1,5 @@
 .devise-edit-user {
-  width: 800px;
+  width: 900px;
 
   #dni { display: none; }
 
@@ -13,20 +13,6 @@
     }
 
     .upload:hover { background-color: $primary-color; }
-  }
-
-  .edit-sect-1 { 
-    display: flex; 
-    gap: 10px;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .edit-sect-1 > aside { 
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    width: 70%; 
   }
 
   .edit-sect-2 {
@@ -53,7 +39,7 @@
     .input-file {
       display: none;
     }
-
+    
     img {
       display: block;
       height: 230px;
@@ -93,4 +79,18 @@
       }
     }
   }
+}
+
+.edit-sect-1 { 
+  display: flex; 
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.edit-sect-1 > aside { 
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 70%; 
 }

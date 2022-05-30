@@ -26,6 +26,7 @@ class Ability
           item.user == user
         end
       end
+      can :create, Reservation
       can [:read, :update], Reservation do |item|
         item.guest == user || item.host == user
       end

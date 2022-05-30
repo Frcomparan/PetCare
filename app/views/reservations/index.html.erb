@@ -5,23 +5,27 @@
     <% else %>
       <% unless @guest_reservations.size.zero? %>
         <strong>Hechas</strong>
-        <% @guest_reservations.each do |reservation| %>
-          <div class="guest-reservation">
-            <%= link_to reservation_path(reservation) do %>
-                <%= render "reservation_index", reservation: reservation %>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="revervation-container">
+          <% @guest_reservations.each do |reservation| %>
+            <div class="guest-reservation">
+              <%= link_to reservation_path(reservation) do %>
+                  <%= render "reservation_index", reservation: reservation %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
       <% unless @host_reservations.size.zero? %>
         <strong>Solicitadas</strong>
-        <% @host_reservations.each do |reservation| %>
-          <div class="host-reservation">
-            <%= link_to reservation_path(reservation) do %>
-                <%= render "reservation_index", reservation: reservation %>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="revervation-container">
+          <% @host_reservations.each do |reservation| %>
+            <div class="host-reservation">
+              <%= link_to reservation_path(reservation) do %>
+                  <%= render "reservation_index", reservation: reservation %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
 </main>

@@ -35,7 +35,7 @@ class HomesController < ApplicationController
 
     respond_to do |format|
       if @home.save
-        format.html { redirect_to home_url(@home), notice: 'Home was successfully created.' }
+        format.html { redirect_to home_url(@home), notice: 'Su casa fue registrada correctamente' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -46,7 +46,7 @@ class HomesController < ApplicationController
   def update
     respond_to do |format|
       if @home.update(home_params)
-        format.html { redirect_to home_url(@home), notice: 'Home was successfully updated.' }
+        format.html { redirect_to home_url(@home), notice: 'Los datos de su casa se actualizaron correctamente' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -58,7 +58,7 @@ class HomesController < ApplicationController
     @home.destroy
 
     respond_to do |format|
-      format.html { redirect_to homes_url, notice: 'Home was successfully destroyed.' }
+      format.html { redirect_to homes_url, notice: 'El registro de su casa fue eliminado correctamente' }
     end
   end
 
