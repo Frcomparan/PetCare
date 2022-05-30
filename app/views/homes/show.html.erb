@@ -43,19 +43,24 @@
             <div class="days">
               <div>
                 <p>Llegada</p>
-                <span><%= f.date_field :check_in  %></span>
+                <span><%= f.date_field :check_in, min: Date.today, value: Date.today  %></span>
               </div>
               <div>
                 <p>Salida</p>
-                <span><%= f.date_field :check_out %></span>
+                <span><%= f.date_field :check_out, min: (Date.today + 1.days), value: (Date.today + 1.days) %></span>
               </div>
             </div>
             <div class ="pets">
               <%= f.label "Mascotas", style: "display: block" %>
-              <%= f.select :pets_number, (1..current_user.pets.size), required: true %>
+              <% if user_signed_in? %>
+                <%= f.select :pets_number, (1..current_user.pets.size) %>
+              <% else %>
+                <%= f.select :pets_number, [1,2,3,4] %>
+              <% end %>
+              
             </div>
           </div>
-          <%= f.submit "Reservar", class: 'btn-reservation' %>
+          <%= f.submit "Reservar", class: 'btn-reservation'%>
         </div>
       <% end %>
     </div>

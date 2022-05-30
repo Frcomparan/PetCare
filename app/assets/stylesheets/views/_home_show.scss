@@ -46,6 +46,16 @@
 
 .home-reservation {
   width: 100%;
+
+  form {
+    display: flex;
+    justify-content: center;
+
+    input { 
+      background: none;
+
+    }
+  }
 }
 
 .house-pets-info {
@@ -111,10 +121,10 @@
     color: black;
     height: 30px;
     margin-bottom: 15px;
-    padding-top: 5px;
     text-align: center;
     text-decoration: none;
     width: 30%;
+    border: none;
   }
 
   .btn-reservation:hover {
@@ -244,6 +254,8 @@
     justify-content: center;
     
     .reservation {
+      display: flex;
+      justify-content: center;
       margin: 0;
       width: 80%;
 
@@ -263,6 +275,9 @@
         .pets {
           border-bottom-left-radius: 8px;
           border-bottom-right-radius: 8px;
+          padding: 4px;
+
+          select { width: 100%; }
         }
 
         .days {
