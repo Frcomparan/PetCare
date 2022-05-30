@@ -9,6 +9,10 @@ class ReservationsController < ApplicationController
   def index
     @guest_reservations = Reservation.where(guest_id: current_user).order(created_at: :desc)
     @host_reservations = Reservation.where(host_id: current_user).order(created_at: :desc)
+    if params.key?(:status)
+      @guest_reservations = Reservation.guest_status(params[:status], current_user)
+      @host_reservations = Reservation.host_status(params[:status], current_user)
+    end
   end
 
   # GET /reservations/1 or /reservations/1.json

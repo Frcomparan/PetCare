@@ -14,7 +14,7 @@
 
       <p><strong>Telefono:</strong><br><%= user.phone %></p>
 
-      <p><strong>Genero:</strong><br><%= user.gender %></p>
+      <p><strong>Genero:</strong><br><%= translate_gender(user) %></p>
 
       <% if action_name == 'profile' %>
         <p><strong>Fecha de nacimiento:</strong><br><%= user.birthdate %></p>

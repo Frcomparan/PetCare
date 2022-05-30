@@ -18,13 +18,13 @@ Rails.application.routes.draw do
   post 'notifications/mark_as_read' => 'notifications#mark_as_read'
 
 
-  root "pages#home"
+  root 'pages#home'
 
-  match '/users',   to: 'users#index',   via: 'get'
+  match '/users',   to: 'users#index', via: 'get'
   put '/users/:id', action: :verify, controller: 'users'
-  post "/search_homes" => "homes#search"
-  get "/search_homes" => "homes#index"
-  get "/my_homes" => "homes#my_homes", as: 'my_homes'
+  post '/search_homes' => 'homes#search'
+  get '/search_homes' => 'homes#index'
+  get '/my_homes' => 'homes#my_homes', as: 'my_homes'
 
   get '/homes/search_homes', action: :index, controller: 'homes'
 

@@ -22,7 +22,7 @@ class Review < ApplicationRecord
   end
 
   def self.left_review?(home, user)
-    reviews = Review.where(home_id: home)
+    reviews = Review.where('home_id = ? and guest_id = ?', home, user)
     reservations = Reservation.all.where('home_id = ? and status = 3 and guest_id = ?', home, user)
     reviews.size < reservations.size
   end

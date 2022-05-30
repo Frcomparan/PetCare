@@ -10,6 +10,7 @@
         <%= link_to user_path(reservation.home), class: 'user-link' do %>
           <%= reservation.home.user.name %>
         <% end %>
+        <p class="phone">Cel: <%= reservation.home.user.phone %></p>
       </div>
     </section>
     <section class="reservation-date">
