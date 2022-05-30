@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
          
   has_many :pets, dependent: :destroy
   has_many :homes, dependent: :destroy
@@ -18,7 +18,8 @@ class User < ApplicationRecord
   validates :phone, length: { is: 10 }
   validate :validate_profile_photo 
   validate :validate_dni_photo 
- 
+  
+  validate :create_notifications
 
   enum role: { guest: 0, host: 1, admin: 2 }
   
@@ -44,6 +45,15 @@ class User < ApplicationRecord
     else 
       '/default-profile.jpg'
     end  
+  end
+
+  def create_notifications
+    if self.host? and !self.verified?
+      User.where(role: 2).each do |admin|
+        msg = "Un nuevo anfitrión necesita ser verificado"
+        Notification.create(recipient: admin, notifiable: self, text: msg)
+      end
+    end
   end
 
   private

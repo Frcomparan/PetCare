@@ -20,7 +20,8 @@ class Reservation < ApplicationRecord
   scope :valid_create, lambda { |check_out, check_in, home_id|
                          where('check_in <= ? and check_out >= ? and home_id = ? and status <> 2', check_out, check_in, home_id)
                        }
-
+  scope :guest_status, lambda { |stat, guest| where('status = ? and guest_id = ?', stat, guest).order(created_at: :desc) }
+  scope :host_status, lambda { |stat, host| where('status = ? and host_id = ? ', stat, host).order(created_at: :desc) }
   scope :reserved_dates, -> { where('status <> 2') }
 
   enum status: { pending: 0, aproved: 1, canceled: 2, finished: 3 }

@@ -109,8 +109,8 @@
     flex-wrap: wrap;
 
     h1 {
-      width: 65%;
       margin-bottom: 6px;
+      width: 65%;
     }
 
     .reservation-info {
@@ -182,7 +182,11 @@
   }
 
   .reservation-index {
-    padding: 1rem 5% 5rem 5%;
+    padding: 1rem 3% 5rem 3%;
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
 
     a {
       color: $black;
@@ -191,7 +195,7 @@
 
     .reservation {
       padding-right: 30px;
-      width: 600px;
+      width: 550px;
   
       p { font-size: 1.3rem; }
     }
@@ -200,8 +204,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center;
-      width: 100%;
+      justify-content: flex-start;
+      max-width: 1150px;
     }
 
     .reservation-date { justify-content: center; }
@@ -243,3 +247,8 @@
 .aproved { background-color: $approved; }
 
 .finished { background-color: $finished; }
+
+.phone { 
+  padding-top: 4px;
+  font-size: 1.5rem; 
+}

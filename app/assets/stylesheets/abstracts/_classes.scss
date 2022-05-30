@@ -85,6 +85,23 @@
     opacity: 1;
   }
 
+  99% { 
+    position: relative;
+    top: 2rem;
+    z-index: 2;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+@keyframes error-animation {
+  50% { opacity: 1; }
+
   99% { z-index: 2; }
 
   100% {
@@ -96,23 +113,24 @@
 
 .notice, .alert {
   align-items: center;
-  animation-duration: 7000ms;
+  animation-duration: 5000ms;
   animation-fill-mode: forwards;
   animation-name: msg-animation;
   border-radius: 1rem;
   display: flex;
   font-size: 2rem;
   height: 60px;
+  margin-bottom: 15px;
   padding: 10px;
-  position: absolute;
-  top: 8rem;
+  position: relative;
+  top: 2rem;
   width: 98%;
 }
 
 .invalid-form {
-  animation-duration: 7000ms;
+  animation-duration: 5000ms;
   animation-fill-mode: forwards;
-  animation-name: msg-animation;
+  animation-name: error-animation;
   border-radius: 4px;
   padding: 10px;
   position: fixed;

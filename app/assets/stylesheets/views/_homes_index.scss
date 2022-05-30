@@ -134,6 +134,11 @@
           text-decoration: none;
           color: $black
         }
+
+        a:hover {
+          font-weight: 700;
+          transform: scale(1.03);
+        }
       }
     }
   }

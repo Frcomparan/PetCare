@@ -36,29 +36,33 @@
       <a href="https://www.google.com/maps/search/?api=1&query=<%= @home.latitude%>%2C<%= @home.longitude%>" target=_blank><i class="fa-solid fa-location-dot"></i> Ver en Google Maps</a>
     </div>
     <div class="home-reservation">
-      <div class = "reservation">
-        <h3>Agenda tu reservación</h2>
-        <div class="reservation-preview">
-          <div class="days">
-            <div>
-              <p>Llegada</p>
-              <span><input type="date" class="reservation-date"></span>
+      <%= form_with url: new_reservation_url(home: @home), data: { turbo: "false" }, method: 'post'  do |f| %>
+        <div class = "reservation">
+          <h3>Agenda tu reservación</h2>
+          <div class="reservation-preview">
+            <div class="days">
+              <div>
+                <p>Llegada</p>
+                <span><%= f.date_field :check_in, min: Date.today, value: Date.today  %></span>
+              </div>
+              <div>
+                <p>Salida</p>
+                <span><%= f.date_field :check_out, min: (Date.today + 1.days), value: (Date.today + 1.days) %></span>
+              </div>
             </div>
-            <div>
-              <p>Salida</p>
-              <span><input type="date" class="reservation-date"></span>
+            <div class ="pets">
+              <%= f.label "Mascotas", style: "display: block" %>
+              <% if user_signed_in? %>
+                <%= f.select :pets_number, (1..current_user.pets.size) %>
+              <% else %>
+                <%= f.select :pets_number, [1,2,3,4] %>
+              <% end %>
+              
             </div>
           </div>
-          <div class ="pets">
-            <select class="reservation-select">
-              <option selected>Mascotas</option>
-              <option value="value1">1</option>
-              <option value="value2">2</option>
-            </select>
-          </div>
+          <%= f.submit "Reservar", class: 'btn-reservation'%>
         </div>
-        <%= link_to 'Reservar', new_reservation_url(home: @home), class: 'btn-reservation' %>
-      </div>
+      <% end %>
     </div>
     <div class="opinions">
       <h3>Opiniones</h2>
