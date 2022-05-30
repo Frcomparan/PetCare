@@ -74,4 +74,17 @@ h1 {
       }
     }
   }
+
+  .reservation-new {
+    padding: 20px;
+    width: 800px;
+
+    .info-reservation-desktop { width: 100%; }
+
+    img {
+      max-height: 400px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
 }

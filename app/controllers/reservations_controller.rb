@@ -18,6 +18,8 @@ class ReservationsController < ApplicationController
   def new
     @home = Home.find_by(id: params[:home])
     @reservation = Reservation.new
+    @reservation.check_in = params[:check_in]
+    @reservation.check_out = params[:check_out]
     redirect_to homes_path unless params.key?(:home)
   end
 
@@ -29,6 +31,7 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    
     @home = Home.find_by(id: @reservation.home_id)
     @reservation.guest = current_user
     @reservation.host = @home.user

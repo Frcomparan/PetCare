@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'notifications/:id/mark_as_read' => 'notifications#mark_as_read'
   post 'notifications/mark_as_read' => 'notifications#mark_as_read'
 
+
   root "pages#home"
 
   match '/users',   to: 'users#index',   via: 'get'
@@ -26,4 +27,6 @@ Rails.application.routes.draw do
   get "/my_homes" => "homes#my_homes", as: 'my_homes'
 
   get '/homes/search_homes', action: :index, controller: 'homes'
+
+  post '/reservations/new', to: 'reservations#new'
 end
