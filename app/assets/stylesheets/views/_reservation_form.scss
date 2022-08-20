@@ -33,16 +33,21 @@ h1 {
     padding : 0;
     width: 60%;
 
-    .reservation-info {
-      border-bottom: 0;
-      width: 50%;
-    }
+    
 
     .info-reservation-desktop{
       display: flex;
       gap: 8px;
 
       .reservation-form{
+        width: 50%;
+      }
+
+      .reservation-info {
+        border-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 50%;
       }
     }

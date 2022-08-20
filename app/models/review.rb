@@ -36,7 +36,7 @@ class Review < ApplicationRecord
   end
 
   def create_notifications
-    msg = "#{guest.name} dejo un comentario sobre su estadia en '#{home.title}'"
+    msg = "#{guest.name} dejó un comentario sobre su estadía en '#{home.title}'"
     Notification.create(recipient: reservation.host, notifiable: self, text: msg)
   end
 end

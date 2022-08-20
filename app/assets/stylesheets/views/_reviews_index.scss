@@ -117,6 +117,8 @@
   gap: 20px;
   justify-content: center;
 
+  & > p { margin-top: 35px; }
+
   .filter-reservation {
     background-color: $white;
     border-radius: 8px;

@@ -13,7 +13,7 @@
       <%= link_to "Mis mascotas", pets_path %>
       <%= link_to "Mis reservaciones", reservations_path %>
       <% if current_user.guest? %>
-        <%= link_to "Hazte anfitrión", root_path %>
+        <%= link_to 'Hazte anfitrión', edit_user_registration_path %>
       <% elsif !current_user.guest? %>
         <%= link_to "Mis alojamientos", my_homes_path %>
       <% end %>

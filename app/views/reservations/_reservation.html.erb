@@ -5,7 +5,7 @@
       <%= link_to reservation.home, class: 'home-link' do %>
         <%= image_tag reservation.home.photos[0].variant(resize_to_limit: [500, 500]) %>
       <% end %>
-      <div>
+      <div class="reservation-home-info">
         <p><%= reservation.home.address %></p>
         <%= link_to user_path(reservation.home), class: 'user-link' do %>
           <%= reservation.home.user.name %>
@@ -15,7 +15,7 @@
     </section>
     <section class="reservation-date">
       <p>
-        Se solicito una reservación del 
+        Se solicitó una reservación del 
         <strong><%= reservation.check_in.strftime('%d/%m/%Y') %></strong> al 
         <strong><%= reservation.check_out.strftime('%d/%m/%Y') %></strong>
       </p>
@@ -40,7 +40,7 @@
       <% unless @reservation.canceled? || @reservation.finished? %>  
         <div class="status-buttons">
           <%= button_to "Cancelar reservación", reservation_path(@reservation, reservation: { status: 'canceled' }), method: :put, class: 'cancel-button' %>
-          <% if @reservation.host == current_user %>
+          <% if @reservation.host == current_user && @reservation.check_in <= Date.today %>
             <%= button_to "Finalizar reservación", reservation_path(@reservation, reservation: { status: 'finished' }), method: :put, class: 'finish-button' %>
           <% end %>
         </div>

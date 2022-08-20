@@ -73,13 +73,13 @@ class Reservation < ApplicationRecord
 
   def create_review_notification
     if status == 'finished'
-      msg = "Realice un comentario sobre su estadia en '#{home.title}'"
+      msg = "Realice un comentario sobre su estadía en '#{home.title}'"
       Notification.create(recipient: guest, notifiable: self, text: msg)
     end
   end
 
   def translate_status
-    options = { pending: 'Pendiente', aproved: 'Aprovado', canceled: 'Cancelado', finished: 'Finalizado' }
+    options = { pending: 'Pendiente', aproved: 'Aprobado', canceled: 'Cancelado', finished: 'Finalizado' }
     options[self.status.to_sym]
   end
 end

@@ -9,7 +9,7 @@
 ) do |form| %>
 
   <div class="location search-section">
-    <%= form.label :address %>
+    <%= form.label :address, 'Dirección' %>
     <%= form.search_field :address,  class: 'form-control', data: { target: "mapsearch.field", action: "keydown->mapsearch#preventSubmit" } %>
   </div>
 

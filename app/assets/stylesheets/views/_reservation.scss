@@ -6,6 +6,8 @@
   background-color: $white;
   box-shadow: $medium-shadow;
   padding: 5px;
+
+  .reservation-detail .info-index p { margin: 0; }
 }
 
 .reservation-info {
@@ -115,7 +117,12 @@
 
     .reservation-info {
       border: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
       width: 70%;
+
+      .reservation-home-info { width: 40%; }
 
       & > div { width: 100%; }
     }
@@ -226,8 +233,6 @@
     }
 
     .reservation-guest {
-      padding-left: 2rem;
-
       h1 { font-size: 1.8rem; }
     }
 

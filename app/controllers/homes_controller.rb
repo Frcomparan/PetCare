@@ -58,7 +58,7 @@ class HomesController < ApplicationController
     @home.destroy
 
     respond_to do |format|
-      format.html { redirect_to homes_url, notice: 'El registro de su casa fue eliminado correctamente' }
+      format.html { redirect_to my_homes_path, notice: 'El registro de su casa fue eliminado correctamente' }
     end
   end
 

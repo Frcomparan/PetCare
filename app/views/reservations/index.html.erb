@@ -2,22 +2,26 @@
   <h1>Reservaciones</h1>
   <div class="reservation-filter">
     <% if @host_reservations.size.zero? and @guest_reservations.size.zero? %>
+      <div>
+        <section class="filter-reservation">
+          <%= link_to 'Todas', reservations_path %>
+          <%= link_to 'Pendientes', reservations_path(status: 0) %>
+          <%= link_to 'Canceladas', reservations_path(status: 2) %>
+          <%= link_to 'Aprobadas', reservations_path(status: 1) %>
+          <%= link_to 'Finalizadas', reservations_path(status: 3) %>
+        </section>
+      </div>
+      <p>No ha realizado ninguna reservación o no tiene ninguna del tipo seleccionado</p>
+    <% else %>
+    <div>
       <section class="filter-reservation">
         <%= link_to 'Todas', reservations_path %>
         <%= link_to 'Pendientes', reservations_path(status: 0) %>
         <%= link_to 'Canceladas', reservations_path(status: 2) %>
-        <%= link_to 'Aprovadas', reservations_path(status: 1) %>
+        <%= link_to 'Aprobadas', reservations_path(status: 1) %>
         <%= link_to 'Finalizadas', reservations_path(status: 3) %>
       </section>
-      <p>No ha realizado ninguna reservación o no tiene ninguna del tipo seleccionado</p>
-    <% else %>
-    <section class="filter-reservation">
-      <%= link_to 'Todas', reservations_path %>
-      <%= link_to 'Pendientes', reservations_path(status: 0) %>
-      <%= link_to 'Canceladas', reservations_path(status: 2) %>
-      <%= link_to 'Aprovadas', reservations_path(status: 1) %>
-      <%= link_to 'Finalizadas', reservations_path(status: 3) %>
-    </section>
+    </div>
     <section>
       <% unless @guest_reservations.size.zero? %>
         <h3>Hechas</h3>
